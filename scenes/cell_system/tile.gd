@@ -3,6 +3,9 @@ class_name Tile extends PanelContainer
 
 #region Delcarations
 @export_custom(PROPERTY_HINT_RESOURCE_TYPE, "ProcessorTile, ProducerTile, TransportTile") var tile_type : Resource
+## alternatively
+@export var tyleType_alternate: Machine
+
 var parent : CellGrid
 #endregion
 

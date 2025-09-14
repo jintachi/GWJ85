@@ -102,4 +102,10 @@ grow_vertical = 2
 [node name="CellGrid" parent="UI/CenterContainer2" instance=ExtResource("4_jyhfs")]
 layout_mode = 2
 
+[node name="Control" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="GameController" type="Node" parent="."]

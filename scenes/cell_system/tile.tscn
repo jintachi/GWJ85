@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c1naffjba6fjn" path="res://scenes/cell_system/tile.gd" id="1_ysrkh"]
 
 [node name="Tile" type="PanelContainer"]
+custom_minimum_size = Vector2(128, 128)
 offset_right = 64.0
 offset_bottom = 64.0
 size_flags_horizontal = 3
@@ -10,13 +11,13 @@ size_flags_vertical = 3
 script = ExtResource("1_ysrkh")
 
 [node name="MachineLayer" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(64, 64)
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 expand_mode = 2
 stretch_mode = 5
 
 [node name="ItemLayer" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(64, 64)
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 expand_mode = 2
 stretch_mode = 5
