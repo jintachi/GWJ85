@@ -1,3 +1,14 @@
-[gd_scene format=3 uid="uid://bf0e0l206u8xd"]
+[gd_scene load_steps=2 format=3 uid="uid://bf0e0l206u8xd"]
+
+[ext_resource type="Texture2D" uid="uid://cvwehbibylumi" path="res://assets/IMAGES/Ground003_1K-JPG_Color.jpg" id="1_o5qli"]
 
 [node name="Main" type="Node"]
+
+[node name="BACKGROUND" type="Node" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="BACKGROUND"]
+position = Vector2(632, 406)
+scale = Vector2(2, 2)
+texture = ExtResource("1_o5qli")
+
+[node name="UI" type="Node" parent="."]
