@@ -26,3 +26,10 @@ enum InventoryItem {
 	PIE,
 	PACKAGING
 }
+
+enum Season { 
+	SPRING, 
+	SUMMER, 
+	FALL, 
+	WINTER 
+}
