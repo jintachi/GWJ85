@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bf0e0l206u8xd"]
+[gd_scene load_steps=4 format=3 uid="uid://bf0e0l206u8xd"]
 
 [ext_resource type="Texture2D" uid="uid://cvwehbibylumi" path="res://assets/IMAGES/Ground003_1K-JPG_Color.jpg" id="1_o5qli"]
 [ext_resource type="Theme" uid="uid://b5ldjeqg05ylx" path="res://assets/THEMES/new_theme.tres" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://dovf40pax5p1w" path="res://scenes/purchasable.tscn" id="2_sugp2"]
 
 [node name="Main" type="Node"]
 
@@ -26,7 +27,29 @@ grow_horizontal = 0
 grow_vertical = 0
 
 [node name="Panel" type="Panel" parent="UI/CenterContainer"]
-custom_minimum_size = Vector2(200, 400)
+custom_minimum_size = Vector2(300, 500)
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="UI/CenterContainer/Panel"]
+custom_minimum_size = Vector2(250, 400)
+layout_mode = 0
+offset_left = 25.0
+offset_top = 50.0
+offset_right = 275.0
+offset_bottom = 550.0
+theme_override_constants/h_separation = 100
+theme_override_constants/v_separation = 100
+
+[node name="Purchasable" parent="UI/CenterContainer/Panel/GridContainer" instance=ExtResource("2_sugp2")]
+layout_mode = 2
+
+[node name="Purchasable2" parent="UI/CenterContainer/Panel/GridContainer" instance=ExtResource("2_sugp2")]
+layout_mode = 2
+
+[node name="Purchasable3" parent="UI/CenterContainer/Panel/GridContainer" instance=ExtResource("2_sugp2")]
+layout_mode = 2
+
+[node name="Purchasable4" parent="UI/CenterContainer/Panel/GridContainer" instance=ExtResource("2_sugp2")]
 layout_mode = 2
 
 [node name="CenterContainer3" type="CenterContainer" parent="UI"]

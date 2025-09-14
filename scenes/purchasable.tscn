@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://dovf40pax5p1w"]
+
+[ext_resource type="Texture2D" uid="uid://dj2x822d4unq0" path="res://assets/IMAGES/nan.png" id="1_xjlsm"]
+
+[node name="Purchasable" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_xjlsm")
+
+[node name="Title" type="RichTextLabel" parent="."]
+offset_left = 51.0
+offset_top = -26.0
+offset_right = 173.0
+offset_bottom = 7.0
+text = "TITLE"
+
+[node name="Cost" type="RichTextLabel" parent="."]
+offset_left = 51.0
+offset_top = 2.0
+offset_right = 176.0
+offset_bottom = 35.0
+text = "Cost: 100"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 151.0
+offset_top = -22.0
+offset_right = 260.0
+offset_bottom = 30.0
+text = "PURCHASE"
