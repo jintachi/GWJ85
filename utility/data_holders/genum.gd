@@ -9,3 +9,11 @@ enum BusID {
 	UI,
 	AMBIENT
 }
+
+enum TileType {
+	PRODUCER,
+	TRANSPORTER,
+	PROCESSOR,
+	DELIVERY,
+	CELL
+}
