@@ -17,3 +17,12 @@ enum TileType {
 	DELIVERY,
 	CELL
 }
+
+enum InventoryItem {
+	POTATO,
+	CARROT,
+	TURKEY,
+	ONION,
+	PIE,
+	PACKAGING
+}

@@ -10,6 +10,7 @@ anchors_preset = 0
 texture = ExtResource("1_xjlsm")
 
 [node name="Title" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 51.0
 offset_top = -26.0
 offset_right = 173.0
@@ -17,15 +18,9 @@ offset_bottom = 7.0
 text = "TITLE"
 
 [node name="Cost" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 51.0
 offset_top = 2.0
 offset_right = 176.0
 offset_bottom = 35.0
 text = "Cost: 100"
-
-[node name="Button" type="Button" parent="."]
-offset_left = 151.0
-offset_top = -22.0
-offset_right = 260.0
-offset_bottom = 30.0
-text = "PURCHASE"
