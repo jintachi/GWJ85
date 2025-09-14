@@ -53,6 +53,13 @@ grow_vertical = 2
 custom_minimum_size = Vector2(100, 600)
 layout_mode = 2
 
+[node name="VSlider" type="VSlider" parent="UI/CenterContainer4/Panel"]
+layout_mode = 0
+offset_right = 104.0
+offset_bottom = 603.0
+max_value = 10.0
+value = 1.0
+
 [node name="CenterContainer2" type="CenterContainer" parent="UI"]
 anchors_preset = 8
 anchor_left = 0.5
