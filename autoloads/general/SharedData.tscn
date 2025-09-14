@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://df1yj7ekd4i6f"]
 
 [ext_resource type="Script" uid="uid://idkir1q5u82m" path="res://autoloads/general/shared_data.gd" id="1_7p373"]
-[ext_resource type="Script" uid="uid://bvkgrw7fk5ebq" path="res://assets/RESOURCES/RESOURCE_MACHINE.gd" id="2_jb14y"]
+[ext_resource type="Script" uid="uid://bvkgrw7fk5ebq" path="res://mechanics/resources/RESOURCE_MACHINE.gd" id="2_jb14y"]
 [ext_resource type="Texture2D" uid="uid://dn5pwt2dpupmk" path="res://assets/IMAGES/S1.png" id="3_6srjr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dipsc"]
@@ -10,7 +10,7 @@ region = Rect2(49.851, 442.512, 33.8461, 33.3556)
 
 [sub_resource type="Resource" id="Resource_f2wer"]
 script = ExtResource("2_jb14y")
-type = 0
+machine_type = 0
 texture = SubResource("AtlasTexture_dipsc")
 level = 0
 metadata/_custom_type_script = "uid://bvkgrw7fk5ebq"
@@ -21,7 +21,7 @@ region = Rect2(468.983, 283.558, 35.3177, 34.3367)
 
 [sub_resource type="Resource" id="Resource_pa3gj"]
 script = ExtResource("2_jb14y")
-type = 1
+machine_type = 0
 texture = SubResource("AtlasTexture_w3v4g")
 level = 0
 metadata/_custom_type_script = "uid://bvkgrw7fk5ebq"
@@ -32,7 +32,7 @@ region = Rect2(46.9558, 521.729, 36.3397, 33.9697)
 
 [sub_resource type="Resource" id="Resource_8o6b0"]
 script = ExtResource("2_jb14y")
-type = 2
+machine_type = 0
 texture = SubResource("AtlasTexture_t3mg4")
 level = 0
 metadata/_custom_type_script = "uid://bvkgrw7fk5ebq"
@@ -43,7 +43,7 @@ region = Rect2(466.913, 239.173, 41.1319, 43.7434)
 
 [sub_resource type="Resource" id="Resource_jhv2f"]
 script = ExtResource("2_jb14y")
-type = 3
+machine_type = 0
 texture = SubResource("AtlasTexture_xlobl")
 level = 0
 metadata/_custom_type_script = "uid://bvkgrw7fk5ebq"
