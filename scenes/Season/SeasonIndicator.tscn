@@ -2,9 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cugy673il6i2s" path="res://scenes/Season/season_indicator.gd" id="1_fjahr"]
 [ext_resource type="Texture2D" uid="uid://bqk4hiwnwam87" path="res://scenes/Season/seasons2.png" id="1_fp5nw"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fjahr"]
-size = Vector2(20, 20)
+[ext_resource type="Texture2D" uid="uid://ck8v4pfogvn4o" path="res://scenes/Season/whitehex.png" id="3_of5vl"]
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("seaonSprint", "markerSprite")]
 script = ExtResource("1_fjahr")
@@ -15,7 +13,9 @@ markerSprite = NodePath("marker")
 texture = ExtResource("1_fp5nw")
 
 [node name="marker" type="Sprite2D" parent="."]
-texture = SubResource("PlaceholderTexture2D_fjahr")
+modulate = Color(0.629, 0.746, 2, 1)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_of5vl")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = -104.0
