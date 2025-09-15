@@ -7,6 +7,9 @@ class_name Tile extends PanelContainer
 @export var tyleType_alternate: Machine
 @export var selected: bool = false
 
+var selected_theme : StyleBox
+var unselected_theme : StyleBox
+
 var parent : CellGrid
 #endregion
 
@@ -17,8 +20,13 @@ func _ready() -> void:
 		return
 	if get_parent() is CellGrid:
 		parent = get_parent()
+	
+	set_themes()
+	self.add_theme_stylebox_override("panel",unselected_theme)
+	
 	# selection box when clicked
 	$Select.visible = selected
+	
 #endregion
 
 #region Helpers
@@ -36,6 +44,23 @@ func report_function() -> void:
 			print("Transport")
 		Genum.TileType.DELIVERY:
 			print("Deliver")
+
+func toggle_selection(is_selected:bool) -> void :
+	selected = !selected 
+	#$Select.visible = selected
+	if selected:
+		parent.selected_tile = self
+		self.remove_theme_stylebox_override("panel")
+		self.add_theme_stylebox_override("panel",selected_theme)
+	elif self.has_theme_stylebox_override("panel") :
+		self.remove_theme_stylebox_override("panel")
+		self.add_theme_stylebox_override("panel",unselected_theme)
+
+
+func set_themes() -> void:
+	selected_theme = theme.get_stylebox("selected","Tile")
+	unselected_theme = theme.get_stylebox("unselected","Tile")
+	
 #endregion
 
 #region Signal Callbacks
@@ -44,11 +69,12 @@ func _on_gui_input(event: InputEvent) -> void:
 		return
 	
 	if event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
-		parent._UnselectAll()
-		selected = !selected 
-		$Select.visible = selected
-		if selected:
-			parent.selected_tile = self
+		#parent._UnselectAll()
+		toggle_selection(selected)
+		#selected = !selected 
+		#$Select.visible = selected
+		#if selected:
+			#parent.selected_tile = self
 		#else:
 		#	parent.selected_tile = null
 		

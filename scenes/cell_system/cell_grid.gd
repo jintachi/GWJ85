@@ -3,6 +3,7 @@ class_name CellGrid extends GridContainer
 
 #region Declarations
 var map : Array = [] ## The map reference of all the cells in CellGrid
+var tile_grid : Array[Tile] = []
 var selected_tile : Tile :
 	get:
 		return selected_tile
@@ -13,6 +14,8 @@ var selected_tile : Tile :
 #region Built-Ins
 func _ready() -> void:
 	_setup_map()
+	for c in get_children() :
+		tile_grid.append(c as Tile)
 
 func _input(event: InputEvent) -> void:
 	if event is not InputEventKey or not selected_tile:
@@ -41,7 +44,6 @@ func _setup_map() -> void:
 #endregion
 
 func _UnselectAll() -> void:
-	var tilearray = get_children()
-	for t in tilearray:
+	for t in tile_grid:
 		if "selected" in t:
 			t._unselect()		
