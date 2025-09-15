@@ -1,3 +1,24 @@
-[gd_resource type="Theme" format=3 uid="uid://b5ldjeqg05ylx"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://b5ldjeqg05ylx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vcdvm"]
+bg_color = Color(0.288103, 0.236779, 0.150083, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.81788, 0.775405, 3.85046e-07, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fi1dl"]
+bg_color = Color(0.286275, 0.235294, 0.14902, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.185728, 0.117668, 0.0276232, 1)
+border_blend = true
 
 [resource]
+Tile/base_type = &"PanelContainer"
+Tile/styles/selected = SubResource("StyleBoxFlat_vcdvm")
+Tile/styles/unselected = SubResource("StyleBoxFlat_fi1dl")
