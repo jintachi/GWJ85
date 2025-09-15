@@ -12,29 +12,37 @@
 [node name="UI" type="Node" parent="."]
 
 [node name="CenterContainer" type="CenterContainer" parent="UI"]
-anchors_preset = 3
+anchors_preset = 6
 anchor_left = 1.0
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -280.0
-offset_top = -496.0
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -350.0
+offset_bottom = 350.0
 grow_horizontal = 0
-grow_vertical = 0
+grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="UI/CenterContainer"]
-custom_minimum_size = Vector2(300, 500)
+custom_minimum_size = Vector2(370, 650)
 layout_mode = 2
 
 [node name="GridContainer" type="GridContainer" parent="UI/CenterContainer/Panel"]
 custom_minimum_size = Vector2(250, 400)
-layout_mode = 0
-offset_left = 25.0
-offset_top = 50.0
-offset_right = 275.0
-offset_bottom = 550.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -250.0
+offset_right = 125.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/h_separation = 100
-theme_override_constants/v_separation = 100
+theme_override_constants/v_separation = 140
 
 [node name="Purchasable" parent="UI/CenterContainer/Panel/GridContainer" instance=ExtResource("2_sugp2")]
 layout_mode = 2
@@ -46,18 +54,6 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Purchasable4" parent="UI/CenterContainer/Panel/GridContainer" instance=ExtResource("2_sugp2")]
-layout_mode = 2
-
-[node name="CenterContainer3" type="CenterContainer" parent="UI"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -280.0
-offset_bottom = 321.0
-grow_horizontal = 0
-
-[node name="Panel" type="Panel" parent="UI/CenterContainer3"]
-custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 
 [node name="CenterContainer4" type="CenterContainer" parent="UI"]
