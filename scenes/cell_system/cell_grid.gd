@@ -39,3 +39,9 @@ func _setup_map() -> void:
 			map.append([])
 			map.get(i).append(child)
 #endregion
+
+func _UnselectAll() -> void:
+	var tilearray = get_children()
+	for t in tilearray:
+		if "selected" in t:
+			t._unselect()		

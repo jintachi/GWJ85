@@ -5,6 +5,7 @@ class_name Tile extends PanelContainer
 @export_custom(PROPERTY_HINT_RESOURCE_TYPE, "ProcessorTile, ProducerTile, TransportTile") var tile_type : Resource
 ## alternatively
 @export var tyleType_alternate: Machine
+@export var selected: bool = false
 
 var parent : CellGrid
 #endregion
@@ -12,12 +13,12 @@ var parent : CellGrid
 #region Built-Ins
 func _ready() -> void:
 	report_function()
-	
 	if not get_parent():
 		return
-	
 	if get_parent() is CellGrid:
 		parent = get_parent()
+	# selection box when clicked
+	$Select.visible = selected
 #endregion
 
 #region Helpers
@@ -43,5 +44,16 @@ func _on_gui_input(event: InputEvent) -> void:
 		return
 	
 	if event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
-		parent.selected_tile = self
+		parent._UnselectAll()
+		selected = !selected 
+		$Select.visible = selected
+		if selected:
+			parent.selected_tile = self
+		#else:
+		#	parent.selected_tile = null
+		
+func _unselect() -> void:
+	selected = false
+	$Select.visible = selected
+	
 #endregion

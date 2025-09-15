@@ -14,27 +14,36 @@ script = ExtResource("1_hfevk")
 
 [node name="(-1,-1)" parent="." instance=ExtResource("2_nd0wf")]
 layout_mode = 2
+selected = false
 
 [node name="(0,-1)" parent="." instance=ExtResource("2_nd0wf")]
 layout_mode = 2
+selected = false
 
 [node name="(1,-1)" parent="." instance=ExtResource("2_nd0wf")]
 layout_mode = 2
+selected = false
 
 [node name="(-1,0)" parent="." instance=ExtResource("2_nd0wf")]
 layout_mode = 2
+selected = false
 
 [node name="(0,0)" parent="." instance=ExtResource("2_nd0wf")]
 layout_mode = 2
+selected = false
 
 [node name="(1,0)" parent="." instance=ExtResource("2_nd0wf")]
 layout_mode = 2
+selected = false
 
 [node name="(-1,1)" parent="." instance=ExtResource("2_nd0wf")]
 layout_mode = 2
+selected = false
 
 [node name="(0,1)" parent="." instance=ExtResource("2_nd0wf")]
 layout_mode = 2
+selected = false
 
 [node name="(1,1)" parent="." instance=ExtResource("2_nd0wf")]
 layout_mode = 2
+selected = false
