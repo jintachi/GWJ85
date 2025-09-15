@@ -9,3 +9,27 @@ enum BusID {
 	UI,
 	AMBIENT
 }
+
+enum TileType {
+	PRODUCER,
+	TRANSPORTER,
+	PROCESSOR,
+	DELIVERY,
+	CELL
+}
+
+enum InventoryItem {
+	POTATO,
+	CARROT,
+	TURKEY,
+	ONION,
+	PIE,
+	PACKAGING
+}
+
+enum Season { 
+	SPRING, 
+	SUMMER, 
+	FALL, 
+	WINTER 
+}
