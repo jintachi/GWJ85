@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c44fogmclava"]
+[gd_scene load_steps=3 format=3 uid="uid://c44fogmclava"]
 
 [ext_resource type="Theme" uid="uid://b5ldjeqg05ylx" path="res://assets/THEMES/new_theme.tres" id="1_e5d2n"]
 [ext_resource type="Script" uid="uid://c1naffjba6fjn" path="res://scenes/cell_system/tile.gd" id="1_ysrkh"]
-[ext_resource type="Texture2D" uid="uid://ciyr8agvpbrh1" path="res://assets/IMAGES/select.png" id="2_xjvjy"]
 
 [node name="Tile" type="PanelContainer"]
 custom_minimum_size = Vector2(128, 128)
@@ -27,11 +26,5 @@ custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 expand_mode = 2
 stretch_mode = 5
-
-[node name="Select" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(63.5, 64)
-scale = Vector2(0.671717, 0.686869)
-texture = ExtResource("2_xjvjy")
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
