@@ -13,39 +13,40 @@ item = ExtResource("2_76qva")
 itemSprite = NodePath("itemSprite")
 
 [node name="itemSprite" type="Sprite2D" parent="."]
+position = Vector2(78, 67)
 scale = Vector2(0.4, 0.4)
 texture = SubResource("ImageTexture_nlhvf")
 
 [node name="Title" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 72.0
-offset_top = -26.0
-offset_right = 157.0
-offset_bottom = 7.0
+offset_left = 141.0
+offset_top = 41.0
+offset_right = 226.0
+offset_bottom = 74.0
 text = "TITLE"
 
 [node name="Cost" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 72.0
-offset_top = 2.0
-offset_right = 157.0
-offset_bottom = 35.0
+offset_left = 141.0
+offset_top = 69.0
+offset_right = 226.0
+offset_bottom = 102.0
 text = "Cost: 100"
 
 [node name="buy1" type="Button" parent="."]
 layout_mode = 0
-offset_left = 166.0
-offset_top = -18.0
-offset_right = 208.0
-offset_bottom = 15.0
+offset_left = 235.0
+offset_top = 49.0
+offset_right = 289.0
+offset_bottom = 82.0
 text = "BUY 1"
 
 [node name="buy10" type="Button" parent="."]
 layout_mode = 0
-offset_left = 225.0
-offset_top = -18.0
-offset_right = 288.0
-offset_bottom = 15.0
+offset_left = 294.0
+offset_top = 49.0
+offset_right = 357.0
+offset_bottom = 82.0
 text = "BUY 10"
 
 [connection signal="button_up" from="buy1" to="." method="_on_buy_1_button_up"]
