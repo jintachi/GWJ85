@@ -6,5 +6,5 @@ class_name GameItem extends Resource
 @export var description: StringName = ""
 @export var value : int = 1
 @export var texture_pos : Vector2i
-var texture : Texture2D
+@export var texture : Texture2D
 #endregion
