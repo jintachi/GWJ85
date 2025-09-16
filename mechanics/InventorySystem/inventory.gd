@@ -3,8 +3,11 @@ extends Node
 class_name Inventory
 
 @export var slots : Array[InventorySlot] 
+@export var defaultSize: int = 10
+
 
 signal signal_update_inventory
+
 
 ##return the number of slots in inventory
 func InvSize():
@@ -19,6 +22,8 @@ func AddSlots(_n:int=1) -> void:
 
 ##add n GameItem to inventory
 func AddItem(new_item: GameItem, n: int) -> bool:
+	## make sure there are slots; this need fixing and put someplace else
+	if InvSize() == 0:AddSlots(defaultSize)
 	##add to slot that already contains item
 	for slot in slots:
 		if slot.item == new_item:

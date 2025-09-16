@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://dovf40pax5p1w"]
+
+[ext_resource type="Script" uid="uid://dnet0qjisphht" path="res://mechanics/InventorySystem/purchasable.gd" id="1_nlhvf"]
+[ext_resource type="Resource" uid="uid://sjqurx0cnlmh" path="res://mechanics/InventorySystem/GameItems/ITEM_grain.tres" id="2_76qva"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_nlhvf"]
+
+[node name="Purchasable" type="Control" node_paths=PackedStringArray("itemSprite")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_nlhvf")
+item = ExtResource("2_76qva")
+itemSprite = NodePath("itemSprite")
+
+[node name="itemSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = SubResource("ImageTexture_nlhvf")
+
+[node name="Title" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = -26.0
+offset_right = 157.0
+offset_bottom = 7.0
+text = "TITLE"
+
+[node name="Cost" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 2.0
+offset_right = 157.0
+offset_bottom = 35.0
+text = "Cost: 100"
+
+[node name="buy1" type="Button" parent="."]
+layout_mode = 0
+offset_left = 166.0
+offset_top = -18.0
+offset_right = 208.0
+offset_bottom = 15.0
+text = "BUY 1"
+
+[node name="buy10" type="Button" parent="."]
+layout_mode = 0
+offset_left = 225.0
+offset_top = -18.0
+offset_right = 288.0
+offset_bottom = 15.0
+text = "BUY 10"
+
+[connection signal="button_up" from="buy1" to="." method="_on_buy_1_button_up"]
+[connection signal="button_up" from="buy10" to="." method="_on_buy_10_button_up"]

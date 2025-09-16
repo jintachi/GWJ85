@@ -1,3 +1,3 @@
 extends Node2D
 
-@export var machines: Array[Machine]
+@export var myInventory: Inventory = Inventory.new()

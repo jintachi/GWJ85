@@ -1,6 +1,10 @@
 ## The actual Global containing all of the game's core information.
 extends Node
 
+#region Inventory
+@export var myInventory: Inventory = Inventory.new()
+#endregion
+
 #region Built-Ins
 func _ready() -> void:
 	# Loading up sounds and then deleting the sound_loader as it's no longer necessary
