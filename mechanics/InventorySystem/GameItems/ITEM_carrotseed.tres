@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="GameItem" load_steps=3 format=3 uid="uid://cxm8yqp6ybek5"]
 
 [ext_resource type="Script" uid="uid://cvwm0symgb1qo" path="res://mechanics/InventorySystem/item_resource.gd" id="1_1x0d0"]
-[ext_resource type="Texture2D" uid="uid://srsyubk7drf3" path="res://assets/images/GameItems/carrot_seed_faded.png" id="2_1x0d0"]
+[ext_resource type="Texture2D" uid="uid://srsyubk7drf3" path="res://assets/IMAGES/GameItems/carrot_seed_faded.png" id="2_1x0d0"]
 
 [resource]
 script = ExtResource("1_1x0d0")

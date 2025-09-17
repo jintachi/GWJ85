@@ -1,6 +1,6 @@
 extends Control
 
-@export var InvPanelItems:Array[GameItem]
+@export var InvPanelItems: Array[GameItem]
 @export var itemSprintes: Array[Sprite2D]
 @export var itemAmoutns: Array[RichTextLabel]
 
