@@ -1,0 +1,135 @@
+[gd_scene load_steps=15 format=3 uid="uid://br8f2t1pkuxd6"]
+
+[ext_resource type="Script" uid="uid://7u8vaxtf2tyh" path="res://scenes/Inv/invpanel.gd" id="1_d73xi"]
+[ext_resource type="Texture2D" uid="uid://cv0o71iq7xy2w" path="res://assets/IMAGES/GameItems/gold.png" id="1_stwyg"]
+[ext_resource type="Script" uid="uid://cvwm0symgb1qo" path="res://mechanics/InventorySystem/item_resource.gd" id="2_ccwkk"]
+[ext_resource type="Texture2D" uid="uid://cih5fk5jeu686" path="res://assets/IMAGES/GameItems/grain_256_fade.png" id="2_igj0k"]
+[ext_resource type="Texture2D" uid="uid://l7ws2mnx7c25" path="res://assets/IMAGES/GameItems/corn_faded.png" id="3_em08l"]
+[ext_resource type="Resource" uid="uid://c4ys3i5yw878v" path="res://mechanics/InventorySystem/GameItems/GOLD.tres" id="3_xj8nk"]
+[ext_resource type="Texture2D" uid="uid://srsyubk7drf3" path="res://assets/IMAGES/GameItems/carrot_seed_faded.png" id="4_cke5m"]
+[ext_resource type="Resource" uid="uid://sjqurx0cnlmh" path="res://mechanics/InventorySystem/GameItems/ITEM_grain.tres" id="4_nljgn"]
+[ext_resource type="Texture2D" uid="uid://cd4cskcnyotij" path="res://assets/IMAGES/GameItems/pumpkinseed_faded.png" id="5_d73xi"]
+[ext_resource type="Resource" uid="uid://jpxmiwwepfe2" path="res://mechanics/InventorySystem/GameItems/ITEM_corn.tres" id="5_ymdyg"]
+[ext_resource type="Resource" uid="uid://cxm8yqp6ybek5" path="res://mechanics/InventorySystem/GameItems/ITEM_carrotseed.tres" id="6_awhc5"]
+[ext_resource type="Texture2D" uid="uid://vbv0clfd7jsn" path="res://assets/IMAGES/GameItems/potatoes_faded.png" id="6_cke5m"]
+[ext_resource type="Resource" uid="uid://b07tbtpd5meas" path="res://mechanics/InventorySystem/GameItems/ITEM_pumpkinseed.tres" id="7_lnyam"]
+[ext_resource type="Resource" uid="uid://bbrnun7rmqql5" path="res://mechanics/InventorySystem/GameItems/ITEM_potatoes.tres" id="8_q0rxp"]
+
+[node name="InvPanel" type="Control" node_paths=PackedStringArray("itemSprintes", "itemAmoutns")]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -600.0
+offset_top = -80.0
+offset_right = 600.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_d73xi")
+InvPanelItems = Array[ExtResource("2_ccwkk")]([ExtResource("3_xj8nk"), ExtResource("4_nljgn"), ExtResource("5_ymdyg"), ExtResource("6_awhc5"), ExtResource("7_lnyam"), ExtResource("8_q0rxp")])
+itemSprintes = [NodePath("HBoxContainer/Control/Gold"), NodePath("HBoxContainer/Control2/Grain"), NodePath("HBoxContainer/Control3/Corn"), NodePath("HBoxContainer/Control4/Carrot Seed"), NodePath("HBoxContainer/Control5/Pumpkin Seed"), NodePath("HBoxContainer/Control6/Potatoes")]
+itemAmoutns = [NodePath("HBoxContainer/Control/RichTextLabel"), NodePath("HBoxContainer/Control2/RichTextLabel"), NodePath("HBoxContainer/Control3/RichTextLabel"), NodePath("HBoxContainer/Control4/RichTextLabel"), NodePath("HBoxContainer/Control5/RichTextLabel"), NodePath("HBoxContainer/Control6/RichTextLabel")]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 1096.0
+offset_bottom = 65.0
+theme_override_constants/separation = 120
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Gold" type="Sprite2D" parent="HBoxContainer/Control"]
+position = Vector2(77, 25)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_stwyg")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/Control"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 15.0
+offset_right = 162.0
+offset_bottom = 40.0
+text = "100"
+
+[node name="Control2" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Grain" type="Sprite2D" parent="HBoxContainer/Control2"]
+position = Vector2(77, 25)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_igj0k")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/Control2"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 15.0
+offset_right = 162.0
+offset_bottom = 40.0
+text = "100"
+
+[node name="Control3" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Corn" type="Sprite2D" parent="HBoxContainer/Control3"]
+position = Vector2(77, 25)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_em08l")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/Control3"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 15.0
+offset_right = 162.0
+offset_bottom = 40.0
+text = "100"
+
+[node name="Control4" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Carrot Seed" type="Sprite2D" parent="HBoxContainer/Control4"]
+position = Vector2(77, 25)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_cke5m")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/Control4"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 15.0
+offset_right = 162.0
+offset_bottom = 40.0
+text = "100"
+
+[node name="Control5" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Pumpkin Seed" type="Sprite2D" parent="HBoxContainer/Control5"]
+position = Vector2(77, 25)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_d73xi")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/Control5"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 15.0
+offset_right = 162.0
+offset_bottom = 40.0
+text = "100"
+
+[node name="Control6" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Potatoes" type="Sprite2D" parent="HBoxContainer/Control6"]
+position = Vector2(77, 25)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_cke5m")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/Control6"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 15.0
+offset_right = 162.0
+offset_bottom = 40.0
+text = "100"

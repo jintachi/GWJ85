@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bf0e0l206u8xd"]
+[gd_scene load_steps=16 format=3 uid="uid://bf0e0l206u8xd"]
 
 [ext_resource type="Texture2D" uid="uid://b4ffjm8nqvu1b" path="res://assets/IMAGES/witch_hut.png" id="1_tefeu"]
 [ext_resource type="Theme" uid="uid://b5ldjeqg05ylx" path="res://assets/THEMES/new_theme.tres" id="2_0wfyh"]
@@ -6,7 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://dovf40pax5p1w" path="res://mechanics/InventorySystem/purchasable.tscn" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://dq4wge02pusmm" path="res://scenes/cell_system/cell_grid.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://8petnppadwyk" path="res://scenes/Season/SeasonIndicator.tscn" id="4_tbgi4"]
+[ext_resource type="Resource" uid="uid://cxm8yqp6ybek5" path="res://mechanics/InventorySystem/GameItems/ITEM_carrotseed.tres" id="5_ya4ey"]
+[ext_resource type="Resource" uid="uid://jpxmiwwepfe2" path="res://mechanics/InventorySystem/GameItems/ITEM_corn.tres" id="6_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://crlhxe7kpoppn" path="res://assets/IMAGES/travelling_sales.png" id="7_o6xl0"]
+[ext_resource type="Resource" uid="uid://bbrnun7rmqql5" path="res://mechanics/InventorySystem/GameItems/ITEM_potatoes.tres" id="7_trceg"]
+[ext_resource type="Resource" uid="uid://b07tbtpd5meas" path="res://mechanics/InventorySystem/GameItems/ITEM_pumpkinseed.tres" id="8_a8y0u"]
+[ext_resource type="Script" uid="uid://dsf1hdod0p1t5" path="res://scenes/game_controller.gd" id="12_a8y0u"]
+[ext_resource type="PackedScene" uid="uid://br8f2t1pkuxd6" path="res://scenes/Inv/invpanel.tscn" id="12_eb6dy"]
+[ext_resource type="Resource" uid="uid://c4ys3i5yw878v" path="res://mechanics/InventorySystem/GameItems/GOLD.tres" id="13_jkv2x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tipki"]
 size = Vector2(150, 196)
@@ -55,31 +62,32 @@ layout_mode = 2
 [node name="ScrollContainer" type="ScrollContainer" parent="UI/CenterContainer/Panel"]
 custom_minimum_size = Vector2(300, 400)
 layout_mode = 0
-offset_right = 373.0
-offset_bottom = 400.0
+offset_right = 412.0
+offset_bottom = 709.0
 
 [node name="GridContainer" type="GridContainer" parent="UI/CenterContainer/Panel/ScrollContainer"]
 layout_mode = 2
 theme_override_constants/h_separation = 100
-theme_override_constants/v_separation = 140
+theme_override_constants/v_separation = 100
 
 [node name="Purchasable" parent="UI/CenterContainer/Panel/ScrollContainer/GridContainer" instance=ExtResource("2_sugp2")]
 layout_mode = 2
 
 [node name="Purchasable2" parent="UI/CenterContainer/Panel/ScrollContainer/GridContainer" instance=ExtResource("2_sugp2")]
 layout_mode = 2
+item = ExtResource("5_ya4ey")
 
 [node name="Purchasable3" parent="UI/CenterContainer/Panel/ScrollContainer/GridContainer" instance=ExtResource("2_sugp2")]
 layout_mode = 2
+item = ExtResource("6_eb6dy")
 
 [node name="Purchasable4" parent="UI/CenterContainer/Panel/ScrollContainer/GridContainer" instance=ExtResource("2_sugp2")]
 layout_mode = 2
+item = ExtResource("7_trceg")
 
 [node name="Purchasable6" parent="UI/CenterContainer/Panel/ScrollContainer/GridContainer" instance=ExtResource("2_sugp2")]
 layout_mode = 2
-
-[node name="Purchasable5" parent="UI/CenterContainer/Panel/ScrollContainer/GridContainer" instance=ExtResource("2_sugp2")]
-layout_mode = 2
+item = ExtResource("8_a8y0u")
 
 [node name="CenterContainer4" type="CenterContainer" parent="UI"]
 anchors_preset = 4
@@ -131,5 +139,10 @@ grow_horizontal = 2
 [node name="Node2D" parent="UI/CenterContainer5" instance=ExtResource("4_tbgi4")]
 
 [node name="GameController" type="Node" parent="."]
+script = ExtResource("12_a8y0u")
+goldItem = ExtResource("13_jkv2x")
+
+[node name="InventoryPanel" parent="." instance=ExtResource("12_eb6dy")]
+offset_top = -67.0
 
 [connection signal="input_event" from="UI/CenterContainer/WitchHut/Area2D" to="UI/CenterContainer/WitchHut" method="_on_area_2d_input_event"]

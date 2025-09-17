@@ -68,6 +68,12 @@ func HasItem(item, n) -> bool:
 				return true
 	return false
 
+func ItemAmount(item) -> int:
+	for slot in slots:
+		if slot.item == item:
+			return slot.amount
+	return 0
+
 func HasEmptySlot() -> bool:
 	var has = false
 	for slot in slots:

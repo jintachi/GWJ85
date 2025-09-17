@@ -2,10 +2,13 @@ extends Control
 
 @export var item: GameItem
 @export var itemSprite: Sprite2D
+@export var title: RichTextLabel
+@export var cost: RichTextLabel
 
 func _ready() -> void:
 	itemSprite.texture = item.texture
-	$Cost.text = "cost:" + str(item.value)
+	title.text = item.name
+	cost.text = "cost:" + str(item.value)
 	
 	
 
