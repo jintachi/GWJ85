@@ -23,8 +23,8 @@ MusicManager="*res://autoloads/audio/music_manager.gd"
 SoundManager="*res://autoloads/audio/sound_manager.gd"
 GameGlobal="*res://autoloads/general/game_global.gd"
 GameGlobalEvents="*res://autoloads/general/game_global_events.gd"
-CellMapManager="*res://autoloads/general/cell_map_manager.gd"
 Debug="*res://autoloads/debug/debug.tscn"
+TileMapManager="*res://autoloads/general/tile_map_manager.gd"
 
 [display]
 
