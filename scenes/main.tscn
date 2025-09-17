@@ -123,6 +123,9 @@ offset_bottom = 65.81
 grow_horizontal = 2
 
 [node name="Node2D" parent="UI/CenterContainer5" instance=ExtResource("4_tbgi4")]
+layout_mode = 2
+active_season = 0
+season_length = 30.0
 
 [node name="GameController" type="Node" parent="."]
 script = ExtResource("12_a8y0u")
@@ -130,6 +133,7 @@ goldItem = ExtResource("13_jkv2x")
 
 [node name="InventoryPanel" parent="." instance=ExtResource("12_eb6dy")]
 offset_top = -67.0
+InvPanelItems = Array[ExtResource("15_jkv2x")]([])
 
 [node name="CellGridNew" parent="." instance=ExtResource("14_a8y0u")]
 offset_left = 145.0
