@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bvgnu8ebr4mms"
-path="res://.godot/imported/carrot_seed.png-2b53bbf80602093a7de9f02a4f9bcc2d.ctex"
+path="res://.godot/imported/carrot_seed.png-07ec5a2db2b6c1c7e506826ea15db6a2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/GameItems/carrot_seed.png"
-dest_files=["res://.godot/imported/carrot_seed.png-2b53bbf80602093a7de9f02a4f9bcc2d.ctex"]
+source_file="res://assets/IMAGES/GameItems/carrot_seed.png"
+dest_files=["res://.godot/imported/carrot_seed.png-07ec5a2db2b6c1c7e506826ea15db6a2.ctex"]
 
 [params]
 

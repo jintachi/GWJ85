@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://l7ws2mnx7c25"
-path="res://.godot/imported/corn_faded.png-dc5971a1182c643332786d99800aa34b.ctex"
+path="res://.godot/imported/corn_faded.png-4ba1c60da12bc8d386dc22865fae5b5b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/GameItems/corn_faded.png"
-dest_files=["res://.godot/imported/corn_faded.png-dc5971a1182c643332786d99800aa34b.ctex"]
+source_file="res://assets/IMAGES/GameItems/corn_faded.png"
+dest_files=["res://.godot/imported/corn_faded.png-4ba1c60da12bc8d386dc22865fae5b5b.ctex"]
 
 [params]
 
