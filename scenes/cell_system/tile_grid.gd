@@ -45,5 +45,8 @@ func _setup_map() -> void:
 
 func _UnselectAll() -> void:
 	for tile in map:
+		if tile is Array:
+			for c in tile :
+				if "selected" in c: c._unselect()
 		if "selected" in tile:
 			tile._unselect()

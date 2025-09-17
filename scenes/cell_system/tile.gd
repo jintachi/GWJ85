@@ -44,6 +44,9 @@ func report_function() -> void:
 			print("Deliver")
 
 func toggle_selection(is_selected:bool) -> void :
+
+	selected = !selected
+	
 	#$Select.visible = selected
 	if selected:
 		parent.selected_tile = self
@@ -53,7 +56,6 @@ func toggle_selection(is_selected:bool) -> void :
 		self.remove_theme_stylebox_override("panel")
 		self.add_theme_stylebox_override("panel",unselected_theme)
 
-	selected = !selected 
 
 func set_themes() -> void:
 	selected_theme = theme.get_stylebox("selected","Tile")
@@ -76,6 +78,7 @@ func _on_gui_input(event: InputEvent) -> void:
 		
 func _unselect() -> void:
 	selected = false
-	toggle_selection(selected)
+	self.remove_theme_stylebox_override("panel")
+	self.add_theme_stylebox_override("panel",unselected_theme)
 	
 #endregion
