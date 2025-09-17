@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://df1yj7ekd4i6f"]
+[gd_scene load_steps=2 format=3 uid="uid://3ci3eccy5tku"]
 
-[ext_resource type="Script" uid="uid://idkir1q5u82m" path="res://autoloads/general/shared_data.gd" id="1_7p373"]
+[sub_resource type="GDScript" id="GDScript_ljrgd"]
+script/source = "extends Node2D
+
+@export var myInventory: Inventory = Inventory.new()
+"
 
 [node name="SharedData" type="Node2D"]
-script = ExtResource("1_7p373")
+script = SubResource("GDScript_ljrgd")

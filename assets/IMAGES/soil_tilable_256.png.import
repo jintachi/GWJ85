@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dnjt84ftrk770"
-path="res://.godot/imported/soil_tilable_256.png-5e2708483b5ae4e55c4944ce5da0e80e.ctex"
+path="res://.godot/imported/soil_tilable_256.png-0c952f68d38cfa693aecd138ad679b46.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/IMAGES/soil_tilable_256.png"
-dest_files=["res://.godot/imported/soil_tilable_256.png-5e2708483b5ae4e55c4944ce5da0e80e.ctex"]
+source_file="res://assets/images/soil_tilable_256.png"
+dest_files=["res://.godot/imported/soil_tilable_256.png-0c952f68d38cfa693aecd138ad679b46.ctex"]
 
 [params]
 

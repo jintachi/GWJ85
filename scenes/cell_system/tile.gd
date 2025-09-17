@@ -10,7 +10,7 @@ class_name Tile extends PanelContainer
 var selected_theme : StyleBox
 var unselected_theme : StyleBox
 
-var parent : CellGrid
+var parent : TileGrid
 #endregion
 
 #region Built-Ins
@@ -18,7 +18,7 @@ func _ready() -> void:
 	report_function()
 	if not get_parent():
 		return
-	if get_parent() is CellGrid:
+	if get_parent() is TileGrid:
 		parent = get_parent()
 	
 	set_themes()

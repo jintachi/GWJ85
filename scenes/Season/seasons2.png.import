@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bqk4hiwnwam87"
-path="res://.godot/imported/seasons2.png-edddd5c26ca2c79c919802914673f290.ctex"
+path="res://.godot/imported/seasons2.png-2ea3f6127f309909b437abd8b90e8890.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/Season/seasons2.png"
-dest_files=["res://.godot/imported/seasons2.png-edddd5c26ca2c79c919802914673f290.ctex"]
+source_file="res://scenes/season/seasons2.png"
+dest_files=["res://.godot/imported/seasons2.png-2ea3f6127f309909b437abd8b90e8890.ctex"]
 
 [params]
 

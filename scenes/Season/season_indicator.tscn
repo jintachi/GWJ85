@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://8petnppadwyk"]
+
+[ext_resource type="Script" uid="uid://cugy673il6i2s" path="res://scenes/season/season_indicator.gd" id="1_fjahr"]
+[ext_resource type="Texture2D" uid="uid://hrjoxowdl786" path="res://assets/images/season_indicator_under.png" id="2_yfvgr"]
+[ext_resource type="Texture2D" uid="uid://d2i6w0sty5yeb" path="res://assets/images/season_indicator_over.png" id="3_4cfuw"]
+[ext_resource type="Texture2D" uid="uid://c4pmyyytifht1" path="res://assets/images/season_progress.png" id="4_hjs31"]
+
+[node name="SeasonIndicator" type="Control" node_paths=PackedStringArray("season_clock", "season_progress", "season_label")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_fjahr")
+season_clock = NodePath("VBoxContainer/MarginContainer/UnderLayer")
+season_progress = NodePath("VBoxContainer/MarginContainer/Tick")
+season_label = NodePath("VBoxContainer/SeasonLabel")
+season_length = 4.0
+progress_resolution = 10.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="UnderLayer" type="TextureRect" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_yfvgr")
+
+[node name="Tick" type="TextureProgressBar" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+fill_mode = 4
+radial_initial_angle = 45.0
+radial_fill_degrees = 270.0
+texture_under = ExtResource("3_4cfuw")
+texture_progress = ExtResource("4_hjs31")
+
+[node name="SeasonLabel" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.282747, 0.563302, 0.378118, 1)
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+text = "SPRING"
+fit_content = true
+horizontal_alignment = 1

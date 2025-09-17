@@ -1,9 +1,8 @@
 ## The map that the game is played on.
-class_name CellGrid extends GridContainer
+class_name TileGrid extends GridContainer
 
 #region Declarations
 var map : Array = [] ## The map reference of all the cells in CellGrid
-var tile_grid : Array[Tile] = []
 var selected_tile : Tile :
 	get:
 		return selected_tile
@@ -14,8 +13,6 @@ var selected_tile : Tile :
 #region Built-Ins
 func _ready() -> void:
 	_setup_map()
-	for c in get_children() :
-		tile_grid.append(c as Tile)
 
 func _input(event: InputEvent) -> void:
 	if event is not InputEventKey or not selected_tile:
@@ -31,19 +28,22 @@ func _input(event: InputEvent) -> void:
 ## Sets up the map with corresponding children in the CellGrid
 func _setup_map() -> void:
 	var i : int = 0
-	for child in get_children():
+	for tile in get_children():
+		if not tile is Tile:
+			continue
+		
 		if map.size() == 0:
 			map.append([])
 		
 		if map.get(i).size() < 4:
-			map.get(i).append(child)
+			map.get(i).append(tile)
 		else:
 			i += 1
 			map.append([])
-			map.get(i).append(child)
+			map.get(i).append(tile)
 #endregion
 
 func _UnselectAll() -> void:
-	for t in tile_grid:
-		if "selected" in t:
-			t._unselect()		
+	for tile in map:
+		if "selected" in tile:
+			tile._unselect()

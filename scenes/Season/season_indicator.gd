@@ -1,27 +1,66 @@
-extends Node2D
+## The node for displaying the current season and time within.
+extends Control
 
-@export var seaonSprint: Sprite2D
-@export var markerSprite: Sprite2D
-@export var activeSeason: Genum.Season = 0
-@export var seasonLength: float = 30
-var timer: float = 0
+#region Declarations
+@export var season_clock : TextureRect
+@export var season_progress : TextureProgressBar
+@export var season_label : RichTextLabel
 
-func _init() -> void:
-	pass
+@export var active_season := Genum.Season.SPRING
+@export var season_length : float = 30
+@export var progress_resolution : float = 1
+var tick_count: float = 0
+#endregion
+
+#region Built-Ins
+func _ready() -> void:
+	GameGlobalEvents.game_tick.connect(_on_game_tick)
 	
-func _process(_deltaTime: float) -> void:
-	timer += _deltaTime *10
-	if timer > seasonLength:
-		var nextSason = activeSeason + 1
-		if nextSason == 4: nextSason = 0
-		activeSeason = nextSason
-		timer = 0
-		if activeSeason == 0: $RichTextLabel.text = "[center]SPRING"
-		elif activeSeason == 1: $RichTextLabel.text = "[center]SUMMER"
-		elif activeSeason == 2: $RichTextLabel.text = "[center]FALL"
-		elif activeSeason == 3: $RichTextLabel.text = "[center]WINTER"
-				
-	var npos = (activeSeason * 300) - 600 + (timer*10)
-	#var frequency: float = 4.0
-	#var angle = (npos / 1200) * TAU * frequency
-	markerSprite.position = Vector2(npos, 10)	
+	if not season_progress:
+		return
+	
+	season_progress.max_value = season_length * progress_resolution
+	season_progress.step = 1. / progress_resolution
+	
+	if season_clock:
+		season_clock.pivot_offset = Vector2(64, 64)
+#endregion
+
+#region Privates
+func _advance_season() -> void:
+	if not season_clock and not season_label:
+		push_error("There is either no season clock or season label")
+		return
+	
+	active_season = (active_season + 1) % 4
+	var tween = create_tween().bind_node(self).set_trans(Tween.TRANS_CIRC)
+	tween.tween_property(season_clock, "rotation", PI / 2, 1).as_relative()
+	tick_count = 0
+	
+	match(active_season):
+		Genum.Season.SPRING:
+			season_label.text = "SPRING"
+		Genum.Season.SUMMER:
+			season_label.text = "SUMMER"
+		Genum.Season.FALL:
+			season_label.text = "FALL"
+		Genum.Season.WINTER:
+			season_label.text = "WINTER"
+
+func _advance_clock() -> void:
+	var value = tick_count * progress_resolution
+	
+	var tween = create_tween().bind_node(self).set_trans(Tween.TRANS_CIRC)
+	tween.tween_property(season_progress, "value", value, 0.5)
+	tween.play()
+#endregion
+
+#region Signal Callbacks
+func _on_game_tick() -> void:
+	tick_count += 1
+	
+	print(tick_count)
+	if tick_count > season_length:
+		_advance_season()
+	
+	_advance_clock()
