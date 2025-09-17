@@ -1,6 +1,4 @@
-extends Resource
-
-class_name Machine
+class_name Machine extends Resource
 
 #enum machine_name {PRODUCER, TRANSPORTER, PROCESSOR, DELIVERER} 
 var tile_type : Genum.TileType ## The type of tile this is.

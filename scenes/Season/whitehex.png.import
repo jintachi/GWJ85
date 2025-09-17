@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ck8v4pfogvn4o"
-path="res://.godot/imported/whitehex.png-de2254e7aa4d15f69639d78552120ec0.ctex"
+path="res://.godot/imported/whitehex.png-6f2b373f4d171fb4cf78d79908a031bb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/Season/whitehex.png"
-dest_files=["res://.godot/imported/whitehex.png-de2254e7aa4d15f69639d78552120ec0.ctex"]
+source_file="res://scenes/season/whitehex.png"
+dest_files=["res://.godot/imported/whitehex.png-6f2b373f4d171fb4cf78d79908a031bb.ctex"]
 
 [params]
 

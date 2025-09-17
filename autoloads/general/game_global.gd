@@ -1,8 +1,10 @@
 ## The actual Global containing all of the game's core information.
 extends Node
 
-#region Inventory
-@export var myInventory: Inventory = Inventory.new()
+#region Declarations
+@onready var myInventory : Inventory = Inventory.new()
+
+var delta_t : float = 1.0 ## The amount of time between ticks.
 #endregion
 
 #region Built-Ins
@@ -11,6 +13,15 @@ func _ready() -> void:
 	var sound_loader = SoundLoader.new()
 	sound_loader.load_audio()
 	sound_loader = null
+	
+	run_game_loop()
+#endregion
+
+#region Publics
+func run_game_loop() -> void:
+	await delay(delta_t)
+	GameGlobalEvents.game_tick.emit()
+	run_game_loop()
 #endregion
 
 #region Helpers
@@ -29,5 +40,4 @@ func get_all_descendants(node: Node, result := []):
 		result.append(child)
 		get_all_descendants(child, result)
 	return result
-
 #endregion

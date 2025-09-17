@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://dq4wge02pusmm"]
 
-[ext_resource type="Script" uid="uid://c5qd5qcpmi7s2" path="res://scenes/cell_system/cell_grid.gd" id="1_hfevk"]
+[ext_resource type="Script" uid="uid://c5qd5qcpmi7s2" path="res://scenes/cell_system/tile_grid.gd" id="1_hfevk"]
 [ext_resource type="PackedScene" uid="uid://c44fogmclava" path="res://scenes/cell_system/tile.tscn" id="2_nd0wf"]
 
-[node name="CellGrid" type="GridContainer"]
+[node name="TileGrid" type="GridContainer"]
 anchors_preset = -1
 anchor_right = 0.625
 anchor_bottom = 1.0

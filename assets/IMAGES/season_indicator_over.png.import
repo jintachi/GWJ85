@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://l7ws2mnx7c25"
-path="res://.godot/imported/corn_faded.png-dc5971a1182c643332786d99800aa34b.ctex"
+uid="uid://d2i6w0sty5yeb"
+path="res://.godot/imported/season_indicator_over.png-128f62c62e0d99f8888f6788b4cf4f12.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/GameItems/corn_faded.png"
-dest_files=["res://.godot/imported/corn_faded.png-dc5971a1182c643332786d99800aa34b.ctex"]
+source_file="res://assets/images/season_indicator_over.png"
+dest_files=["res://.godot/imported/season_indicator_over.png-128f62c62e0d99f8888f6788b4cf4f12.ctex"]
 
 [params]
 
