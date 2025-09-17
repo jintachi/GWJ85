@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cas7qg1x4mh7w"]
+
+[ext_resource type="Script" uid="uid://dtk3f75vjqtny" path="res://scenes/cell_system/cell_grid_new.gd" id="1_w6ffm"]
+[ext_resource type="PackedScene" uid="uid://c44fogmclava" path="res://scenes/cell_system/tile.tscn" id="2_4jvu5"]
+
+[node name="CellGridNew" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_w6ffm")
+tileSize = 128
+baseTile = ExtResource("2_4jvu5")
+depth = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 245.0
+offset_top = -210.0
+offset_right = 333.0
+offset_bottom = -175.0
+text = "epand"
+
+[connection signal="button_up" from="Button" to="." method="_expand"]
+[connection signal="gui_input" from="Tile" to="Tile" method="_on_gui_input"]

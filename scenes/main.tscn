@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bf0e0l206u8xd"]
+[gd_scene load_steps=15 format=3 uid="uid://bf0e0l206u8xd"]
 
 [ext_resource type="Texture2D" uid="uid://b4ffjm8nqvu1b" path="res://assets/IMAGES/witch_hut.png" id="1_tefeu"]
 [ext_resource type="Script" uid="uid://y6eqx6daoss2" path="res://scenes/witch_hut.gd" id="2_o6xl0"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://dsf1hdod0p1t5" path="res://scenes/game_controller.gd" id="12_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://br8f2t1pkuxd6" path="res://scenes/Inv/invpanel.tscn" id="12_eb6dy"]
 [ext_resource type="Resource" uid="uid://c4ys3i5yw878v" path="res://mechanics/InventorySystem/GameItems/GOLD.tres" id="13_jkv2x"]
+[ext_resource type="PackedScene" uid="uid://cas7qg1x4mh7w" path="res://scenes/cell_system/cell_grid_new.tscn" id="14_a8y0u"]
 
 [node name="Main" type="Node"]
 
@@ -129,5 +130,12 @@ goldItem = ExtResource("13_jkv2x")
 
 [node name="InventoryPanel" parent="." instance=ExtResource("12_eb6dy")]
 offset_top = -67.0
+
+[node name="CellGridNew" parent="." instance=ExtResource("14_a8y0u")]
+offset_left = 145.0
+offset_top = 384.0
+offset_right = 145.0
+offset_bottom = 384.0
+depth = 0
 
 [connection signal="button_up" from="UI/CenterContainer/Caravan/Button2" to="UI/CenterContainer/WitchHut" method="_on_button_button_up"]
