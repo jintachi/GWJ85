@@ -14,8 +14,8 @@ func _ready() -> void:
 	
 	MusicManager.play_song(&"MainTheme")
 	
-	gold = gold_at_start
 	GameGlobalEvents.gold_updated.connect(_on_gold_updated)
+	_on_gold_updated(gold_at_start)
 #endregion
 
 #region Signal Callbacks

@@ -2,30 +2,26 @@
 
 [ext_resource type="Theme" uid="uid://b5ldjeqg05ylx" path="res://assets/themes/game_theme.tres" id="1_e5d2n"]
 [ext_resource type="Script" uid="uid://c1naffjba6fjn" path="res://scenes/cell_system/tile.gd" id="1_ysrkh"]
-[ext_resource type="Texture2D" uid="uid://dnjt84ftrk770" path="res://assets/images/soil_tilable_256.png" id="3_e5d2n"]
+[ext_resource type="Texture2D" uid="uid://okvtr8dkktew" path="res://assets/images/tile_bg.png" id="3_e5d2n"]
 
 [node name="Tile" type="PanelContainer"]
-custom_minimum_size = Vector2(128, 128)
-anchors_preset = -1
-anchor_right = 0.625
-anchor_bottom = 0.967
+offset_right = 12.0
 offset_bottom = 26.4
-grow_horizontal = 2
-grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_e5d2n")
 script = ExtResource("1_ysrkh")
 
-[node name="MachineLayer" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(128, 128)
+[node name="BGLayer" type="TextureRect" parent="."]
 layout_mode = 2
 texture = ExtResource("3_e5d2n")
+
+[node name="MachineLayer" type="TextureRect" parent="."]
+layout_mode = 2
 expand_mode = 2
 stretch_mode = 5
 
 [node name="ItemLayer" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 expand_mode = 2
 stretch_mode = 5

@@ -12,11 +12,20 @@ func update_gold(value: int) -> void:
 	gold_label.text = "%s" % value
 #endregion
 
-#region Signal Callbacks
-func _shop_visibility_switched() -> void:
-	print("switching")
-	if witch_shop.visible:
+#region Helpers
+func _switch_shop_visibility(cond: bool) -> void:
+	if witch_shop.visible and cond:
 		witch_shop.hide()
+	elif witch_shop.visible:
+		witch_shop.viewing_witch = !witch_shop.viewing_witch
 	else:
 		witch_shop.show()
+#endregion
+
+#region Signal Callbacks
+func _caravan_shop_pressed() -> void:
+	_switch_shop_visibility(not witch_shop.viewing_witch)
+
+func _witch_shop_pressed() -> void:
+	_switch_shop_visibility(witch_shop.viewing_witch)
 #endregion

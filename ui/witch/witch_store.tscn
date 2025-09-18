@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://daltoig2r6xpk" path="res://ui/witch/witch_store.gd" id="1_t3cft"]
 [ext_resource type="PackedScene" uid="uid://dovf40pax5p1w" path="res://mechanics/inventory_system/purchasable.tscn" id="2_xj1sp"]
 
-[node name="WitchStore" type="PanelContainer" node_paths=PackedStringArray("store")]
+[node name="Store" type="PanelContainer" node_paths=PackedStringArray("witch_store", "caravan_store")]
 anchors_preset = -1
 anchor_left = 0.7
 anchor_top = 0.3
@@ -12,12 +12,22 @@ anchor_bottom = 0.8
 grow_horizontal = 0
 script = ExtResource("1_t3cft")
 purchaseable_ref = ExtResource("2_xj1sp")
-store = NodePath("ScrollContainer/StoreContainer")
+witch_store = NodePath("Witch/StoreContainer")
+caravan_store = NodePath("Caravan/StoreContainer")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="Witch" type="ScrollContainer" parent="."]
 layout_mode = 2
 horizontal_scroll_mode = 0
 
-[node name="StoreContainer" type="VBoxContainer" parent="ScrollContainer"]
+[node name="StoreContainer" type="VBoxContainer" parent="Witch"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Caravan" type="ScrollContainer" parent="."]
+visible = false
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="StoreContainer" type="VBoxContainer" parent="Caravan"]
 layout_mode = 2
 size_flags_horizontal = 3

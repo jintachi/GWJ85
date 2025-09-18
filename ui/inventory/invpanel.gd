@@ -1,9 +1,8 @@
-extends HBoxContainer
+extends PanelContainer
 
 #region Declarations
-@export var InvPanelItems: Array[GameItem]
-@export var itemSprintes: Array[Sprite2D]
-@export var itemAmounts: Array[RichTextLabel]
+@export var inv_panel_items : Array[GameItem]
+@export var inv_container : GridContainer
 
 var game_node : Node
 #endregion
@@ -11,8 +10,11 @@ var game_node : Node
 #region Built-Ins
 func _ready() -> void:
 	game_node = get_tree().get_first_node_in_group(&"game")
+	
+	Inventory.update_inventory.connect(_on_inventory_updated)
+#endregion
 
-func _process(_deltaTime: float) -> void:
-	for x in range (InvPanelItems.size()):
-		itemAmounts[x].text = str(GameGlobal.myInventory.ItemAmount(InvPanelItems[x]))
+#region Signal Callbacks
+func _on_inventory_updated() -> void:
+	pass
 #endregion

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://djrmvspurubgo"]
+[gd_scene load_steps=8 format=3 uid="uid://djrmvspurubgo"]
 
 [ext_resource type="Script" uid="uid://du7njqoumqj0v" path="res://ui/hud.gd" id="1_546lt"]
 [ext_resource type="PackedScene" uid="uid://8petnppadwyk" path="res://scenes/season/season_indicator.tscn" id="1_rbyyf"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://fvagukkfc08f" path="res://ui/pause_menu.tscn" id="4_7ihmi"]
 [ext_resource type="Texture2D" uid="uid://b4c6mq6q1o1vm" path="res://assets/images/witch_atelier_v1.png" id="5_1v5rv"]
 [ext_resource type="PackedScene" uid="uid://c22de3c6fgfto" path="res://ui/witch/witch_store.tscn" id="6_q43x7"]
+[ext_resource type="PackedScene" uid="uid://br8f2t1pkuxd6" path="res://ui/inventory/invpanel.tscn" id="7_q43x7"]
 
 [node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("witch_shop", "gold_label")]
 script = ExtResource("1_546lt")
@@ -62,15 +63,26 @@ theme_override_constants/margin_right = 5
 layout_mode = 2
 alignment = 2
 
-[node name="Atelier" type="TextureRect" parent="WitchShop/HBoxContainer"]
+[node name="CaravanButton" type="Button" parent="WitchShop/HBoxContainer"]
+layout_mode = 2
+text = "Caravan"
+flat = true
+
+[node name="Atelier" type="MarginContainer" parent="WitchShop/HBoxContainer"]
+layout_mode = 2
+
+[node name="Atelier" type="TextureRect" parent="WitchShop/HBoxContainer/Atelier"]
 layout_mode = 2
 texture = ExtResource("5_1v5rv")
 
-[node name="ShopButton" type="Button" parent="WitchShop"]
+[node name="WitchShopButton" type="Button" parent="WitchShop/HBoxContainer/Atelier"]
 layout_mode = 2
 flat = true
 
 [node name="WitchStore" parent="." instance=ExtResource("6_q43x7")]
 visible = false
 
-[connection signal="pressed" from="WitchShop/ShopButton" to="." method="_shop_visibility_switched"]
+[node name="InvPanel" parent="." instance=ExtResource("7_q43x7")]
+
+[connection signal="pressed" from="WitchShop/HBoxContainer/CaravanButton" to="." method="_caravan_shop_pressed"]
+[connection signal="pressed" from="WitchShop/HBoxContainer/Atelier/WitchShopButton" to="." method="_witch_shop_pressed"]
