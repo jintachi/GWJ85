@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://bf0e0l206u8xd"]
+[gd_scene load_steps=15 format=3 uid="uid://bf0e0l206u8xd"]
 
 [ext_resource type="Texture2D" uid="uid://b4ffjm8nqvu1b" path="res://assets/IMAGES/witch_hut.png" id="1_tefeu"]
 [ext_resource type="Script" uid="uid://y6eqx6daoss2" path="res://scenes/witch_hut.gd" id="2_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://dovf40pax5p1w" path="res://mechanics/InventorySystem/purchasable.tscn" id="2_sugp2"]
+[ext_resource type="PackedScene" uid="uid://l2mfo5frjja5" path="res://mechanics/InventorySystem/recipe_panel.tscn" id="4_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://dq4wge02pusmm" path="res://scenes/cell_system/tile_grid.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://8petnppadwyk" path="res://scenes/Season/season_indicator.tscn" id="4_tbgi4"]
 [ext_resource type="Resource" uid="uid://cxm8yqp6ybek5" path="res://mechanics/InventorySystem/GameItems/ITEM_carrotseed.tres" id="5_ya4ey"]
@@ -59,6 +60,12 @@ offset_right = 261.014
 offset_bottom = 656.376
 theme_override_font_sizes/font_size = 20
 text = "CARRAVAN"
+
+[node name="RECIPE_PANEL" parent="UI/CenterContainer/WitchHut" instance=ExtResource("4_a8y0u")]
+offset_left = -997.0
+offset_top = -117.0
+offset_right = -997.0
+offset_bottom = -117.0
 
 [node name="Panel" type="Panel" parent="UI/CenterContainer"]
 visible = false
