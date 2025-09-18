@@ -1,0 +1,21 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "title": "Item Compendium",
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "id": { "type": "integer" },
+            "name": { "type": "string" },
+            "description": {"type": "string"},
+            "value": { "type": "integer" },
+            "texture_pos": {
+                "type": "object",
+                "x": { "type": "integer" },
+                "y": { "type": "integer" }
+            }
+        },
+        "required": [ "id", "name", "description", "value", "texture_pos" ],
+        "additionalProperties": false
+    }
+}

@@ -1,6 +1,6 @@
 extends Control
 
-@export var availableRecipies: Array[CraftingRecipe]
+@export var availableRecipies: Array[GameRecipe]
 @export var recipeImage: Sprite2D
 var selector = 0
 

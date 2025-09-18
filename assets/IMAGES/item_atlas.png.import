@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://l7ws2mnx7c25"
-path="res://.godot/imported/corn_faded.png-dc5971a1182c643332786d99800aa34b.ctex"
+uid="uid://cxpx7yhh0hu0i"
+path="res://.godot/imported/item_atlas.png-984f5eb8705acabbae737576d40bd0d3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/GameItems/corn_faded.png"
-dest_files=["res://.godot/imported/corn_faded.png-dc5971a1182c643332786d99800aa34b.ctex"]
+source_file="res://assets/images/item_atlas.png"
+dest_files=["res://.godot/imported/item_atlas.png-984f5eb8705acabbae737576d40bd0d3.ctex"]
 
 [params]
 

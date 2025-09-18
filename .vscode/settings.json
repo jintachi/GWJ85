@@ -1,0 +1,8 @@
+{
+    "json.schemas": [
+        {
+            "fileMatch": ["items.json"],
+            "url": "./mechanics/inventory_system/items.schema.json"
+        }
+    ]
+}

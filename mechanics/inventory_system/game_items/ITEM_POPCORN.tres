@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="GameItem" load_steps=3 format=3 uid="uid://dj78235215rda"]
 
-[ext_resource type="Script" uid="uid://cvwm0symgb1qo" path="res://mechanics/InventorySystem/item_resource.gd" id="1_hd5o0"]
-[ext_resource type="Texture2D" uid="uid://dcq6f3cdedvpi" path="res://assets/IMAGES/GameItems/popcorn.png" id="2_urt72"]
+[ext_resource type="Script" uid="uid://cvwm0symgb1qo" path="res://mechanics/inventory_system/item_resource.gd" id="1_hd5o0"]
+[ext_resource type="Texture2D" uid="uid://dcq6f3cdedvpi" path="res://assets/images/GameItems/popcorn.png" id="2_urt72"]
 
 [resource]
 script = ExtResource("1_hd5o0")

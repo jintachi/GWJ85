@@ -1,6 +1,6 @@
 extends Resource
 
-class_name CraftingRecipe
+class_name GameRecipe
 
 @export var Name: StringName
 @export var unlocked: bool = true

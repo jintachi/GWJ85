@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dovf40pax5p1w"]
 
-[ext_resource type="Script" uid="uid://dnet0qjisphht" path="res://mechanics/InventorySystem/purchasable.gd" id="1_nlhvf"]
-[ext_resource type="Resource" uid="uid://sjqurx0cnlmh" path="res://mechanics/InventorySystem/GameItems/ITEM_grain.tres" id="2_76qva"]
+[ext_resource type="Script" uid="uid://dnet0qjisphht" path="res://mechanics/inventory_system/purchasable.gd" id="1_nlhvf"]
+[ext_resource type="Resource" uid="uid://sjqurx0cnlmh" path="res://mechanics/inventory_system/game_items/ITEM_grain.tres" id="2_76qva"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_nlhvf"]
 
