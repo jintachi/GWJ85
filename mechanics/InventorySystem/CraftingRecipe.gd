@@ -15,3 +15,10 @@ func _canMake() -> bool:
 			return false
 	return true
 	
+func _make() -> bool:
+	if _canMake() == false: return false
+	else:
+		for i in ingredients:
+			GameGlobal.myInventory.RemoveItem(i.item, i.amount)
+	return true
+	
