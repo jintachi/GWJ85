@@ -1,14 +1,14 @@
-extends Node
+## Holds all the item data that the player currently has.
+class_name Inventory extends Node
 
-class_name Inventory
+#region Declarations
+signal update_inventory
 
 @export var slots : Array[InventorySlot] 
 @export var defaultSize: int = 10
+#endregion
 
-
-signal signal_update_inventory
-
-
+#region Helpers
 ##return the number of slots in inventory
 func InvSize():
 	return slots.size()
@@ -18,7 +18,7 @@ func AddSlots(_n:int=1) -> void:
 	for x in range(_n):
 		var newSlot = InventorySlot.new()
 		slots.append(newSlot)
-	signal_update_inventory.emit()
+	update_inventory.emit()
 
 ##add n GameItem to inventory
 func AddItem(new_item: GameItem, n: int) -> bool:
@@ -28,15 +28,15 @@ func AddItem(new_item: GameItem, n: int) -> bool:
 	for slot in slots:
 		if slot.item == new_item:
 			slot.amount += n
-			signal_update_inventory.emit()
-			return (true)
+			update_inventory.emit()
+			return true
 	## if you didn't find it; put into existing slot that's empty
 	for slot in slots:		
 		if slot.amount == 0:
 			slot.item = new_item
 			slot.amount = n
-			signal_update_inventory.emit()
-			return (true)
+			update_inventory.emit()
+			return true
 	##for dynamic inventories uncomment the lines below
 	##if you can't find one, create one
 	#var new_slot = InventorySlot.new()
@@ -45,8 +45,7 @@ func AddItem(new_item: GameItem, n: int) -> bool:
 	#slots.append(new_slot)
 	#signal_update_inventory.emit()
 	##if you didn't find a usable slot return false
-	return (false)
-
+	return false
 func RemoveItem(item_to_remove: GameItem, n:int) -> bool:
 	for slot in slots:
 		if slot.item == item_to_remove:
@@ -57,10 +56,12 @@ func RemoveItem(item_to_remove: GameItem, n:int) -> bool:
 					slot.item = null
 				#for dynamic inventories uncomment the lines below
 				#	slots.erase(slot)
-				signal_update_inventory.emit()
+				update_inventory.emit()
 				return true
 	return false
+#endregion
 
+#region Checks
 func HasItem(item, n) -> bool:
 	for slot in slots:
 		if slot.item == item:
@@ -80,8 +81,9 @@ func HasEmptySlot() -> bool:
 		if slot.amount == 0:
 			return true
 	return false
-	
+#endregion
 
+#region Debug
 func PukeConent():
 	print ("=================")
 	for slot in slots:
@@ -90,3 +92,4 @@ func PukeConent():
 			print (slot.amount)
 			print ("-------------")
 	print ("=================")
+#endregion

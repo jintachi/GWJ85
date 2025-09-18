@@ -12,7 +12,7 @@
 [ext_resource type="Resource" uid="uid://bbrnun7rmqql5" path="res://mechanics/inventory_system/game_items/ITEM_potatoes.tres" id="7_trceg"]
 [ext_resource type="Resource" uid="uid://b07tbtpd5meas" path="res://mechanics/inventory_system/game_items/ITEM_pumpkinseed.tres" id="8_a8y0u"]
 [ext_resource type="Script" uid="uid://dsf1hdod0p1t5" path="res://scenes/game_controller.gd" id="12_a8y0u"]
-[ext_resource type="PackedScene" uid="uid://br8f2t1pkuxd6" path="res://scenes/inv/invpanel.tscn" id="12_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://br8f2t1pkuxd6" path="res://ui/inventory/invpanel.tscn" id="12_eb6dy"]
 [ext_resource type="Resource" uid="uid://c4ys3i5yw878v" path="res://mechanics/inventory_system/game_items/GOLD.tres" id="13_jkv2x"]
 
 [node name="Main" type="Node"]

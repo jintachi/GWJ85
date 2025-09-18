@@ -1,4 +1,4 @@
-extends Control
+extends HBoxContainer
 
 @export var InvPanelItems: Array[GameItem]
 @export var itemSprintes: Array[Sprite2D]

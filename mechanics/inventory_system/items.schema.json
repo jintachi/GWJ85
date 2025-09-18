@@ -13,7 +13,8 @@
                 "type": "object",
                 "x": { "type": "integer" },
                 "y": { "type": "integer" }
-            }
+            },
+            "purchaseable": { "type" : "boolean" }
         },
         "required": [ "id", "name", "description", "value", "texture_pos" ],
         "additionalProperties": false

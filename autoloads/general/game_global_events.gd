@@ -2,3 +2,4 @@
 extends Node
 
 signal game_tick
+signal gold_updated

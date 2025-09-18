@@ -5,4 +5,4 @@ extends Node
 
 func _ready() -> void:
 	## start the game with 100 gold
-	var a = GameGlobal.myInventory.AddItem(goldItem, goldAtGameStart)	
+	GameGlobal.myInventory.AddItem(goldItem, goldAtGameStart)

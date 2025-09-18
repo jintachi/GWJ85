@@ -7,8 +7,7 @@ var selector = 0
 
 func _ready() -> void:
 	updateRecipe()
-	
-	
+
 func updateRecipe() -> void:
 	recipeImage.texture = availableRecipies[selector].item.texture
 	var numI = availableRecipies[selector].ingredients.size()

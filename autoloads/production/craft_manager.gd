@@ -15,7 +15,6 @@ func _ready() -> void:
 	item_atlas = AtlasTexture.new()
 	item_atlas.atlas = FileHelper.load_asset(item_atlas_path)
 	_load_items(item_path)
-	print(item_compendium)
 #endregion
 
 #region Loaders

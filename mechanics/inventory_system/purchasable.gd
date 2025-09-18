@@ -1,22 +1,19 @@
 extends Control
 
 @export var item: GameItem
-@export var itemSprite: Sprite2D
-@export var title: RichTextLabel
-@export var cost: RichTextLabel
+@export var item_texture: TextureRect
+@export var title: Label
+@export var cost: Label
 
 func _ready() -> void:
-	itemSprite.texture = item.texture
+	item_texture.texture = item.texture
 	title.text = item.name
-	cost.text = "cost:" + str(item.value)
-	
-	
+	cost.text = "cost: %s" % item.value
 
-
-func _on_buy_1_button_up() -> void:
-	var a = GameGlobal.myInventory.AddItem(item, 1)	
+func _on_press_by_1() -> void:
+	GameGlobal.myInventory.AddItem(item, 1)
 	GameGlobal.myInventory.PukeConent()
 
-func _on_buy_10_button_up() -> void:
-	GameGlobal.myInventory.AddItem(item, 10)	
+func _on_press_by_10() -> void:
+	GameGlobal.myInventory.AddItem(item, 10)
 	GameGlobal.myInventory.PukeConent()

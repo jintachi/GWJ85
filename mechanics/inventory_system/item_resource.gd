@@ -6,4 +6,5 @@ class_name GameItem extends Resource
 @export var description: StringName = &""
 @export var value : int = 1
 @export var texture : AtlasTexture
+@export var purchaseable : bool = false
 #endregion
