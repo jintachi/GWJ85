@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="GameItem" load_steps=3 format=3 uid="uid://bykbpl0i2cp7b"]
+
+[ext_resource type="Script" uid="uid://cvwm0symgb1qo" path="res://mechanics/InventorySystem/item_resource.gd" id="1_ev56w"]
+[ext_resource type="Texture2D" uid="uid://cgemns8ogl2i0" path="res://assets/IMAGES/GameItems/bread.png" id="2_ev56w"]
+
+[resource]
+script = ExtResource("1_ev56w")
+name = &"BREAD"
+description = &"SOFT AND YUMMY"
+value = 3
+texture_pos = Vector2i(0, 0)
+texture = ExtResource("2_ev56w")
+metadata/_custom_type_script = "uid://cvwm0symgb1qo"

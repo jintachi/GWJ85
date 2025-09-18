@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" load_steps=8 format=3 uid="uid://dsm7m37ch6p6s"]
+
+[ext_resource type="Script" uid="uid://desyw2cls5xdn" path="res://mechanics/InventorySystem/inventory_slot.gd" id="1_5p78x"]
+[ext_resource type="Resource" uid="uid://jpxmiwwepfe2" path="res://mechanics/InventorySystem/GameItems/ITEM_corn.tres" id="2_51frq"]
+[ext_resource type="Script" uid="uid://c1pst88f4uaec" path="res://mechanics/InventorySystem/CraftingRecipe.gd" id="2_f5jsu"]
+[ext_resource type="Resource" uid="uid://bbrnun7rmqql5" path="res://mechanics/InventorySystem/GameItems/ITEM_potatoes.tres" id="3_wk36g"]
+[ext_resource type="Resource" uid="uid://dp0cjbrm22tgw" path="res://mechanics/InventorySystem/GameItems/ITEM_CORNCHOWDER.tres" id="4_gltjo"]
+
+[sub_resource type="Resource" id="Resource_gqx3j"]
+script = ExtResource("1_5p78x")
+item = ExtResource("2_51frq")
+amount = 2
+metadata/_custom_type_script = "uid://desyw2cls5xdn"
+
+[sub_resource type="Resource" id="Resource_ythk8"]
+script = ExtResource("1_5p78x")
+item = ExtResource("3_wk36g")
+amount = 1
+metadata/_custom_type_script = "uid://desyw2cls5xdn"
+
+[resource]
+script = ExtResource("2_f5jsu")
+Name = &"CORN CHOWDER"
+unlocked = true
+item = ExtResource("4_gltjo")
+ingredients = Array[ExtResource("1_5p78x")]([SubResource("Resource_gqx3j"), SubResource("Resource_ythk8")])
+metadata/_custom_type_script = "uid://c1pst88f4uaec"

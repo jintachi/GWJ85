@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" load_steps=6 format=3 uid="uid://f1435sh8ucrg"]
+
+[ext_resource type="Script" uid="uid://desyw2cls5xdn" path="res://mechanics/InventorySystem/inventory_slot.gd" id="1_uaw4v"]
+[ext_resource type="Resource" uid="uid://b07tbtpd5meas" path="res://mechanics/InventorySystem/GameItems/ITEM_pumpkinseed.tres" id="2_2tau8"]
+[ext_resource type="Script" uid="uid://c1pst88f4uaec" path="res://mechanics/InventorySystem/CraftingRecipe.gd" id="2_nvqia"]
+[ext_resource type="Resource" uid="uid://cyhrwps0dsii3" path="res://mechanics/InventorySystem/GameItems/ITEM_TOASTED_PUMPKINSEED.tres" id="3_cw0sb"]
+
+[sub_resource type="Resource" id="Resource_utn0m"]
+script = ExtResource("1_uaw4v")
+item = ExtResource("2_2tau8")
+amount = 1
+metadata/_custom_type_script = "uid://desyw2cls5xdn"
+
+[resource]
+script = ExtResource("2_nvqia")
+Name = &"TOASTED PUMPKIN SEED"
+unlocked = true
+item = ExtResource("3_cw0sb")
+ingredients = Array[ExtResource("1_uaw4v")]([SubResource("Resource_utn0m")])
+metadata/_custom_type_script = "uid://c1pst88f4uaec"
