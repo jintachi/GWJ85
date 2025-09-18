@@ -11,7 +11,6 @@ config_version=5
 [application]
 
 config/name="GWJ85"
-config/version="2025.6.2-template.b132d5"
 run/main_scene="uid://bf0e0l206u8xd"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
@@ -29,10 +28,13 @@ TileMapManager="*res://autoloads/general/tile_map_manager.gd"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=800
+window/size/viewport_width=480
+window/size/viewport_height=270
 window/size/resizable=false
-window/stretch/mode="viewport"
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="canvas_items"
+window/stretch/scale_mode="integer"
 
 [dotnet]
 
