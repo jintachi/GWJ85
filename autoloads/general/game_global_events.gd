@@ -2,4 +2,4 @@
 extends Node
 
 signal game_tick
-signal gold_updated
+signal gold_updated(value: int)

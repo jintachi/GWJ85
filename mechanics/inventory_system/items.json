@@ -9,5 +9,27 @@
             "y": 0
         },
         "purchaseable": true
+    },
+    {
+        "id": 1,
+        "name": "Carrot Seed",
+        "description": "Grows carrots",
+        "value": 1,
+        "texture_pos": {
+            "x": 0,
+            "y": 0
+        },
+        "purchaseable": true
+    },
+    {
+        "id": 3,
+        "name": "Toasted Pumpkin Seed",
+        "description": "If you like that sort of thing.",
+        "value": 3,
+        "texture_pos": {
+            "x": 0,
+            "y": 0
+        },
+        "purchaseable": false
     }
 ]

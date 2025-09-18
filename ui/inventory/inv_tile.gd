@@ -9,6 +9,8 @@ var count : int :
 	set(value):
 		if value <= 0:
 			queue_free()
+		
+		count = value
 		_update_count()
 #endregion
 

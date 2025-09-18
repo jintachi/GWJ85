@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="GameRecipe" load_steps=6 format=3 uid="uid://db01rpmc6jalo"]
 
-[ext_resource type="Script" uid="uid://desyw2cls5xdn" path="res://mechanics/inventory_system/inventory_slot.gd" id="1_ksw2v"]
+[ext_resource type="Script" uid="uid://desyw2cls5xdn" path="res://autoloads/production/inventory_slot.gd" id="1_ksw2v"]
 [ext_resource type="Resource" uid="uid://sjqurx0cnlmh" path="res://mechanics/inventory_system/game_items/ITEM_grain.tres" id="2_kf0wu"]
 [ext_resource type="Resource" uid="uid://bykbpl0i2cp7b" path="res://mechanics/inventory_system/game_items/ITEM_BREAD.tres" id="3_xrjoo"]
 [ext_resource type="Script" uid="uid://c1pst88f4uaec" path="res://mechanics/inventory_system/recipe_resource.gd" id="4_1uri7"]

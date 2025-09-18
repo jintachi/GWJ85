@@ -7,6 +7,7 @@ var selected_tile : Tile :
 	get:
 		return selected_tile
 	set(value):
+		selected_tile = value
 		print("Changed Selected Tile to " + value.name)
 #endregion
 

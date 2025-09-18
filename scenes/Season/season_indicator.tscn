@@ -35,11 +35,7 @@ radial_fill_degrees = 270.0
 texture_under = ExtResource("3_4cfuw")
 texture_progress = ExtResource("4_hjs31")
 
-[node name="SeasonLabel" type="RichTextLabel" parent="VBoxContainer"]
+[node name="SeasonLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_colors/default_color = Color(0.282747, 0.563302, 0.378118, 1)
-theme_override_font_sizes/normal_font_size = 35
-bbcode_enabled = true
 text = "SPRING"
-fit_content = true
 horizontal_alignment = 1

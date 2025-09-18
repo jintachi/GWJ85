@@ -4,7 +4,7 @@ extends Control
 #region Declarations
 @export var season_clock : TextureRect
 @export var season_progress : TextureProgressBar
-@export var season_label : RichTextLabel
+@export var season_label : Label
 
 @export var active_season := Genum.Season.SPRING
 @export var season_length : float = 30

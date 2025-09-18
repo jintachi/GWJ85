@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="GameRecipe" load_steps=6 format=3 uid="uid://f1435sh8ucrg"]
 
-[ext_resource type="Script" uid="uid://desyw2cls5xdn" path="res://mechanics/inventory_system/inventory_slot.gd" id="1_ovuwi"]
+[ext_resource type="Script" uid="uid://desyw2cls5xdn" path="res://autoloads/production/inventory_slot.gd" id="1_ovuwi"]
 [ext_resource type="Resource" uid="uid://b07tbtpd5meas" path="res://mechanics/inventory_system/game_items/ITEM_pumpkinseed.tres" id="2_b3pwr"]
 [ext_resource type="Resource" uid="uid://cyhrwps0dsii3" path="res://mechanics/inventory_system/game_items/ITEM_TOASTED_PUMPKINSEED.tres" id="3_3hdog"]
 [ext_resource type="Script" uid="uid://c1pst88f4uaec" path="res://mechanics/inventory_system/recipe_resource.gd" id="4_a5g0h"]

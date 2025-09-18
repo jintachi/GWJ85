@@ -1,23 +1,18 @@
-[gd_scene load_steps=15 format=3 uid="uid://bf0e0l206u8xd"]
+[gd_scene load_steps=12 format=3 uid="uid://bf0e0l206u8xd"]
 
 [ext_resource type="Texture2D" uid="uid://b4ffjm8nqvu1b" path="res://assets/images/witch_hut.png" id="1_tefeu"]
 [ext_resource type="Script" uid="uid://y6eqx6daoss2" path="res://scenes/witch_hut.gd" id="2_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://dovf40pax5p1w" path="res://mechanics/inventory_system/purchasable.tscn" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://l2mfo5frjja5" path="res://mechanics/inventory_system/recipe_panel.tscn" id="4_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://dq4wge02pusmm" path="res://scenes/cell_system/tile_grid.tscn" id="4_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://8petnppadwyk" path="res://scenes/season/season_indicator.tscn" id="4_tbgi4"]
 [ext_resource type="Resource" uid="uid://cxm8yqp6ybek5" path="res://mechanics/inventory_system/game_items/ITEM_carrotseed.tres" id="5_ya4ey"]
 [ext_resource type="Resource" uid="uid://jpxmiwwepfe2" path="res://mechanics/inventory_system/game_items/ITEM_corn.tres" id="6_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://crlhxe7kpoppn" path="res://assets/images/travelling_sales.png" id="7_o6xl0"]
 [ext_resource type="Resource" uid="uid://bbrnun7rmqql5" path="res://mechanics/inventory_system/game_items/ITEM_potatoes.tres" id="7_trceg"]
 [ext_resource type="Resource" uid="uid://b07tbtpd5meas" path="res://mechanics/inventory_system/game_items/ITEM_pumpkinseed.tres" id="8_a8y0u"]
-[ext_resource type="Script" uid="uid://dsf1hdod0p1t5" path="res://scenes/game_controller.gd" id="12_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://br8f2t1pkuxd6" path="res://ui/inventory/invpanel.tscn" id="12_eb6dy"]
-[ext_resource type="Resource" uid="uid://c4ys3i5yw878v" path="res://mechanics/inventory_system/game_items/GOLD.tres" id="13_jkv2x"]
 
 [node name="Main" type="Node"]
-
-[node name="BACKGROUND" type="Node" parent="."]
 
 [node name="UI" type="Node" parent="."]
 
@@ -117,24 +112,6 @@ grow_vertical = 2
 
 [node name="TileGrid" parent="UI/CenterContainer2" instance=ExtResource("4_jyhfs")]
 layout_mode = 2
-
-[node name="CenterContainer5" type="CenterContainer" parent="UI"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_top = 25.81
-offset_right = 20.0
-offset_bottom = 65.81
-grow_horizontal = 2
-
-[node name="Node2D" parent="UI/CenterContainer5" instance=ExtResource("4_tbgi4")]
-layout_mode = 2
-season_length = 30.0
-
-[node name="GameController" type="Node" parent="."]
-script = ExtResource("12_a8y0u")
-goldItem = ExtResource("13_jkv2x")
 
 [node name="InventoryPanel" parent="." instance=ExtResource("12_eb6dy")]
 offset_top = -67.0

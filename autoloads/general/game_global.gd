@@ -2,8 +2,6 @@
 extends Node
 
 #region Declarations
-@onready var myInventory : Inventory = Inventory.new()
-
 var delta_t : float = 1.0 ## The amount of time between ticks.
 #endregion
 

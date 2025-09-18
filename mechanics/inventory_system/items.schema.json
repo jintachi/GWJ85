@@ -12,7 +12,8 @@
             "texture_pos": {
                 "type": "object",
                 "x": { "type": "integer" },
-                "y": { "type": "integer" }
+                "y": { "type": "integer" },
+                "required": [ "x", "y" ]
             },
             "purchaseable": { "type" : "boolean" }
         },

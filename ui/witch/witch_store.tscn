@@ -20,3 +20,4 @@ horizontal_scroll_mode = 0
 
 [node name="StoreContainer" type="VBoxContainer" parent="ScrollContainer"]
 layout_mode = 2
+size_flags_horizontal = 3

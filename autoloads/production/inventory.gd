@@ -1,5 +1,5 @@
 ## Holds all the item data that the player currently has.
-class_name Inventory extends Node
+extends Node
 
 #region Declarations
 signal update_inventory
@@ -14,7 +14,7 @@ func InvSize():
 	return slots.size()
 
 ##expand inventory by n slots; 
-func AddSlots(_n:int=1) -> void:
+func AddSlots(_n: int = 1) -> void:
 	for x in range(_n):
 		var newSlot = InventorySlot.new()
 		slots.append(newSlot)
@@ -23,7 +23,8 @@ func AddSlots(_n:int=1) -> void:
 ##add n GameItem to inventory
 func AddItem(new_item: GameItem, n: int) -> bool:
 	## make sure there are slots; this need fixing and put someplace else
-	if InvSize() == 0:AddSlots(defaultSize)
+	if InvSize() == 0: 
+		AddSlots(defaultSize)
 	##add to slot that already contains item
 	for slot in slots:
 		if slot.item == new_item:

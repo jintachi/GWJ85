@@ -37,6 +37,7 @@ func _load_item(data: Dictionary) -> GameItem:
 	item.name = data.get("name")
 	item.description = data.get("description")
 	item.value = data.get("value")
+	item.purchaseable = data.get("purchaseable", false)
 	
 	var texture_pos = data.get("texture_pos")
 	var texture_vec = Vector2i(texture_pos.get("x"), texture_pos.get("y"))

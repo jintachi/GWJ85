@@ -1,6 +1,57 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://b5ldjeqg05ylx"]
+[gd_resource type="Theme" load_steps=17 format=3 uid="uid://b5ldjeqg05ylx"]
 
 [ext_resource type="FontFile" uid="uid://deajib16ve5y5" path="res://assets/fonts/m5x7.ttf" id="1_rcrbt"]
+[ext_resource type="Texture2D" uid="uid://hqg1ouqdasam" path="res://assets/images/button_normal.png" id="2_fdeln"]
+[ext_resource type="Texture2D" uid="uid://ci1nudux3sor0" path="res://assets/images/panel_9.png" id="3_nbvjx"]
+[ext_resource type="Texture2D" uid="uid://c37svikyvukq8" path="res://assets/images/tab_disabled.png" id="4_b3l3t"]
+[ext_resource type="Texture2D" uid="uid://luo8lao8oix4" path="res://assets/images/tab_hovered.png" id="5_bjlnl"]
+[ext_resource type="Texture2D" uid="uid://cdgcjhosm17ou" path="res://assets/images/tab_selected.png" id="6_p1y5s"]
+[ext_resource type="Texture2D" uid="uid://cf0s2a5qigvhd" path="res://assets/images/tab_unselected.png" id="7_o2f8i"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aceb1"]
+texture = ExtResource("2_fdeln")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ap76v"]
+texture = ExtResource("3_nbvjx")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2ptph"]
+texture = ExtResource("3_nbvjx")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k8j1v"]
+texture = ExtResource("4_b3l3t")
+texture_margin_left = 4.0
+texture_margin_top = 3.0
+texture_margin_right = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_asl4h"]
+texture = ExtResource("5_bjlnl")
+texture_margin_left = 4.0
+texture_margin_top = 3.0
+texture_margin_right = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t5jx6"]
+texture = ExtResource("6_p1y5s")
+texture_margin_left = 4.0
+texture_margin_top = 3.0
+texture_margin_right = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2f4au"]
+texture = ExtResource("7_o2f8i")
+texture_margin_left = 4.0
+texture_margin_top = 3.0
+texture_margin_right = 4.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vcdvm"]
 bg_color = Color(0.288103, 0.236779, 0.150083, 1)
@@ -21,7 +72,21 @@ border_color = Color(0.185728, 0.117668, 0.0276232, 1)
 border_blend = true
 
 [resource]
+Label/colors/font_color = Color(0.890196, 0.580392, 0.329412, 1)
 Label/fonts/font = ExtResource("1_rcrbt")
+OptionButton/colors/font_color = Color(0.215686, 0.101961, 0.278431, 1)
+OptionButton/styles/normal = SubResource("StyleBoxTexture_aceb1")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_ap76v")
+TabContainer/colors/font_disabled_color = Color(0.376471, 0.145098, 0.278431, 1)
+TabContainer/colors/font_hovered_color = Color(0.905882, 0.690196, 0.423529, 1)
+TabContainer/colors/font_outline_color = Color(0.215686, 0.101961, 0.278431, 1)
+TabContainer/colors/font_selected_color = Color(0.905882, 0.690196, 0.423529, 1)
+TabContainer/colors/font_unselected_color = Color(0.890196, 0.580392, 0.329412, 1)
+TabContainer/styles/panel = SubResource("StyleBoxTexture_2ptph")
+TabContainer/styles/tab_disabled = SubResource("StyleBoxTexture_k8j1v")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxTexture_asl4h")
+TabContainer/styles/tab_selected = SubResource("StyleBoxTexture_t5jx6")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxTexture_2f4au")
 Tile/base_type = &"PanelContainer"
 Tile/styles/selected = SubResource("StyleBoxFlat_vcdvm")
 Tile/styles/unselected = SubResource("StyleBoxFlat_fi1dl")

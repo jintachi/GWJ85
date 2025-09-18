@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://df5cg85urac46"]
+
+[ext_resource type="PackedScene" uid="uid://djrmvspurubgo" path="res://ui/hud.tscn" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://dqfuhc05wjn5c" path="res://scenes/game.gd" id="1_yqjtg"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_yqjtg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.215686, 0.101961, 0.278431, 1)
+
+[node name="HUD" parent="." instance=ExtResource("1_uwrxv")]

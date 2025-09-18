@@ -17,6 +17,8 @@ func _build_store() -> void:
 		return
 	
 	for item in CraftManager.item_compendium.values():
+		if not item.purchaseable:
+			continue
 		var purchaseable = purchaseable_ref.instantiate()
 		purchaseable.item = item
 		store.add_child(purchaseable)
