@@ -6,6 +6,10 @@ extends Node
 #endregion
 
 #region Variables
+@export var sfx_list : Array[AudioStream]
+@export var ui_list : Array[AudioStream]
+@export var ambient_list : Array[AudioStream]
+
 var audio_players : Dictionary[Genum.BusID, Array]
 var audio_group_count : int = 4
 var sfx_pool : Dictionary[StringName, AudioStream] = {}
@@ -18,6 +22,7 @@ var playing : Array[StringName]
 #region Built-Ins
 func _ready() -> void:
 	setup_audio_players()
+	load_sounds()
 #endregion
 
 #region Setup Methods
@@ -36,6 +41,19 @@ func setup_audio_players() -> void:
 				audio_players.set(genum, [player])
 			
 			player.finished.connect(_on_player_finished)
+
+func load_sounds() -> void:
+	for sfx in sfx_list:
+		sfx.resource_name = grab_name(sfx.resource_path)
+		add_sound(sfx)
+	
+	for ui in ui_list:
+		ui.resource_name = grab_name(ui.resource_path)
+		add_sound(ui, Genum.BusID.UI)
+	
+	for ambient in ambient_list:
+		ambient.resource_name = grab_name(ambient.resource_path)
+		add_sound(ambient, Genum.BusID.AMBIENT)
 
 ## Adds a sound to the correct pool based on [param bus].
 func add_sound(sound: AudioStream, bus: Genum.BusID = Genum.BusID.SFX) -> void:
@@ -119,6 +137,12 @@ func find_open_player(bus: Genum.BusID) -> AudioStreamPlayer:
 	
 	push_warning("There is no open player...")
 	return null 
+#endregion
+
+#region Helpers
+## A helper function to quickly grab the actual name of the song file by inserting its [param path].
+func grab_name(path: String) -> String:
+	return path.split("/")[path.split("/").size() - 1].split(".")[0]
 #endregion
 
 #region Signal Callbacks
