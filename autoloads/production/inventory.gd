@@ -47,6 +47,7 @@ func AddItem(new_item: GameItem, n: int) -> bool:
 	#signal_update_inventory.emit()
 	##if you didn't find a usable slot return false
 	return false
+
 func RemoveItem(item_to_remove: GameItem, n:int) -> bool:
 	for slot in slots:
 		if slot.item == item_to_remove:

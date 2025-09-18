@@ -3,8 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://djrmvspurubgo" path="res://ui/hud.tscn" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://dqfuhc05wjn5c" path="res://scenes/game.gd" id="1_yqjtg"]
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node" node_paths=PackedStringArray("hud")]
 script = ExtResource("1_yqjtg")
+hud = NodePath("HUD")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15

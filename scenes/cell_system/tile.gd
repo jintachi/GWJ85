@@ -2,7 +2,7 @@
 class_name Tile extends PanelContainer
 
 #region Delcarations
-@export_custom(PROPERTY_HINT_RESOURCE_TYPE, "ProcessorTile, ProducerTile, TransportTile") var tile_type : Resource
+@export_custom(PROPERTY_HINT_RESOURCE_TYPE, "ProcessorTile, ProducerTile") var tile_type : Resource
 ## alternatively
 @export var tyleType_alternate: Machine
 @export var selected: bool = false
@@ -22,7 +22,7 @@ func _ready() -> void:
 		parent = get_parent()
 	
 	set_themes()
-	self.add_theme_stylebox_override("panel",unselected_theme)
+	self.add_theme_stylebox_override("panel", unselected_theme)
 
 	
 #endregion
@@ -38,8 +38,6 @@ func report_function() -> void:
 			print("Producer")
 		Genum.TileType.PROCESSOR:
 			print("Processor")
-		Genum.TileType.TRANSPORTER:
-			print("Transport")
 		Genum.TileType.DELIVERY:
 			print("Deliver")
 

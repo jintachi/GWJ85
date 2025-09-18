@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://8aixiuyiiivg" path="res://ui/pause_menu.gd" id="1_50142"]
 
-[node name="PauseMenu" type="PanelContainer" node_paths=PackedStringArray("menu", "settings")]
+[node name="PauseMenu" type="PanelContainer" node_paths=PackedStringArray("menu", "settings", "master_vslide", "sfx_vslide", "ui_vslide", "ost_vslide")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -17,6 +17,10 @@ grow_vertical = 2
 script = ExtResource("1_50142")
 menu = NodePath("Menu")
 settings = NodePath("Settings")
+master_vslide = NodePath("Settings/VBoxContainer/AudioController/MasterContainer/VSlider")
+sfx_vslide = NodePath("Settings/VBoxContainer/AudioController/SFXContainer/VSlider")
+ui_vslide = NodePath("Settings/VBoxContainer/AudioController/UIContainer/VSlider")
+ost_vslide = NodePath("Settings/VBoxContainer/AudioController/OSTContainer/VSlider")
 
 [node name="Menu" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -55,24 +59,6 @@ theme_override_constants/margin_bottom = 10
 [node name="VBoxContainer" type="VBoxContainer" parent="Settings"]
 layout_mode = 2
 
-[node name="ResolutionContainer" type="HBoxContainer" parent="Settings/VBoxContainer"]
-layout_mode = 2
-
-[node name="ResolutionLabel" type="Label" parent="Settings/VBoxContainer/ResolutionContainer"]
-layout_mode = 2
-text = "Game Resolution: "
-
-[node name="OptionButton" type="OptionButton" parent="Settings/VBoxContainer/ResolutionContainer"]
-layout_mode = 2
-selected = 0
-item_count = 3
-popup/item_0/text = "640x480"
-popup/item_0/id = 0
-popup/item_1/text = "1280x960"
-popup/item_1/id = 1
-popup/item_2/text = "1920x1440"
-popup/item_2/id = 2
-
 [node name="AudioController" type="HBoxContainer" parent="Settings/VBoxContainer"]
 layout_mode = 2
 
@@ -87,6 +73,8 @@ text = "Master"
 [node name="VSlider" type="VSlider" parent="Settings/VBoxContainer/AudioController/MasterContainer"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+max_value = 1.0
+step = 0.01
 
 [node name="SFXContainer" type="VBoxContainer" parent="Settings/VBoxContainer/AudioController"]
 layout_mode = 2
@@ -99,6 +87,8 @@ text = "SFX"
 [node name="VSlider" type="VSlider" parent="Settings/VBoxContainer/AudioController/SFXContainer"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+max_value = 1.0
+step = 0.01
 
 [node name="UIContainer" type="VBoxContainer" parent="Settings/VBoxContainer/AudioController"]
 layout_mode = 2
@@ -111,6 +101,8 @@ text = "UI"
 [node name="VSlider" type="VSlider" parent="Settings/VBoxContainer/AudioController/UIContainer"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+max_value = 1.0
+step = 0.01
 
 [node name="OSTContainer" type="VBoxContainer" parent="Settings/VBoxContainer/AudioController"]
 layout_mode = 2
@@ -123,10 +115,16 @@ text = "OST"
 [node name="VSlider" type="VSlider" parent="Settings/VBoxContainer/AudioController/OSTContainer"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+max_value = 1.0
+step = 0.01
 
 [node name="MenuButton" type="Button" parent="Settings/VBoxContainer"]
 layout_mode = 2
 text = "Return to Menu"
 
 [connection signal="pressed" from="Menu/VBoxContainer/SettingsButton" to="." method="_settings_switch"]
+[connection signal="value_changed" from="Settings/VBoxContainer/AudioController/MasterContainer/VSlider" to="." method="_master_volume_changed"]
+[connection signal="value_changed" from="Settings/VBoxContainer/AudioController/SFXContainer/VSlider" to="." method="_sfx_volume_changed"]
+[connection signal="value_changed" from="Settings/VBoxContainer/AudioController/UIContainer/VSlider" to="." method="_ui_volume_changed"]
+[connection signal="value_changed" from="Settings/VBoxContainer/AudioController/OSTContainer/VSlider" to="." method="_ost_volume_changed"]
 [connection signal="pressed" from="Settings/VBoxContainer/MenuButton" to="." method="_settings_switch"]

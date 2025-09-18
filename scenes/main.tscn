@@ -1,101 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bf0e0l206u8xd"]
+[gd_scene load_steps=3 format=3 uid="uid://bf0e0l206u8xd"]
 
-[ext_resource type="Texture2D" uid="uid://b4ffjm8nqvu1b" path="res://assets/images/witch_hut.png" id="1_tefeu"]
-[ext_resource type="Script" uid="uid://y6eqx6daoss2" path="res://scenes/witch_hut.gd" id="2_o6xl0"]
-[ext_resource type="PackedScene" uid="uid://dovf40pax5p1w" path="res://mechanics/inventory_system/purchasable.tscn" id="2_sugp2"]
-[ext_resource type="PackedScene" uid="uid://l2mfo5frjja5" path="res://mechanics/inventory_system/recipe_panel.tscn" id="4_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://dq4wge02pusmm" path="res://scenes/cell_system/tile_grid.tscn" id="4_jyhfs"]
-[ext_resource type="Resource" uid="uid://cxm8yqp6ybek5" path="res://mechanics/inventory_system/game_items/ITEM_carrotseed.tres" id="5_ya4ey"]
-[ext_resource type="Resource" uid="uid://jpxmiwwepfe2" path="res://mechanics/inventory_system/game_items/ITEM_corn.tres" id="6_eb6dy"]
-[ext_resource type="Texture2D" uid="uid://crlhxe7kpoppn" path="res://assets/images/travelling_sales.png" id="7_o6xl0"]
-[ext_resource type="Resource" uid="uid://bbrnun7rmqql5" path="res://mechanics/inventory_system/game_items/ITEM_potatoes.tres" id="7_trceg"]
-[ext_resource type="Resource" uid="uid://b07tbtpd5meas" path="res://mechanics/inventory_system/game_items/ITEM_pumpkinseed.tres" id="8_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://br8f2t1pkuxd6" path="res://ui/inventory/invpanel.tscn" id="12_eb6dy"]
 
 [node name="Main" type="Node"]
 
 [node name="UI" type="Node" parent="."]
-
-[node name="CenterContainer" type="CenterContainer" parent="UI"]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -400.0
-offset_top = -335.0
-offset_bottom = 399.0
-grow_horizontal = 0
-grow_vertical = 2
-tooltip_text = "WITCH HUT -- SHE SELLS STUFF"
-
-[node name="Caravan" type="Sprite2D" parent="UI/CenterContainer"]
-position = Vector2(140, 609)
-scale = Vector2(0.699219, 0.554688)
-texture = ExtResource("7_o6xl0")
-
-[node name="Button2" type="Button" parent="UI/CenterContainer/Caravan"]
-offset_left = 110.123
-offset_top = -1070.87
-offset_right = 262.123
-offset_bottom = -1008.87
-theme_override_font_sizes/font_size = 20
-text = "WITCH STORE"
-
-[node name="WitchHut" type="Sprite2D" parent="UI/CenterContainer"]
-position = Vector2(130, 95)
-scale = Vector2(0.816406, 0.789063)
-texture = ExtResource("1_tefeu")
-script = ExtResource("2_o6xl0")
-
-[node name="Button" type="Button" parent="UI/CenterContainer/WitchHut"]
-offset_left = 109.014
-offset_top = 594.376
-offset_right = 261.014
-offset_bottom = 656.376
-theme_override_font_sizes/font_size = 20
-text = "CARRAVAN"
-
-[node name="RECIPE_PANEL" parent="UI/CenterContainer/WitchHut" instance=ExtResource("4_a8y0u")]
-offset_left = -997.0
-offset_top = -117.0
-offset_right = -997.0
-offset_bottom = -117.0
-
-[node name="Panel" type="Panel" parent="UI/CenterContainer"]
-visible = false
-custom_minimum_size = Vector2(370, 500)
-layout_mode = 2
-
-[node name="ScrollContainer" type="ScrollContainer" parent="UI/CenterContainer/Panel"]
-custom_minimum_size = Vector2(300, 400)
-layout_mode = 0
-offset_right = 412.0
-offset_bottom = 709.0
-
-[node name="GridContainer" type="GridContainer" parent="UI/CenterContainer/Panel/ScrollContainer"]
-layout_mode = 2
-theme_override_constants/h_separation = 100
-theme_override_constants/v_separation = 100
-
-[node name="Purchasable" parent="UI/CenterContainer/Panel/ScrollContainer/GridContainer" instance=ExtResource("2_sugp2")]
-layout_mode = 2
-
-[node name="Purchasable2" parent="UI/CenterContainer/Panel/ScrollContainer/GridContainer" instance=ExtResource("2_sugp2")]
-layout_mode = 2
-item = ExtResource("5_ya4ey")
-
-[node name="Purchasable3" parent="UI/CenterContainer/Panel/ScrollContainer/GridContainer" instance=ExtResource("2_sugp2")]
-layout_mode = 2
-item = ExtResource("6_eb6dy")
-
-[node name="Purchasable4" parent="UI/CenterContainer/Panel/ScrollContainer/GridContainer" instance=ExtResource("2_sugp2")]
-layout_mode = 2
-item = ExtResource("7_trceg")
-
-[node name="Purchasable6" parent="UI/CenterContainer/Panel/ScrollContainer/GridContainer" instance=ExtResource("2_sugp2")]
-layout_mode = 2
-item = ExtResource("8_a8y0u")
 
 [node name="CenterContainer2" type="CenterContainer" parent="UI"]
 anchors_preset = 8
@@ -115,5 +25,3 @@ layout_mode = 2
 
 [node name="InventoryPanel" parent="." instance=ExtResource("12_eb6dy")]
 offset_top = -67.0
-
-[connection signal="button_up" from="UI/CenterContainer/Caravan/Button2" to="UI/CenterContainer/WitchHut" method="_on_button_button_up"]

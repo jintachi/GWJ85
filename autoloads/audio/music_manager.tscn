@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://dr6dlldfsixjc"]
+
+[ext_resource type="Script" uid="uid://dmy7las7as3pk" path="res://autoloads/audio/music_manager.gd" id="1_3u18u"]
+[ext_resource type="Script" uid="uid://btlga8p23nlo8" path="res://utility/data_holders/ost_holder.gd" id="2_1wrd4"]
+[ext_resource type="AudioStream" uid="uid://cmt1gblo2842j" path="res://assets/ost/Main Menu Theme.wav" id="3_3vt2u"]
+
+[sub_resource type="Resource" id="Resource_kebxf"]
+script = ExtResource("2_1wrd4")
+ost_name = &"MainTheme"
+ost_stream = ExtResource("3_3vt2u")
+can_loop = false
+loop_vector = Vector2(0, -1)
+metadata/_custom_type_script = "uid://btlga8p23nlo8"
+
+[node name="MusicManager" type="Node"]
+script = ExtResource("1_3u18u")
+song_pool = Array[ExtResource("2_1wrd4")]([SubResource("Resource_kebxf")])

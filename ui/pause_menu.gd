@@ -2,8 +2,14 @@
 extends PanelContainer
 
 #region Declarations
+@export_category("Menu")
 @export var menu : MarginContainer
+@export_category("Settings")
 @export var settings : MarginContainer
+@export var master_vslide : VSlider
+@export var sfx_vslide : VSlider
+@export var ui_vslide : VSlider
+@export var ost_vslide : VSlider
 
 var settings_open : bool = false :
 	set(value):
@@ -17,8 +23,22 @@ var settings_open : bool = false :
 
 #region Built-Ins
 func _ready() -> void:
-	#hide()
-	pass
+	hide()
+	
+	_audio_setup()
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause"):
+		show()
+#endregion
+
+#region Setups
+## Sets up all the Vsliders so that they are at the correct volume levels.
+func _audio_setup() -> void:
+	master_vslide.value = AudioServer.get_bus_volume_linear(Genum.BusID.MASTER)
+	sfx_vslide.value = AudioServer.get_bus_volume_linear(Genum.BusID.SFX)
+	ui_vslide.value = AudioServer.get_bus_volume_linear(Genum.BusID.UI)
+	ost_vslide.value = AudioServer.get_bus_volume_linear(Genum.BusID.OST)
 #endregion
 
 #region Helpers
@@ -34,4 +54,16 @@ func _close_settings() -> void:
 #region Signal Callbacks
 func _settings_switch() -> void:
 	settings_open = not settings_open
+
+func _master_volume_changed(value: float) -> void:
+	AudioServer.set_bus_volume_linear(Genum.BusID.MASTER, value)
+
+func _sfx_volume_changed(value: float) -> void:
+	AudioServer.set_bus_volume_linear(Genum.BusID.SFX, value)
+
+func _ui_volume_changed(value: float) -> void:
+	AudioServer.set_bus_volume_linear(Genum.BusID.UI, value)
+
+func _ost_volume_changed(value: float) -> void:
+	AudioServer.set_bus_volume_linear(Genum.BusID.OST, value)
 #endregion
