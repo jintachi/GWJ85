@@ -23,3 +23,10 @@ enum Season {
 	FALL, 
 	WINTER 
 }
+
+enum ShopScreen {
+	WITCH,
+	CARAVAN,
+	RECIPE,
+	SELECTOR
+}

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://daltoig2r6xpk" path="res://ui/witch/witch_store.gd" id="1_t3cft"]
 [ext_resource type="PackedScene" uid="uid://dovf40pax5p1w" path="res://mechanics/inventory_system/purchasable.tscn" id="2_xj1sp"]
 
-[node name="Store" type="PanelContainer" node_paths=PackedStringArray("witch_store", "caravan_store")]
+[node name="Store" type="PanelContainer" node_paths=PackedStringArray("witch_store", "caravan_store", "recipe_screen", "tile_screen")]
 anchors_preset = -1
 anchor_left = 0.7
 anchor_top = 0.3
@@ -12,14 +12,16 @@ anchor_bottom = 0.8
 grow_horizontal = 0
 script = ExtResource("1_t3cft")
 purchaseable_ref = ExtResource("2_xj1sp")
-witch_store = NodePath("Witch/StoreContainer")
-caravan_store = NodePath("Caravan/StoreContainer")
+witch_store = NodePath("Witch/WitchStore")
+caravan_store = NodePath("Caravan/CaravanStore")
+recipe_screen = NodePath("Recipes/RecipeScreen")
+tile_screen = NodePath("Tiles/TilesScreen")
 
 [node name="Witch" type="ScrollContainer" parent="."]
 layout_mode = 2
 horizontal_scroll_mode = 0
 
-[node name="StoreContainer" type="VBoxContainer" parent="Witch"]
+[node name="WitchStore" type="VBoxContainer" parent="Witch"]
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -28,6 +30,20 @@ visible = false
 layout_mode = 2
 horizontal_scroll_mode = 0
 
-[node name="StoreContainer" type="VBoxContainer" parent="Caravan"]
+[node name="CaravanStore" type="VBoxContainer" parent="Caravan"]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="Recipes" type="ScrollContainer" parent="."]
+visible = false
+layout_mode = 2
+
+[node name="RecipeScreen" type="VBoxContainer" parent="Recipes"]
+layout_mode = 2
+
+[node name="Tiles" type="ScrollContainer" parent="."]
+visible = false
+layout_mode = 2
+
+[node name="TilesScreen" type="VBoxContainer" parent="Tiles"]
+layout_mode = 2

@@ -5,15 +5,22 @@ extends PanelContainer
 @export var purchaseable_ref : PackedScene
 @export var witch_store : VBoxContainer
 @export var caravan_store : VBoxContainer
+@export var recipe_screen : VBoxContainer
+@export var tile_screen : VBoxContainer
 
-var viewing_witch : bool = true :
+var viewing_screen : Genum.ShopScreen = Genum.ShopScreen.WITCH :
 	set(value):
-		if value:
-			_open_witch_store()
-		else:
-			_close_witch_store()
+		match(value):
+			Genum.ShopScreen.WITCH:
+				_select_witch()
+			Genum.ShopScreen.CARAVAN:
+				_select_caravan()
+			Genum.ShopScreen.RECIPE:
+				_select_recipe()
+			Genum.ShopScreen.SELECTOR:
+				_select_tiles()
 		
-		viewing_witch = value
+		viewing_screen = value
 #endregion
 
 #region Built-Ins
@@ -35,11 +42,22 @@ func _build_store() -> void:
 #endregion
 
 #region Helpers
-func _open_witch_store() -> void:
-	witch_store.get_parent().show()
-	caravan_store.get_parent().hide()
+func _select_switch(switch : VBoxContainer) -> void:
+	for screen in [witch_store, caravan_store, recipe_screen, tile_screen]:
+		if screen == switch:
+			switch.get_parent().show()
+		else:
+			screen.get_parent().hide()
 
-func _close_witch_store() -> void:
-	witch_store.get_parent().hide()
-	caravan_store.get_parent().show()
+func _select_witch() -> void:
+	_select_switch(witch_store)
+
+func _select_caravan() -> void:
+	_select_switch(caravan_store)
+
+func _select_recipe() -> void:
+	_select_switch(recipe_screen)
+
+func _select_tiles() -> void:
+	_select_switch(tile_screen)
 #endregion

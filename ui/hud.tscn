@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://djrmvspurubgo"]
+[gd_scene load_steps=9 format=3 uid="uid://djrmvspurubgo"]
 
 [ext_resource type="Script" uid="uid://du7njqoumqj0v" path="res://ui/hud.gd" id="1_546lt"]
 [ext_resource type="PackedScene" uid="uid://8petnppadwyk" path="res://scenes/season/season_indicator.tscn" id="1_rbyyf"]
 [ext_resource type="Texture2D" uid="uid://brwapmt8mcssc" path="res://assets/images/gold.png" id="2_276te"]
+[ext_resource type="PackedScene" uid="uid://dq4wge02pusmm" path="res://scenes/cell_system/tile_grid.tscn" id="2_srpbi"]
 [ext_resource type="PackedScene" uid="uid://fvagukkfc08f" path="res://ui/pause_menu.tscn" id="4_7ihmi"]
 [ext_resource type="Texture2D" uid="uid://b4c6mq6q1o1vm" path="res://assets/images/witch_atelier_v1.png" id="5_1v5rv"]
 [ext_resource type="PackedScene" uid="uid://c22de3c6fgfto" path="res://ui/witch/witch_store.tscn" id="6_q43x7"]
@@ -12,6 +13,8 @@
 script = ExtResource("1_546lt")
 witch_shop = NodePath("WitchStore")
 gold_label = NodePath("GoldContainer/HBoxContainer/Label")
+
+[node name="TileGrid" parent="." instance=ExtResource("2_srpbi")]
 
 [node name="ClockContainer" type="MarginContainer" parent="."]
 offset_right = 5.0
@@ -84,5 +87,24 @@ visible = false
 
 [node name="InvPanel" parent="." instance=ExtResource("7_q43x7")]
 
+[node name="TileSelection" type="MarginContainer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="TilesButton" type="Button" parent="TileSelection"]
+layout_mode = 2
+text = "Open Tile Selection"
+flat = true
+
 [connection signal="pressed" from="WitchShop/HBoxContainer/CaravanButton" to="." method="_caravan_shop_pressed"]
 [connection signal="pressed" from="WitchShop/HBoxContainer/Atelier/WitchShopButton" to="." method="_witch_shop_pressed"]
+[connection signal="pressed" from="TileSelection/TilesButton" to="." method="_tiles_screen_pressed"]
