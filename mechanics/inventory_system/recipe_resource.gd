@@ -20,5 +20,6 @@ func _make() -> bool:
 	else:
 		for i in ingredients:
 			GameGlobal.myInventory.RemoveItem(i.item, i.amount)
+		GameGlobal.myInventory.AddItem(item, 1)
 	return true
 	
