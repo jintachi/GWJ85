@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://djrmvspurubgo"]
 
 [ext_resource type="Script" uid="uid://du7njqoumqj0v" path="res://ui/hud.gd" id="1_546lt"]
-[ext_resource type="PackedScene" uid="uid://8petnppadwyk" path="res://scenes/season/season_indicator.tscn" id="1_rbyyf"]
+[ext_resource type="PackedScene" uid="uid://8petnppadwyk" path="res://scenes/Season/season_indicator.tscn" id="1_rbyyf"]
 [ext_resource type="Texture2D" uid="uid://brwapmt8mcssc" path="res://assets/images/gold.png" id="2_276te"]
 [ext_resource type="PackedScene" uid="uid://dq4wge02pusmm" path="res://scenes/cell_system/tile_grid.tscn" id="2_srpbi"]
 [ext_resource type="PackedScene" uid="uid://fvagukkfc08f" path="res://ui/pause_menu.tscn" id="4_7ihmi"]
