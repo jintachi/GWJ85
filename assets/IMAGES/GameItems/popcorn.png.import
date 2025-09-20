@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dcq6f3cdedvpi"
-path="res://.godot/imported/popcorn.png-a3f77ae2acce866632ae8b7a757deadf.ctex"
+path="res://.godot/imported/popcorn.png-4768cedb5045399b8623b280e68e2a1e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/GameItems/popcorn.png"
-dest_files=["res://.godot/imported/popcorn.png-a3f77ae2acce866632ae8b7a757deadf.ctex"]
+source_file="res://assets/IMAGES/GameItems/popcorn.png"
+dest_files=["res://.godot/imported/popcorn.png-4768cedb5045399b8623b280e68e2a1e.ctex"]
 
 [params]
 

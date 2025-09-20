@@ -12,7 +12,6 @@ script = ExtResource("1_fjahr")
 season_clock = NodePath("VBoxContainer/MarginContainer/UnderLayer")
 season_progress = NodePath("VBoxContainer/MarginContainer/Tick")
 season_label = NodePath("VBoxContainer/SeasonLabel")
-active_season = 3
 season_length = 4.0
 progress_resolution = 10.0
 

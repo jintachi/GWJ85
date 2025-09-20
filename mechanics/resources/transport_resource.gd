@@ -9,6 +9,5 @@ class_name TransportTile extends Machine
 func _init() -> void:
 	tile_type = Genum.TileType.TRANSPORTER
 
-
 #region Helpers
 #endregion

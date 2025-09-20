@@ -4,7 +4,7 @@ extends Control
 #region Declarations
 @export var season_clock : TextureRect
 @export var season_progress : TextureProgressBar
-@export var season_label : Label
+@export var season_label : RichTextLabel
 
 @export var active_season := Genum.Season.SPRING
 @export var season_length : float = 30
@@ -19,11 +19,14 @@ func _ready() -> void:
 	if not season_progress:
 		return
 	
+	_update_season_label(active_season)
+	_set_initial_rotation(active_season)
+	
 	season_progress.max_value = season_length * progress_resolution
 	season_progress.step = 1. / progress_resolution
 	
 	if season_clock:
-		season_clock.pivot_offset = Vector2(64, 64)
+		season_clock.pivot_offset = Vector2(season_clock.size/2)
 #endregion
 
 #region Privates
@@ -37,15 +40,8 @@ func _advance_season() -> void:
 	tween.tween_property(season_clock, "rotation", PI / 2, 1).as_relative()
 	tick_count = 0
 	
-	match(active_season):
-		Genum.Season.SPRING:
-			season_label.text = "SPRING"
-		Genum.Season.SUMMER:
-			season_label.text = "SUMMER"
-		Genum.Season.FALL:
-			season_label.text = "FALL"
-		Genum.Season.WINTER:
-			season_label.text = "WINTER"
+	_update_season_label(active_season)
+
 
 func _advance_clock() -> void:
 	var value = tick_count * progress_resolution
@@ -53,6 +49,46 @@ func _advance_clock() -> void:
 	var tween = create_tween().bind_node(self).set_trans(Tween.TRANS_CIRC)
 	tween.tween_property(season_progress, "value", value, 0.5)
 	tween.play()
+	
+func _update_season_label(season : Genum.Season) -> void :
+	
+	season_label.clear()
+	
+	match(season):
+		Genum.Season.SPRING:
+			season_label.push_color(Color.LAWN_GREEN)
+			season_label.append_text("SPRING")
+		Genum.Season.SUMMER:
+			season_label.push_color(Color.YELLOW)
+			season_label.append_text("SUMMER")
+		Genum.Season.FALL:
+			season_label.push_color(Color.DARK_ORANGE)
+			season_label.append_text("FALL")
+		Genum.Season.WINTER:
+			season_label.push_color(Color.AQUA)
+			season_label.append_text("WINTER")
+
+	season_label.pop_all()
+
+func _set_initial_rotation(season : Genum.Season) -> void:
+	
+	var tween = create_tween().bind_node(self).set_trans(Tween.TRANS_CIRC)
+	
+	var _rotation_distance : float
+	
+	match(season):
+		Genum.Season.SPRING:
+			_rotation_distance = 0 # No change, image starts on spring
+		Genum.Season.SUMMER:
+			_rotation_distance += 90
+		Genum.Season.FALL:
+			_rotation_distance += 180
+		Genum.Season.WINTER:
+			_rotation_distance -= 90
+			
+	tween.tween_property(season_clock, "rotation_degrees",_rotation_distance, 0).as_relative()
+	tween.play()
+	
 #endregion
 
 #region Signal Callbacks

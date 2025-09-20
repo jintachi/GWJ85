@@ -14,6 +14,7 @@ enum TileType {
 	PRODUCER,
 	PROCESSOR,
 	DELIVERY,
+	TRANSPORTER,
 	CELL
 }
 
