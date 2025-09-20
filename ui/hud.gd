@@ -9,6 +9,7 @@ extends CanvasLayer
 
 @export var inventory_panel : PanelContainer
 
+@export var grid : TileGrid
 #endregion
 
 #region Publics
@@ -39,4 +40,10 @@ func _recipe_screen_pressed() -> void:
 
 func _tiles_screen_pressed() -> void:
 	_switch_shop_visibility(Genum.ShopScreen.SELECTOR)
+
+func _create_cell_pressed() -> void:
+	if not grid:
+		return
+	
+	GameGlobalEvents.create_cell.emit(grid.save_to_cell())
 #endregion

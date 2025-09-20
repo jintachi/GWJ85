@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://fvagukkfc08f"]
 
 [ext_resource type="Script" uid="uid://8aixiuyiiivg" path="res://ui/pause_menu.gd" id="1_50142"]
-[ext_resource type="Texture2D" uid="uid://c4jh12jck4f5k" path="res://assets/IMAGES/Volume_Button.png" id="2_ejwgg"]
+[ext_resource type="Texture2D" uid="uid://c4jh12jck4f5k" path="res://assets/images/Volume_Button.png" id="2_ejwgg"]
 
 [node name="PauseMenu" type="PanelContainer" node_paths=PackedStringArray("menu", "settings", "master_vslide", "sfx_vslide", "ui_vslide", "ost_vslide")]
 anchors_preset = 8
@@ -24,7 +24,6 @@ ui_vslide = NodePath("Settings/VBoxContainer/AudioController/UIContainer/VSlider
 ost_vslide = NodePath("Settings/VBoxContainer/AudioController/OSTContainer/VSlider")
 
 [node name="Menu" type="MarginContainer" parent="."]
-visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
@@ -51,6 +50,7 @@ layout_mode = 2
 text = "Super Quit"
 
 [node name="Settings" type="MarginContainer" parent="."]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10

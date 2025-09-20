@@ -53,3 +53,9 @@ func _load_texture(pos: Vector2i, cell_size: Vector2i) -> AtlasTexture:
 	atlas.region = Rect2(pos, cell_size)
 	return atlas
 #endregion
+
+#region Crafting
+# TODO: Come back to this with process tasks.
+func request_craft(recipe: GameRecipe) -> GameItem:
+	return null
+#endregion

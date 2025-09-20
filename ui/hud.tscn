@@ -1,11 +1,11 @@
 [gd_scene load_steps=12 format=3 uid="uid://djrmvspurubgo"]
 
 [ext_resource type="Script" uid="uid://du7njqoumqj0v" path="res://ui/hud.gd" id="1_546lt"]
-[ext_resource type="PackedScene" uid="uid://8petnppadwyk" path="res://scenes/Season/season_indicator.tscn" id="1_rbyyf"]
-[ext_resource type="Texture2D" uid="uid://brwapmt8mcssc" path="res://assets/IMAGES/gold.png" id="2_276te"]
+[ext_resource type="PackedScene" uid="uid://8petnppadwyk" path="res://scenes/season/season_indicator.tscn" id="1_rbyyf"]
+[ext_resource type="Texture2D" uid="uid://brwapmt8mcssc" path="res://assets/images/gold.png" id="2_276te"]
 [ext_resource type="PackedScene" uid="uid://dq4wge02pusmm" path="res://scenes/cell_system/tile_grid.tscn" id="2_srpbi"]
 [ext_resource type="PackedScene" uid="uid://fvagukkfc08f" path="res://ui/pause_menu.tscn" id="4_7ihmi"]
-[ext_resource type="Texture2D" uid="uid://b4c6mq6q1o1vm" path="res://assets/IMAGES/witch_atelier_v1.png" id="5_1v5rv"]
+[ext_resource type="Texture2D" uid="uid://b4c6mq6q1o1vm" path="res://assets/images/witch_atelier_v1.png" id="5_1v5rv"]
 [ext_resource type="PackedScene" uid="uid://c22de3c6fgfto" path="res://ui/witch/witch_store.tscn" id="6_q43x7"]
 [ext_resource type="PackedScene" uid="uid://br8f2t1pkuxd6" path="res://ui/inventory/invpanel.tscn" id="7_q43x7"]
 [ext_resource type="FontFile" uid="uid://deajib16ve5y5" path="res://assets/fonts/m5x7.ttf" id="9_ff8ar"]
@@ -17,11 +17,12 @@ font = ExtResource("9_ff8ar")
 font_size = 32
 font_color = Color(0.890196, 0.580392, 0.329412, 1)
 
-[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("witch_shop", "gold_label", "inventory_panel")]
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("witch_shop", "gold_label", "inventory_panel", "grid")]
 script = ExtResource("1_546lt")
 witch_shop = NodePath("WitchStore")
 gold_label = NodePath("PanelContainer/GoldContainer/HBoxContainer/Label")
 inventory_panel = NodePath("InvPanel")
+grid = NodePath("TileGrid")
 
 [node name="TileGrid" parent="." instance=ExtResource("2_srpbi")]
 offset_left = -113.0
@@ -154,6 +155,24 @@ layout_mode = 2
 texture = ExtResource("2_276te")
 stretch_mode = 5
 
+[node name="CreateCell" type="MarginContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.5
+offset_top = -40.0
+offset_right = 32.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Button" type="Button" parent="CreateCell"]
+layout_mode = 2
+text = "Create Cell"
+flat = true
+
 [connection signal="pressed" from="WitchShop/HBoxContainer/CaravanButton" to="." method="_caravan_shop_pressed"]
 [connection signal="pressed" from="WitchShop/HBoxContainer/Atelier/WitchShopButton" to="." method="_witch_shop_pressed"]
 [connection signal="pressed" from="TileSelection/TilesButton" to="." method="_tiles_screen_pressed"]
+[connection signal="pressed" from="CreateCell/Button" to="." method="_create_cell_pressed"]

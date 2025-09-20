@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3hv7bvvf5nsw"]
+
+[ext_resource type="Script" uid="uid://cp8tsiunlhvvj" path="res://ui/witch/cell_button.gd" id="1_r8rbe"]
+
+[node name="CellButton" type="TextureButton"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_r8rbe")

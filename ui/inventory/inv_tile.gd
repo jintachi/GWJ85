@@ -25,7 +25,7 @@ func _ready() -> void:
 		tex.size_flags_vertical = 0
 		add_child(tex)
 	if not get_node_or_null("./HBoxContainer") :
-		hbox = HBoxContainer.new()		
+		hbox = HBoxContainer.new()
 		add_child(hbox)
 	if not get_node_or_null("HBoxContainer/ItemName") :
 		item_name_label = Label.new()

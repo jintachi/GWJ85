@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://8petnppadwyk"]
 
-[ext_resource type="Script" uid="uid://cugy673il6i2s" path="res://scenes/Season/season_indicator.gd" id="1_fjahr"]
-[ext_resource type="Texture2D" uid="uid://hrjoxowdl786" path="res://assets/IMAGES/season_indicator_under.png" id="2_yfvgr"]
-[ext_resource type="Texture2D" uid="uid://d2i6w0sty5yeb" path="res://assets/IMAGES/season_indicator_over.png" id="3_4cfuw"]
-[ext_resource type="Texture2D" uid="uid://c4pmyyytifht1" path="res://assets/IMAGES/season_progress.png" id="4_hjs31"]
+[ext_resource type="Script" uid="uid://cugy673il6i2s" path="res://scenes/season/season_indicator.gd" id="1_fjahr"]
+[ext_resource type="Texture2D" uid="uid://hrjoxowdl786" path="res://assets/images/season_indicator_under.png" id="2_yfvgr"]
+[ext_resource type="Texture2D" uid="uid://d2i6w0sty5yeb" path="res://assets/images/season_indicator_over.png" id="3_4cfuw"]
+[ext_resource type="Texture2D" uid="uid://c4pmyyytifht1" path="res://assets/images/season_progress.png" id="4_hjs31"]
 
 [node name="SeasonIndicator" type="Control" node_paths=PackedStringArray("season_clock", "season_progress", "season_label")]
 layout_mode = 3

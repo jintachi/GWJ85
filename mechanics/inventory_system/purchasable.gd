@@ -14,16 +14,16 @@ func _on_press_by_1() -> void:
 	if GameGlobal.gold - item.value < 0 :
 		print("You Can't Afford This!")
 		return
-	GameGlobal.player_inventory.AddItem(item, 1)
+	Inventory.AddItem(item, 1)
 	await get_tree().process_frame
 	GameGlobalEvents.gold_updated.emit((-1 * item.value))
-	GameGlobal.player_inventory.PukeConent()
+	Inventory.PukeConent()
 
 func _on_press_by_10() -> void:
 	if GameGlobal.gold - (10 * item.value) < 0 :
 		print("You Can't Afford This!")
 		return
-	GameGlobal.player_inventory.AddItem(item, 10)
+	Inventory.AddItem(item, 10)
 	await get_tree().process_frame
 	GameGlobalEvents.gold_updated.emit((-10 * item.value))
-	GameGlobal.player_inventory.PukeConent()
+	Inventory.PukeConent()

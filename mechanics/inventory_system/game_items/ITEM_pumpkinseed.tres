@@ -9,4 +9,5 @@ name = &"PUMPKIN SEED"
 description = &"Better toasted !"
 value = 1
 texture = ExtResource("2_t10ku")
+purchaseable = false
 metadata/_custom_type_script = "uid://cvwm0symgb1qo"

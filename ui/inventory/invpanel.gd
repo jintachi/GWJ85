@@ -23,11 +23,11 @@ func _on_inventory_updated() -> void:
 	for c in inv_container.get_children():
 		c.queue_free()
 	
-	var inventory = GameGlobal.player_inventory.slots
+	var inventory = Inventory.slots
 	for slot in inventory :
 		if slot.item != null :
 			var item_tile = InventoryTile.new()
-			item_tile._setup_item(slot.item,slot.amount)
+			item_tile._setup_item(slot.item, slot.amount)
 			inv_container.add_child(item_tile)
 		
 	pass

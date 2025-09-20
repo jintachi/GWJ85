@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d2i6w0sty5yeb"
-path="res://.godot/imported/season_indicator_over.png-f9c266a7e14f8656b46e066beb8f3b0b.ctex"
+path="res://.godot/imported/season_indicator_over.png-128f62c62e0d99f8888f6788b4cf4f12.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/IMAGES/season_indicator_over.png"
-dest_files=["res://.godot/imported/season_indicator_over.png-f9c266a7e14f8656b46e066beb8f3b0b.ctex"]
+source_file="res://assets/images/season_indicator_over.png"
+dest_files=["res://.godot/imported/season_indicator_over.png-128f62c62e0d99f8888f6788b4cf4f12.ctex"]
 
 [params]
 

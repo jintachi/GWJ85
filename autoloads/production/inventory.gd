@@ -1,5 +1,5 @@
 ## Holds all the item data that the player currently has.
-class_name Inventory extends Node
+extends Node
 
 #region Declarations
 @export var slots : Array[InventorySlot] 

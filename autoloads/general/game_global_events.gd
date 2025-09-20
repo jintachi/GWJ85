@@ -4,3 +4,5 @@ extends Node
 signal game_tick
 signal gold_updated(value: int)
 signal update_inventory()
+signal place_cell(cell: Cell)
+signal create_cell(cell: Cell)

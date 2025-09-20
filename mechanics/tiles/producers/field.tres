@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="ProducerTile" load_steps=8 format=3 uid="uid://dojm1w7hmmd6r"]
+
+[ext_resource type="Script" uid="uid://cg8rc4pmgd63j" path="res://mechanics/resources/producer_resource.gd" id="1_00f3v"]
+[ext_resource type="Script" uid="uid://cvwm0symgb1qo" path="res://mechanics/inventory_system/item_resource.gd" id="1_fl34i"]
+[ext_resource type="Texture2D" uid="uid://cb4g20l0v7vmc" path="res://assets/images/spring.png" id="2_6dy8f"]
+[ext_resource type="Texture2D" uid="uid://dx42x6r2xy243" path="res://assets/images/tile_field_v1.png" id="2_mk31k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2o4b"]
+atlas = ExtResource("2_6dy8f")
+
+[sub_resource type="Resource" id="Resource_jth6p"]
+script = ExtResource("1_fl34i")
+name = &"TestItem"
+description = &""
+value = 1
+texture = SubResource("AtlasTexture_w2o4b")
+purchaseable = false
+metadata/_custom_type_script = "uid://cvwm0symgb1qo"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mk31k"]
+atlas = ExtResource("2_mk31k")
+
+[resource]
+script = ExtResource("1_00f3v")
+produced_item = SubResource("Resource_jth6p")
+production_period = 10
+cell_type = 0
+id = 1
+texture = SubResource("AtlasTexture_mk31k")
+level = 1
+price = 1
+depth_req = 1
+metadata/_custom_type_script = "uid://cg8rc4pmgd63j"

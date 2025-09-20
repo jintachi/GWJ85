@@ -8,6 +8,9 @@ extends PanelContainer
 @export var recipe_screen : VBoxContainer
 @export var tile_screen : VBoxContainer
 
+@export var selectables : Array[Cell]
+
+@export var cell_texture : AtlasTexture
 var viewing_screen : Genum.ShopScreen = Genum.ShopScreen.WITCH :
 	set(value):
 		match(value):
@@ -26,6 +29,9 @@ var viewing_screen : Genum.ShopScreen = Genum.ShopScreen.WITCH :
 #region Built-Ins
 func _ready() -> void:
 	_build_store()
+	_build_selection()
+	
+	GameGlobalEvents.create_cell.connect(_on_cell_tile_created)
 #endregion
 
 #region Setups
@@ -38,10 +44,24 @@ func _build_store() -> void:
 			continue
 		var purchaseable = purchaseable_ref.instantiate()
 		purchaseable.item = item
-		witch_store.add_child(purchaseable)
+		caravan_store.add_child(purchaseable)
+
+func _build_selection() -> void:
+	for selectable in selectables:
+		build_selectable(selectable)
 #endregion
 
 #region Helpers
+func build_selectable(selectable: Cell) -> void:
+	var button := CellButton.new()
+	button.tile_resource = selectable
+	if selectable.texture:
+		button.texture_normal = selectable.texture
+	else:
+		button.texture_normal = cell_texture
+	button.tile_selected.connect(_on_cell_selected)
+	tile_screen.add_child(button)
+
 func _select_switch(switch : VBoxContainer) -> void:
 	for screen in [witch_store, caravan_store, recipe_screen, tile_screen]:
 		if screen == switch:
@@ -60,4 +80,15 @@ func _select_recipe() -> void:
 
 func _select_tiles() -> void:
 	_select_switch(tile_screen)
+#endregion
+
+#region Signal Callbacks
+func _on_cell_selected(cell: Cell) -> void:
+	if not cell:
+		return
+	
+	GameGlobalEvents.place_cell.emit(cell)
+
+func _on_cell_tile_created(cell: Cell) -> void:
+	build_selectable(cell)
 #endregion

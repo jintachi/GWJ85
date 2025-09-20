@@ -1,27 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bf0e0l206u8xd"]
+[gd_scene load_steps=2 format=3 uid="uid://bf0e0l206u8xd"]
 
-[ext_resource type="PackedScene" uid="uid://dq4wge02pusmm" path="res://scenes/cell_system/tile_grid.tscn" id="4_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://br8f2t1pkuxd6" path="res://ui/inventory/invpanel.tscn" id="12_eb6dy"]
+[ext_resource type="Script" uid="uid://bbyrwctdgo2y6" path="res://scenes/main.gd" id="1_o5qli"]
 
 [node name="Main" type="Node"]
-
-[node name="UI" type="Node" parent="."]
-
-[node name="CenterContainer2" type="CenterContainer" parent="UI"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -100.0
-offset_right = 100.0
-offset_bottom = 100.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TileGrid" parent="UI/CenterContainer2" instance=ExtResource("4_jyhfs")]
-layout_mode = 2
-
-[node name="InventoryPanel" parent="." instance=ExtResource("12_eb6dy")]
-offset_top = -67.0
+script = ExtResource("1_o5qli")

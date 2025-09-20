@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://luo8lao8oix4"
-path="res://.godot/imported/tab_hovered.png-0090e5d9aeb763a0af369d99c83b13b8.ctex"
+path="res://.godot/imported/tab_hovered.png-1c9f3604899b603f02fd31d3ff76d828.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/IMAGES/tab_hovered.png"
-dest_files=["res://.godot/imported/tab_hovered.png-0090e5d9aeb763a0af369d99c83b13b8.ctex"]
+source_file="res://assets/images/tab_hovered.png"
+dest_files=["res://.godot/imported/tab_hovered.png-1c9f3604899b603f02fd31d3ff76d828.ctex"]
 
 [params]
 
