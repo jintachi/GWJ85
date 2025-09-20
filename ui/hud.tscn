@@ -1,20 +1,33 @@
-[gd_scene load_steps=9 format=3 uid="uid://djrmvspurubgo"]
+[gd_scene load_steps=12 format=3 uid="uid://djrmvspurubgo"]
 
 [ext_resource type="Script" uid="uid://du7njqoumqj0v" path="res://ui/hud.gd" id="1_546lt"]
 [ext_resource type="PackedScene" uid="uid://8petnppadwyk" path="res://scenes/Season/season_indicator.tscn" id="1_rbyyf"]
 [ext_resource type="Texture2D" uid="uid://brwapmt8mcssc" path="res://assets/IMAGES/gold.png" id="2_276te"]
-[ext_resource type="PackedScene" uid="uid://dbyhq4xag552t" path="res://scenes/cell_system/tile_grid.tscn" id="2_srpbi"]
+[ext_resource type="PackedScene" uid="uid://dq4wge02pusmm" path="res://scenes/cell_system/tile_grid.tscn" id="2_srpbi"]
 [ext_resource type="PackedScene" uid="uid://fvagukkfc08f" path="res://ui/pause_menu.tscn" id="4_7ihmi"]
 [ext_resource type="Texture2D" uid="uid://b4c6mq6q1o1vm" path="res://assets/IMAGES/witch_atelier_v1.png" id="5_1v5rv"]
 [ext_resource type="PackedScene" uid="uid://c22de3c6fgfto" path="res://ui/witch/witch_store.tscn" id="6_q43x7"]
 [ext_resource type="PackedScene" uid="uid://br8f2t1pkuxd6" path="res://ui/inventory/invpanel.tscn" id="7_q43x7"]
+[ext_resource type="FontFile" uid="uid://deajib16ve5y5" path="res://assets/fonts/m5x7.ttf" id="9_ff8ar"]
+[ext_resource type="Theme" uid="uid://b5ldjeqg05ylx" path="res://assets/themes/game_theme.tres" id="10_ff8ar"]
 
-[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("witch_shop", "gold_label")]
+[sub_resource type="LabelSettings" id="LabelSettings_m0eg6"]
+line_spacing = 0.0
+font = ExtResource("9_ff8ar")
+font_size = 32
+font_color = Color(0.890196, 0.580392, 0.329412, 1)
+
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("witch_shop", "gold_label", "inventory_panel")]
 script = ExtResource("1_546lt")
 witch_shop = NodePath("WitchStore")
-gold_label = NodePath("GoldContainer/HBoxContainer/Label")
+gold_label = NodePath("PanelContainer/GoldContainer/HBoxContainer/Label")
+inventory_panel = NodePath("InvPanel")
 
 [node name="TileGrid" parent="." instance=ExtResource("2_srpbi")]
+offset_left = -113.0
+offset_top = -105.0
+offset_right = 115.0
+offset_bottom = 123.0
 
 [node name="ClockContainer" type="MarginContainer" parent="."]
 offset_right = 5.0
@@ -26,32 +39,6 @@ theme_override_constants/margin_top = 5
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="GoldContainer" type="MarginContainer" parent="."]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 40.0
-grow_horizontal = 0
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-
-[node name="HBoxContainer" type="HBoxContainer" parent="GoldContainer"]
-layout_mode = 2
-alignment = 2
-
-[node name="Label" type="Label" parent="GoldContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 32
-text = "0"
-horizontal_alignment = 2
-
-[node name="TextureRect" type="TextureRect" parent="GoldContainer/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("2_276te")
-stretch_mode = 5
-
 [node name="PauseMenu" parent="." instance=ExtResource("4_7ihmi")]
 
 [node name="WitchShop" type="MarginContainer" parent="."]
@@ -60,6 +47,10 @@ anchor_left = 0.712
 anchor_top = 0.111
 anchor_right = 1.0
 anchor_bottom = 0.289
+offset_left = -4.67999
+offset_top = -34.96
+offset_right = -4.67999
+offset_bottom = -34.96
 theme_override_constants/margin_right = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="WitchShop"]
@@ -84,8 +75,24 @@ flat = true
 
 [node name="WitchStore" parent="." instance=ExtResource("6_q43x7")]
 visible = false
+offset_left = -3.0
+offset_top = -12.0
+offset_right = -3.0
+offset_bottom = -12.0
 
 [node name="InvPanel" parent="." instance=ExtResource("7_q43x7")]
+anchors_preset = -1
+anchor_left = 0.02875
+anchor_top = 0.45
+anchor_right = 0.26875
+anchor_bottom = 0.9
+offset_left = -15.0
+offset_top = 30.0
+offset_right = 23.4
+offset_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
 
 [node name="TileSelection" type="MarginContainer" parent="."]
 anchors_preset = 3
@@ -93,8 +100,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -40.0
+offset_left = -189.0
+offset_top = -82.0
+offset_right = -78.0
+offset_bottom = -42.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_constants/margin_right = 5
@@ -104,6 +113,46 @@ theme_override_constants/margin_bottom = 5
 layout_mode = 2
 text = "Open Tile Selection"
 flat = true
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -94.0
+offset_top = -38.0
+offset_right = 23.0
+offset_bottom = 4.99997
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.76, 0.76)
+metadata/_edit_use_anchors_ = true
+
+[node name="GoldContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("10_ff8ar")
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/GoldContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/GoldContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 32
+text = "0"
+label_settings = SubResource("LabelSettings_m0eg6")
+horizontal_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/GoldContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_276te")
+stretch_mode = 5
 
 [connection signal="pressed" from="WitchShop/HBoxContainer/CaravanButton" to="." method="_caravan_shop_pressed"]
 [connection signal="pressed" from="WitchShop/HBoxContainer/Atelier/WitchShopButton" to="." method="_witch_shop_pressed"]

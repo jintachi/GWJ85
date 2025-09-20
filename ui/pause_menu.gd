@@ -39,6 +39,9 @@ func _audio_setup() -> void:
 	sfx_vslide.value = AudioServer.get_bus_volume_linear(Genum.BusID.SFX)
 	ui_vslide.value = AudioServer.get_bus_volume_linear(Genum.BusID.UI)
 	ost_vslide.value = AudioServer.get_bus_volume_linear(Genum.BusID.OST)
+	
+	# set initial volume to 60 %
+	master_vslide.value *= .5
 #endregion
 
 #region Helpers
@@ -58,12 +61,35 @@ func _settings_switch() -> void:
 func _master_volume_changed(value: float) -> void:
 	AudioServer.set_bus_volume_linear(Genum.BusID.MASTER, value)
 
+func _toggle_mute_master() -> void :
+	if not AudioServer.is_bus_mute(Genum.BusID.MASTER): 
+		AudioServer.set_bus_mute(Genum.BusID.MASTER, true)
+	else :
+		AudioServer.set_bus_mute(Genum.BusID.MASTER, false)
+
 func _sfx_volume_changed(value: float) -> void:
 	AudioServer.set_bus_volume_linear(Genum.BusID.SFX, value)
 
+func _toggle_mute_sfx() -> void :
+	if not AudioServer.is_bus_mute(Genum.BusID.SFX): 
+		AudioServer.set_bus_mute(Genum.BusID.SFX, true)
+	else :
+		AudioServer.set_bus_mute(Genum.BusID.SFX, false)
+	
 func _ui_volume_changed(value: float) -> void:
 	AudioServer.set_bus_volume_linear(Genum.BusID.UI, value)
 
+func _toggle_mute_ui() -> void :
+	if not AudioServer.is_bus_mute(Genum.BusID.UI): 
+		AudioServer.set_bus_mute(Genum.BusID.UI, true)
+	else :
+		AudioServer.set_bus_mute(Genum.BusID.UI, false)
 func _ost_volume_changed(value: float) -> void:
 	AudioServer.set_bus_volume_linear(Genum.BusID.OST, value)
+
+func _toggle_mute_ost() -> void :
+	if not AudioServer.is_bus_mute(Genum.BusID.OST): 
+		AudioServer.set_bus_mute(Genum.BusID.OST, true)
+	else :
+		AudioServer.set_bus_mute(Genum.BusID.OST, false)
 #endregion

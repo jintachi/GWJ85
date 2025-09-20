@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=17 format=3 uid="uid://b5ldjeqg05ylx"]
+[gd_resource type="Theme" load_steps=18 format=3 uid="uid://b5ldjeqg05ylx"]
 
 [ext_resource type="FontFile" uid="uid://deajib16ve5y5" path="res://assets/fonts/m5x7.ttf" id="1_rcrbt"]
 [ext_resource type="Texture2D" uid="uid://hqg1ouqdasam" path="res://assets/IMAGES/button_normal.png" id="2_fdeln"]
@@ -7,6 +7,20 @@
 [ext_resource type="Texture2D" uid="uid://luo8lao8oix4" path="res://assets/IMAGES/tab_hovered.png" id="5_bjlnl"]
 [ext_resource type="Texture2D" uid="uid://cdgcjhosm17ou" path="res://assets/IMAGES/tab_selected.png" id="6_p1y5s"]
 [ext_resource type="Texture2D" uid="uid://cf0s2a5qigvhd" path="res://assets/IMAGES/tab_unselected.png" id="7_o2f8i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fdeln"]
+bg_color = Color(0.376471, 0.145098, 0.278431, 1)
+border_width_left = 2
+border_width_top = 8
+border_width_right = 2
+border_width_bottom = 8
+border_color = Color(0.376471, 0.145098, 0.278431, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 10
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aceb1"]
 texture = ExtResource("2_fdeln")
@@ -72,6 +86,7 @@ border_color = Color(0.185728, 0.117668, 0.0276232, 1)
 border_blend = true
 
 [resource]
+HSlider/styles/slider = SubResource("StyleBoxFlat_fdeln")
 Label/colors/font_color = Color(0.890196, 0.580392, 0.329412, 1)
 Label/fonts/font = ExtResource("1_rcrbt")
 OptionButton/colors/font_color = Color(0.215686, 0.101961, 0.278431, 1)

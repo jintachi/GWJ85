@@ -20,4 +20,3 @@ offset_bottom = -175.0
 text = "epand"
 
 [connection signal="button_up" from="Button" to="." method="_expand"]
-[connection signal="gui_input" from="Tile" to="Tile" method="_on_gui_input"]

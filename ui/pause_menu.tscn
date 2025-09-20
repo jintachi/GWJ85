@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://fvagukkfc08f"]
+[gd_scene load_steps=3 format=3 uid="uid://fvagukkfc08f"]
 
 [ext_resource type="Script" uid="uid://8aixiuyiiivg" path="res://ui/pause_menu.gd" id="1_50142"]
+[ext_resource type="Texture2D" uid="uid://c4jh12jck4f5k" path="res://assets/IMAGES/Volume_Button.png" id="2_ejwgg"]
 
 [node name="PauseMenu" type="PanelContainer" node_paths=PackedStringArray("menu", "settings", "master_vslide", "sfx_vslide", "ui_vslide", "ost_vslide")]
 anchors_preset = 8
@@ -23,6 +24,7 @@ ui_vslide = NodePath("Settings/VBoxContainer/AudioController/UIContainer/VSlider
 ost_vslide = NodePath("Settings/VBoxContainer/AudioController/OSTContainer/VSlider")
 
 [node name="Menu" type="MarginContainer" parent="."]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
@@ -49,7 +51,6 @@ layout_mode = 2
 text = "Super Quit"
 
 [node name="Settings" type="MarginContainer" parent="."]
-visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
@@ -73,8 +74,14 @@ text = "Master"
 [node name="VSlider" type="VSlider" parent="Settings/VBoxContainer/AudioController/MasterContainer"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+size_flags_horizontal = 1
 max_value = 1.0
 step = 0.01
+
+[node name="Button" type="Button" parent="Settings/VBoxContainer/AudioController/MasterContainer"]
+layout_mode = 2
+icon = ExtResource("2_ejwgg")
+icon_alignment = 1
 
 [node name="SFXContainer" type="VBoxContainer" parent="Settings/VBoxContainer/AudioController"]
 layout_mode = 2
@@ -87,8 +94,14 @@ text = "SFX"
 [node name="VSlider" type="VSlider" parent="Settings/VBoxContainer/AudioController/SFXContainer"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+size_flags_horizontal = 1
 max_value = 1.0
 step = 0.01
+
+[node name="Button" type="Button" parent="Settings/VBoxContainer/AudioController/SFXContainer"]
+layout_mode = 2
+icon = ExtResource("2_ejwgg")
+icon_alignment = 1
 
 [node name="UIContainer" type="VBoxContainer" parent="Settings/VBoxContainer/AudioController"]
 layout_mode = 2
@@ -101,8 +114,14 @@ text = "UI"
 [node name="VSlider" type="VSlider" parent="Settings/VBoxContainer/AudioController/UIContainer"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+size_flags_horizontal = 1
 max_value = 1.0
 step = 0.01
+
+[node name="Button" type="Button" parent="Settings/VBoxContainer/AudioController/UIContainer"]
+layout_mode = 2
+icon = ExtResource("2_ejwgg")
+icon_alignment = 1
 
 [node name="OSTContainer" type="VBoxContainer" parent="Settings/VBoxContainer/AudioController"]
 layout_mode = 2
@@ -115,8 +134,14 @@ text = "OST"
 [node name="VSlider" type="VSlider" parent="Settings/VBoxContainer/AudioController/OSTContainer"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+size_flags_horizontal = 1
 max_value = 1.0
 step = 0.01
+
+[node name="Button" type="Button" parent="Settings/VBoxContainer/AudioController/OSTContainer"]
+layout_mode = 2
+icon = ExtResource("2_ejwgg")
+icon_alignment = 1
 
 [node name="MenuButton" type="Button" parent="Settings/VBoxContainer"]
 layout_mode = 2
@@ -124,7 +149,11 @@ text = "Return to Menu"
 
 [connection signal="pressed" from="Menu/VBoxContainer/SettingsButton" to="." method="_settings_switch"]
 [connection signal="value_changed" from="Settings/VBoxContainer/AudioController/MasterContainer/VSlider" to="." method="_master_volume_changed"]
+[connection signal="pressed" from="Settings/VBoxContainer/AudioController/MasterContainer/Button" to="." method="_toggle_mute_master"]
 [connection signal="value_changed" from="Settings/VBoxContainer/AudioController/SFXContainer/VSlider" to="." method="_sfx_volume_changed"]
+[connection signal="pressed" from="Settings/VBoxContainer/AudioController/SFXContainer/Button" to="." method="_toggle_mute_sfx"]
 [connection signal="value_changed" from="Settings/VBoxContainer/AudioController/UIContainer/VSlider" to="." method="_ui_volume_changed"]
+[connection signal="pressed" from="Settings/VBoxContainer/AudioController/UIContainer/Button" to="." method="_toggle_mute_ui"]
 [connection signal="value_changed" from="Settings/VBoxContainer/AudioController/OSTContainer/VSlider" to="." method="_ost_volume_changed"]
+[connection signal="pressed" from="Settings/VBoxContainer/AudioController/OSTContainer/Button" to="." method="_toggle_mute_ost"]
 [connection signal="pressed" from="Settings/VBoxContainer/MenuButton" to="." method="_settings_switch"]

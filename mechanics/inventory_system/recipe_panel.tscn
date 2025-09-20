@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://l2mfo5frjja5"]
 
 [ext_resource type="Script" uid="uid://c2j2an78h4s4d" path="res://mechanics/inventory_system/recipe_panel.gd" id="1_abpla"]
-[ext_resource type="Texture2D" uid="uid://cgemns8ogl2i0" path="res://assets/images/GameItems/bread.png" id="2_5eb5g"]
+[ext_resource type="Texture2D" uid="uid://cgemns8ogl2i0" path="res://assets/IMAGES/GameItems/bread.png" id="2_5eb5g"]
 [ext_resource type="Script" uid="uid://c1pst88f4uaec" path="res://mechanics/inventory_system/recipe_resource.gd" id="2_njq37"]
-[ext_resource type="Texture2D" uid="uid://b07tivgqwenlw" path="res://assets/images/10731661.png" id="3_23nmk"]
+[ext_resource type="Texture2D" uid="uid://b07tivgqwenlw" path="res://assets/IMAGES/10731661.png" id="3_23nmk"]
 [ext_resource type="Resource" uid="uid://db01rpmc6jalo" path="res://mechanics/inventory_system/recipes/RECIPE_BREAD.tres" id="3_prb4r"]
 [ext_resource type="Resource" uid="uid://dsm7m37ch6p6s" path="res://mechanics/inventory_system/recipes/RECIPE_CORNCHOWDER.tres" id="4_y2ybq"]
 [ext_resource type="Resource" uid="uid://sf4r76yrq7w4" path="res://mechanics/inventory_system/recipes/RECIPE_POPCORN.tres" id="5_jty30"]

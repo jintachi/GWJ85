@@ -3,10 +3,14 @@ extends Node
 
 #region Declarations
 var delta_t : float = 1.0 ## The amount of time between ticks.
+var player_inventory = Inventory.new()
+var gold : int = 0 
 #endregion
 
 #region Built-Ins
 func _ready() -> void:
+	player_inventory = Inventory.new()
+	player_inventory.add_to_group(&"Inventory")
 	run_game_loop()
 #endregion
 

@@ -2,9 +2,13 @@
 extends CanvasLayer
 
 #region Declarations
+
 @export var witch_shop : PanelContainer
 
 @export var gold_label : Label
+
+@export var inventory_panel : PanelContainer
+
 #endregion
 
 #region Publics

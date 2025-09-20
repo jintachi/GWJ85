@@ -1,11 +1,13 @@
 ## Holds all the item data that the player currently has.
-extends Node
+class_name Inventory extends Node
 
 #region Declarations
-signal update_inventory
-
 @export var slots : Array[InventorySlot] 
 @export var defaultSize: int = 10
+#endregion
+
+#region Setup
+
 #endregion
 
 #region Helpers
@@ -18,7 +20,7 @@ func AddSlots(_n: int = 1) -> void:
 	for x in range(_n):
 		var newSlot = InventorySlot.new()
 		slots.append(newSlot)
-	update_inventory.emit()
+	update_inventory()
 
 ##add n GameItem to inventory
 func AddItem(new_item: GameItem, n: int) -> bool:
@@ -29,14 +31,14 @@ func AddItem(new_item: GameItem, n: int) -> bool:
 	for slot in slots:
 		if slot.item == new_item:
 			slot.amount += n
-			update_inventory.emit()
+			update_inventory()
 			return true
 	## if you didn't find it; put into existing slot that's empty
-	for slot in slots:		
+	for slot in slots:
 		if slot.amount == 0:
 			slot.item = new_item
 			slot.amount = n
-			update_inventory.emit()
+			update_inventory()
 			return true
 	##for dynamic inventories uncomment the lines below
 	##if you can't find one, create one
@@ -58,13 +60,16 @@ func RemoveItem(item_to_remove: GameItem, n:int) -> bool:
 					slot.item = null
 				#for dynamic inventories uncomment the lines below
 				#	slots.erase(slot)
-				update_inventory.emit()
+				update_inventory()
 				return true
 	return false
+
+func update_inventory() -> void :
+	GameGlobalEvents.update_inventory.emit()
 #endregion
 
 #region Checks
-func HasItem(item, n) -> bool:
+func HasItem(item, n = 1) -> bool:
 	for slot in slots:
 		if slot.item == item:
 			if slot.amount >= n:
