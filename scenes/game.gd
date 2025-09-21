@@ -6,12 +6,10 @@ extends Node
 
 @export var gold_at_start : int = 100
 
-
 #endregion
 
 #region Built-Ins
 func _ready() -> void:
-	
 	if gold_at_start > 0 :
 		GameGlobal.gold = gold_at_start
 		
@@ -21,7 +19,6 @@ func _ready() -> void:
 	
 	GameGlobalEvents.gold_updated.connect(_on_gold_updated)
 	_on_gold_updated(gold_at_start)
-	
 #endregion
 
 #region Signal Callbacks

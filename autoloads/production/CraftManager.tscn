@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ds0ydivk7mhl5"]
+
+[ext_resource type="Script" uid="uid://be2qfhm3ccvps" path="res://autoloads/production/craft_manager.gd" id="1_ww2i8"]
+
+[node name="CraftManager" type="Node"]
+script = ExtResource("1_ww2i8")

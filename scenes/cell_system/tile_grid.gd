@@ -16,6 +16,7 @@ func _ready() -> void:
 	_setup_map()
 	
 	GameGlobalEvents.place_cell.connect(_on_cell_placed)
+	GameGlobalEvents.place_item.connect(_add_to_tile)
 
 func _input(event: InputEvent) -> void:
 	if event is not InputEventKey or not selected_tile:
@@ -113,6 +114,16 @@ func _generate_cell_tile() -> CellTile:
 		cell_tile.add_produce(produce_packet)
 	
 	return cell_tile
+
+func _add_to_tile(item: Variant) -> void:
+	for tile in map:
+		if not tile.selected or not tile.tile_res:
+			continue
+		
+		if item is GameRecipe:
+			tile.tile_res.recipe = item
+		elif item is GameItem:
+			tile.tile_res.produced_item = item
 
 func _clear() -> void:
 	for tile in map:

@@ -9,7 +9,7 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_5u2vh"]
 atlas = ExtResource("5_3y6lv")
 
-[node name="Store" type="PanelContainer" node_paths=PackedStringArray("witch_store", "caravan_store", "recipe_screen", "tile_screen")]
+[node name="Store" type="PanelContainer" node_paths=PackedStringArray("witch_store", "caravan_store", "recipe_screen", "tile_screen", "input_screen")]
 anchors_preset = -1
 anchor_left = 0.7
 anchor_top = 0.3
@@ -22,6 +22,7 @@ witch_store = NodePath("Witch/WitchStore")
 caravan_store = NodePath("Caravan/CaravanStore")
 recipe_screen = NodePath("Recipes/RecipeScreen")
 tile_screen = NodePath("Tiles/TilesScreen")
+input_screen = NodePath("Inputs/InputScreen")
 selectables = Array[ExtResource("3_1ywrx")]([ExtResource("4_3y6lv")])
 cell_texture = SubResource("AtlasTexture_5u2vh")
 
@@ -54,4 +55,11 @@ visible = false
 layout_mode = 2
 
 [node name="TilesScreen" type="VBoxContainer" parent="Tiles"]
+layout_mode = 2
+
+[node name="Inputs" type="ScrollContainer" parent="."]
+visible = false
+layout_mode = 2
+
+[node name="InputScreen" type="VBoxContainer" parent="Inputs"]
 layout_mode = 2

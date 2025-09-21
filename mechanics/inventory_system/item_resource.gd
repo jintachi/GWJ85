@@ -7,4 +7,6 @@ class_name GameItem extends Resource
 @export var value : int = 1
 @export var texture : AtlasTexture
 @export var purchaseable : bool = false
+@export var cost : int = 0
+@export var producer_id : int = 0
 #endregion

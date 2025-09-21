@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://djrmvspurubgo"]
+[gd_scene load_steps=13 format=3 uid="uid://djrmvspurubgo"]
 
 [ext_resource type="Script" uid="uid://du7njqoumqj0v" path="res://ui/hud.gd" id="1_546lt"]
 [ext_resource type="PackedScene" uid="uid://8petnppadwyk" path="res://scenes/season/season_indicator.tscn" id="1_rbyyf"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://br8f2t1pkuxd6" path="res://ui/inventory/invpanel.tscn" id="7_q43x7"]
 [ext_resource type="FontFile" uid="uid://deajib16ve5y5" path="res://assets/fonts/m5x7.ttf" id="9_ff8ar"]
 [ext_resource type="Theme" uid="uid://b5ldjeqg05ylx" path="res://assets/themes/game_theme.tres" id="10_ff8ar"]
+[ext_resource type="Script" uid="uid://c4p8vgjsg8jbo" path="res://ui/requester.gd" id="11_m0eg6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_m0eg6"]
 line_spacing = 0.0
@@ -171,6 +172,20 @@ grow_vertical = 0
 layout_mode = 2
 text = "Create Cell"
 flat = true
+
+[node name="Requester" type="MarginContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+script = ExtResource("11_m0eg6")
+
+[node name="Label" type="Label" parent="Requester"]
+layout_mode = 2
 
 [connection signal="pressed" from="WitchShop/HBoxContainer/CaravanButton" to="." method="_caravan_shop_pressed"]
 [connection signal="pressed" from="WitchShop/HBoxContainer/Atelier/WitchShopButton" to="." method="_witch_shop_pressed"]

@@ -15,7 +15,9 @@
                 "y": { "type": "integer" },
                 "required": [ "x", "y" ]
             },
-            "purchaseable": { "type" : "boolean" }
+            "purchaseable": { "type" : "boolean" },
+            "cost": { "type": "integer" },
+            "producer_id": { "type": "integer" }
         },
         "required": [ "id", "name", "description", "value", "texture_pos" ],
         "additionalProperties": false

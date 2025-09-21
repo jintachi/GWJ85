@@ -6,3 +6,10 @@ signal gold_updated(value: int)
 signal update_inventory()
 signal place_cell(cell: Cell)
 signal create_cell(cell: Cell)
+signal selected_cell(cell: Cell)
+signal place_item(attached: Variant)
+
+var cell_selected : Cell = null :
+	set(value):
+		cell_selected = value
+		selected_cell.emit(cell_selected)

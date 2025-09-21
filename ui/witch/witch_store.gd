@@ -7,10 +7,17 @@ extends PanelContainer
 @export var caravan_store : VBoxContainer
 @export var recipe_screen : VBoxContainer
 @export var tile_screen : VBoxContainer
+@export var input_screen : VBoxContainer
 
 @export var selectables : Array[Cell]
 
 @export var cell_texture : AtlasTexture
+
+var selected_cell_type : Cell :
+	set(value):
+		selected_cell_type = value
+		viewing_screen = Genum.ShopScreen.INPUT
+
 var viewing_screen : Genum.ShopScreen = Genum.ShopScreen.WITCH :
 	set(value):
 		match(value):
@@ -22,6 +29,8 @@ var viewing_screen : Genum.ShopScreen = Genum.ShopScreen.WITCH :
 				_select_recipe()
 			Genum.ShopScreen.SELECTOR:
 				_select_tiles()
+			Genum.ShopScreen.INPUT:
+				_select_input(selected_cell_type)
 		
 		viewing_screen = value
 #endregion
@@ -32,6 +41,7 @@ func _ready() -> void:
 	_build_selection()
 	
 	GameGlobalEvents.create_cell.connect(_on_cell_tile_created)
+	GameGlobalEvents.selected_cell.connect(func(cell: Cell): selected_cell_type = cell)
 #endregion
 
 #region Setups
@@ -62,8 +72,30 @@ func build_selectable(selectable: Cell) -> void:
 	button.tile_selected.connect(_on_cell_selected)
 	tile_screen.add_child(button)
 
+func _build_inputs(cell: Cell) -> void:
+	var available_items = []
+	match(cell.cell_type):
+		Genum.TileType.PRODUCER:
+			available_items = CraftManager.grab_producable_items(cell.id)
+		Genum.TileType.PROCESSOR:
+			available_items = CraftManager.grab_craftable_items(cell.id)
+		Genum.TileType.DELIVERY:
+			available_items = CraftManager.item_compendium.values()
+	
+	for child in input_screen.get_children():
+		child.queue_free()
+	
+	for item in available_items:
+		var button := InputButton.new()
+		if item is GameRecipe:
+			button.text = item.item.name
+		else:
+			button.text = item.name
+		button.attached = item
+		input_screen.add_child(button)
+
 func _select_switch(switch : VBoxContainer) -> void:
-	for screen in [witch_store, caravan_store, recipe_screen, tile_screen]:
+	for screen in [witch_store, caravan_store, recipe_screen, tile_screen, input_screen]:
 		if screen == switch:
 			switch.get_parent().show()
 		else:
@@ -80,6 +112,10 @@ func _select_recipe() -> void:
 
 func _select_tiles() -> void:
 	_select_switch(tile_screen)
+
+func _select_input(cell: Cell) -> void:
+	_select_switch(input_screen)
+	_build_inputs(cell)
 #endregion
 
 #region Signal Callbacks

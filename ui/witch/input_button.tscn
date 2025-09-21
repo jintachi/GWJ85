@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ijvh1l4x57x5"]
+
+[ext_resource type="Script" uid="uid://behnsv3qoencj" path="res://ui/witch/input_button.gd" id="1_c4aln"]
+
+[node name="InputButton" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_c4aln")
