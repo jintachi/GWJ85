@@ -1,0 +1,147 @@
+[gd_scene load_steps=12 format=3 uid="uid://boffavcqbu0xx"]
+
+[ext_resource type="Script" path="res://mechanics/inventory_system/recipe_panel.gd" id="1_abpla"]
+[ext_resource type="Texture2D" uid="uid://cgemns8ogl2i0" path="res://assets/images/GameItems/bread.png" id="2_5eb5g"]
+[ext_resource type="Script" uid="uid://c1pst88f4uaec" path="res://mechanics/inventory_system/recipe_resource.gd" id="2_njq37"]
+[ext_resource type="Texture2D" uid="uid://b07tivgqwenlw" path="res://assets/images/10731661.png" id="3_23nmk"]
+[ext_resource type="Resource" path="res://mechanics/inventory_system/recipes/RECIPE_BREAD.tres" id="3_prb4r"]
+[ext_resource type="Resource" path="res://mechanics/inventory_system/recipes/RECIPE_CORNCHOWDER.tres" id="4_y2ybq"]
+[ext_resource type="Resource" path="res://mechanics/inventory_system/recipes/RECIPE_POPCORN.tres" id="5_jty30"]
+[ext_resource type="Resource" path="res://mechanics/inventory_system/recipes/RECIPE_TOASTEDPUMKINSEED.tres" id="6_y331i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nu2bk"]
+atlas = ExtResource("3_23nmk")
+region = Rect2(-9.65102, 105.272, 262.277, 297.111)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_njq37"]
+size = Vector2(348.862, 294.155)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_prb4r"]
+size = Vector2(161.07, 139.225)
+
+[node name="RECIPE_PANEL" type="Control" node_paths=PackedStringArray("recipeImage")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_abpla")
+availableRecipies = Array[ExtResource("2_njq37")]([ExtResource("3_prb4r"), ExtResource("4_y2ybq"), ExtResource("5_jty30"), ExtResource("6_y331i")])
+recipeImage = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.605011, -0.432487)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_5eb5g")
+
+[node name="left" type="Sprite2D" parent="."]
+modulate = Color(0.805072, 0.62524, 0.416077, 1)
+position = Vector2(-138.395, -1.43249)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_nu2bk")
+
+[node name="left" type="Area2D" parent="left"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="left/left"]
+position = Vector2(2.35892, 5.78746)
+shape = SubResource("RectangleShape2D_njq37")
+
+[node name="right" type="Sprite2D" parent="."]
+modulate = Color(0.805072, 0.62524, 0.416077, 1)
+position = Vector2(149.605, 2.56752)
+rotation = 3.14159
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_nu2bk")
+
+[node name="right" type="Area2D" parent="right"]
+position = Vector2(327.473, 6.59338)
+rotation = 3.14159
+scale = Vector2(2.1978, 2.1978)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="right/right"]
+position = Vector2(143.899, 4.30356)
+shape = SubResource("RectangleShape2D_prb4r")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = -233.0
+offset_top = 90.0
+offset_right = 278.0
+offset_bottom = 261.0
+theme_override_constants/separation = 120
+
+[node name="Ingredient 1" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/Ingredient 1"]
+position = Vector2(63.3, 58.3)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_5eb5g")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/Ingredient 1"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 85.0
+offset_right = 112.0
+offset_bottom = 154.0
+theme_override_colors/default_color = Color(0, 0.991051, 0.393462, 1)
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center]1"
+
+[node name="Ingredient 2" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/Ingredient 2"]
+position = Vector2(63.3, 58.3)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_5eb5g")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/Ingredient 2"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 85.0
+offset_right = 112.0
+offset_bottom = 154.0
+theme_override_colors/default_color = Color(0, 0.991051, 0.393462, 1)
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center]1"
+
+[node name="Ingredient 3" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/Ingredient 3"]
+position = Vector2(63.3, 58.3)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_5eb5g")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/Ingredient 3"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 85.0
+offset_right = 112.0
+offset_bottom = 154.0
+theme_override_colors/default_color = Color(0, 0.991051, 0.393462, 1)
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center]1"
+
+[node name="Ingredient 4" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/Ingredient 4"]
+position = Vector2(63.3, 58.3)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_5eb5g")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/Ingredient 4"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 85.0
+offset_right = 112.0
+offset_bottom = 154.0
+theme_override_colors/default_color = Color(0, 0.991051, 0.393462, 1)
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center]1"
+
+[connection signal="input_event" from="left/left" to="." method="_on_left_input_event"]
+[connection signal="input_event" from="right/right" to="." method="_on_right_input_event"]
