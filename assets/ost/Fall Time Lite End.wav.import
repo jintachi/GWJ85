@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://do7k3lchpx63a"
+path="res://.godot/imported/Fall Time Lite End.wav-b891a9943ff23b233d364b203d1bd1e7.sample"
+
+[deps]
+
+source_file="res://assets/ost/Fall Time Lite End.wav"
+dest_files=["res://.godot/imported/Fall Time Lite End.wav-b891a9943ff23b233d364b203d1bd1e7.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

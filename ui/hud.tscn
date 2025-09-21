@@ -42,7 +42,7 @@ theme_override_constants/margin_top = 5
 layout_mode = 2
 size_flags_horizontal = 3
 active_season = 0
-season_length = 30.0
+season_length = 130.0
 
 [node name="PauseMenu" parent="." instance=ExtResource("4_7ihmi")]
 

@@ -15,8 +15,6 @@ func _ready() -> void:
 		
 	add_to_group(&"game")
 	
-	MusicManager.play_song(&"MainTheme")
-	
 	GameGlobalEvents.gold_updated.connect(_on_gold_updated)
 	_on_gold_updated(gold_at_start)
 #endregion

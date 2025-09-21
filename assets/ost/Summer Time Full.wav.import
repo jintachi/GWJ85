@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dffnd4bdxades"
+path="res://.godot/imported/Summer Time Full.wav-1df0b36f2ffb283e6b0deee48d4825e3.sample"
+
+[deps]
+
+source_file="res://assets/ost/Summer Time Full.wav"
+dest_files=["res://.godot/imported/Summer Time Full.wav-1df0b36f2ffb283e6b0deee48d4825e3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://v8nrm7fnob2q"
+path="res://.godot/imported/Winter Time Lite Loop.wav-8faea435c7dba616acb629df2eef7823.sample"
+
+[deps]
+
+source_file="res://assets/ost/Winter Time Lite Loop.wav"
+dest_files=["res://.godot/imported/Winter Time Lite Loop.wav-8faea435c7dba616acb629df2eef7823.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

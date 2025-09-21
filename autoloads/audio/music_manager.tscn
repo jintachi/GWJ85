@@ -1,8 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dr6dlldfsixjc"]
+[gd_scene load_steps=13 format=3 uid="uid://dr6dlldfsixjc"]
 
 [ext_resource type="Script" uid="uid://dmy7las7as3pk" path="res://autoloads/audio/music_manager.gd" id="1_3u18u"]
 [ext_resource type="Script" uid="uid://btlga8p23nlo8" path="res://utility/data_holders/ost_holder.gd" id="2_1wrd4"]
 [ext_resource type="AudioStream" uid="uid://cmt1gblo2842j" path="res://assets/ost/Main Menu Theme.wav" id="3_3vt2u"]
+[ext_resource type="AudioStream" uid="uid://dng35ay6qgqmp" path="res://assets/ost/Fall Theme Full.wav" id="4_3f7s5"]
+[ext_resource type="AudioStream" uid="uid://bjeqqe7dlmy2c" path="res://assets/ost/Spring Time Full.wav" id="5_ylgrp"]
+[ext_resource type="AudioStream" uid="uid://dffnd4bdxades" path="res://assets/ost/Summer Time Full.wav" id="6_ih6uw"]
+[ext_resource type="AudioStream" uid="uid://jocowi1d54ol" path="res://assets/ost/Winter Time Full.wav" id="7_j8wkh"]
 
 [sub_resource type="Resource" id="Resource_kebxf"]
 script = ExtResource("2_1wrd4")
@@ -12,6 +16,38 @@ can_loop = false
 loop_vector = Vector2(0, -1)
 metadata/_custom_type_script = "uid://btlga8p23nlo8"
 
+[sub_resource type="Resource" id="Resource_eoi8x"]
+script = ExtResource("2_1wrd4")
+ost_name = &"Fall Theme"
+ost_stream = ExtResource("4_3f7s5")
+can_loop = true
+loop_vector = Vector2(43.64, 87.28)
+metadata/_custom_type_script = "uid://btlga8p23nlo8"
+
+[sub_resource type="Resource" id="Resource_vau6s"]
+script = ExtResource("2_1wrd4")
+ost_name = &"Spring Theme"
+ost_stream = ExtResource("5_ylgrp")
+can_loop = true
+loop_vector = Vector2(43.64, 87.28)
+metadata/_custom_type_script = "uid://btlga8p23nlo8"
+
+[sub_resource type="Resource" id="Resource_oyb45"]
+script = ExtResource("2_1wrd4")
+ost_name = &"Summer Theme"
+ost_stream = ExtResource("6_ih6uw")
+can_loop = true
+loop_vector = Vector2(43.64, 87.28)
+metadata/_custom_type_script = "uid://btlga8p23nlo8"
+
+[sub_resource type="Resource" id="Resource_5opi3"]
+script = ExtResource("2_1wrd4")
+ost_name = &"Winter Theme"
+ost_stream = ExtResource("7_j8wkh")
+can_loop = true
+loop_vector = Vector2(43.64, 87.28)
+metadata/_custom_type_script = "uid://btlga8p23nlo8"
+
 [node name="MusicManager" type="Node"]
 script = ExtResource("1_3u18u")
-song_pool = Array[ExtResource("2_1wrd4")]([SubResource("Resource_kebxf")])
+song_pool = Array[ExtResource("2_1wrd4")]([SubResource("Resource_kebxf"), SubResource("Resource_eoi8x"), SubResource("Resource_vau6s"), SubResource("Resource_oyb45"), SubResource("Resource_5opi3")])

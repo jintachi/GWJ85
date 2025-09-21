@@ -58,15 +58,19 @@ func _update_season_label(season : Genum.Season) -> void :
 		Genum.Season.SPRING:
 			season_label.push_color(Color8(231, 176, 108))
 			season_label.append_text("SPRING")
+			MusicManager.play_song(&"Spring Theme", 0, true)
 		Genum.Season.SUMMER:
 			season_label.push_color(Color8(277, 148, 84))
 			season_label.append_text("SUMMER")
+			MusicManager.play_song(&"Summer Theme", 0, true)
 		Genum.Season.FALL:
 			season_label.push_color(Color8(195, 109, 68))
 			season_label.append_text("FALL")
+			MusicManager.play_song(&"Fall Theme", 0, true)
 		Genum.Season.WINTER:
 			season_label.push_color(Color8(247, 236, 174))
 			season_label.append_text("WINTER")
+			MusicManager.play_song(&"Winter Theme", 0, true)
 
 	season_label.pop_all()
 

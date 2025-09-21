@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://rmcgcuwcvdqh"
+path="res://.godot/imported/Spring Time Lite Start.wav-ee29baca71cb86bc39ee93567ca0851a.sample"
+
+[deps]
+
+source_file="res://assets/ost/Spring Time Lite Start.wav"
+dest_files=["res://.godot/imported/Spring Time Lite Start.wav-ee29baca71cb86bc39ee93567ca0851a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

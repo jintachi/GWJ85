@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://nqcx8ks4a4im"
+path="res://.godot/imported/Summer Time Lite End.wav-45178bf8337d335d3fdb5465fd4571e8.sample"
+
+[deps]
+
+source_file="res://assets/ost/Summer Time Lite End.wav"
+dest_files=["res://.godot/imported/Summer Time Lite End.wav-45178bf8337d335d3fdb5465fd4571e8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
