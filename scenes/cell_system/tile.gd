@@ -49,7 +49,7 @@ func report_function() -> void:
 		Genum.TileType.DELIVERY:
 			print("Deliver")
 
-func toggle_selection(is_selected:bool) -> void :
+func toggle_selection(_is_selected:bool) -> void :
 
 	selected = !selected
 	
@@ -122,7 +122,7 @@ func _on_gui_input(event: InputEvent) -> void:
 				GameGlobalEvents.cell_selected = null
 			toggle_selection(selected)
 		else:
-			parent._UnselectAll()
+			parent._unselect_all()
 			toggle_selection(selected)
 		
 	elif event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed():
