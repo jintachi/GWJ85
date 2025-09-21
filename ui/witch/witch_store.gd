@@ -41,7 +41,7 @@ func _ready() -> void:
 	_build_selection()
 	
 	GameGlobalEvents.create_cell.connect(_on_cell_tile_created)
-	GameGlobalEvents.selected_cell.connect(func(cell: Cell): selected_cell_type = cell)
+	TileMapManager.new_cell_selected.connect(func(cell: Cell): selected_cell_type = cell)
 #endregion
 
 #region Setups

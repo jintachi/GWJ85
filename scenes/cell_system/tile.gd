@@ -2,10 +2,9 @@
 class_name Tile extends PanelContainer
 
 #region Delcarations
-@export_custom(PROPERTY_HINT_RESOURCE_TYPE, "ProcessorTile, ProducerTile") var tile_res : Cell :
+@export var tile_res : Cell :
 	set(value):
 		tile_res = value
-		_update_values()
 		_update_textures()
 @export var selected: bool = false
 @export var produced_item : GameItem
@@ -14,13 +13,13 @@ class_name Tile extends PanelContainer
 
 var selected_theme : StyleBox
 var unselected_theme : StyleBox
+var tick_counter : int
 
 var parent : TileGrid
 #endregion
 
 #region Built-Ins
 func _ready() -> void:
-	report_function()
 	if not get_parent():
 		return
 	if get_parent() is TileGrid:
@@ -29,27 +28,14 @@ func _ready() -> void:
 	set_themes()
 	self.add_theme_stylebox_override("panel", unselected_theme)
 	
-	GameGlobalEvents.game_tick.connect(_on_game_tick)
 	_update_textures()
 	
+	GameGlobalEvents.game_tick.connect(_on_game_tick)
 	GameGlobalEvents.place_item.connect(_on_item_placed)
 #endregion
 
 #region Helpers
-## Reports the function of the cell to the cell_manager for saving and quick processing.
-func report_function() -> void:
-	if not tile_res:
-		return
-	
-	match(tile_res.tile_type):
-		Genum.TileType.PRODUCER:
-			print("Producer")
-		Genum.TileType.PROCESSOR:
-			print("Processor")
-		Genum.TileType.DELIVERY:
-			print("Deliver")
-
-func toggle_selection(_is_selected:bool) -> void :
+func toggle_selection(is_selected: bool) -> void:
 
 	selected = !selected
 	
@@ -67,15 +53,18 @@ func set_themes() -> void:
 	unselected_theme = theme.get_stylebox("unselected","Tile")
 
 func _produce_resource() -> void:
-	# TODO: Improve logic for actual production per time
-	Inventory.AddItem(produced_item, 1)
+	if tick_counter >= tile_res.op_time:
+		Inventory.AddItem(produced_item, 1)
+		tick_counter = 0
+	else:
+		tick_counter += 1
 
 func _process_resource() -> void:
 	CraftManager.request_craft(recipe)
 
 # TODO: Come back to this after request system is made.
 func _deliver_resource() -> void:
-	pass
+	RequestManager.deliver_item(delivered_item)
 
 func _compute_cell() -> void:
 	for produce in tile_res.produced:
@@ -94,18 +83,6 @@ func _update_textures() -> void:
 		return
 	
 	$"MachineLayer".texture = tile_res.texture
-
-func _update_values() -> void:
-	if not tile_res:
-		recipe = null
-		produced_item = null
-	
-	if tile_res is ProducerTile:
-		if tile_res.produced_item:
-			produced_item = tile_res.produced_item
-	elif tile_res is ProcessorTile:
-		if tile_res.recipe:
-			recipe = tile_res.recipe
 #endregion
 
 #region Signal Callbacks
@@ -115,11 +92,11 @@ func _on_gui_input(event: InputEvent) -> void:
 	
 	if event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
 		if selected and tile_res:
-			GameGlobalEvents.cell_selected = tile_res
+			TileMapManager.selected_cell = tile_res
 		
 		if Input.is_physical_key_pressed(KEY_SHIFT) or Input.is_physical_key_pressed(KEY_CTRL):
-			if tile_res != GameGlobalEvents.cell_selected:
-				GameGlobalEvents.cell_selected = null
+			if tile_res != TileMapManager.selected_cell:
+				TileMapManager.selected_cell = null
 			toggle_selection(selected)
 		else:
 			parent._unselect_all()
@@ -129,20 +106,26 @@ func _on_gui_input(event: InputEvent) -> void:
 		if not tile_res:
 			return
 		
-		if tile_res is ProcessorTile:
-			if tile_res.recipe:
-				tile_res.recipe = null
-			else:
-				tile_res = null
-		elif tile_res is ProducerTile:
-			if tile_res.produced_item:
-				tile_res.produced_item = null
-			else:
-				tile_res = null
-		elif tile_res is CellTile:
-			tile_res = null
-
+		var removed_item := false
+		match(tile_res):
+			Genum.TileType.PRODUCER:
+				if produced_item:
+					produced_item = null
+					removed_item = true
+			Genum.TileType.PROCESSOR:
+				if recipe:
+					recipe = null
+					removed_item = true
+			Genum.TileType.DELIVERY:
+				if delivered_item:
+					delivered_item = null
+					removed_item = true
 		
+		if not removed_item:
+			tile_res = null
+		
+		_update_textures()
+
 func _unselect() -> void:
 	selected = false
 	self.remove_theme_stylebox_override("panel")
@@ -152,18 +135,23 @@ func _on_game_tick() -> void:
 	if not tile_res:
 		return
 	
-	if not recipe and not produced_item:
+	if not recipe and not produced_item and not delivered_item:
 		return
 	
-	print(tile_res)
-	if tile_res is ProducerTile:
-		print("Detecting Producer")
-		_produce_resource()
-	elif tile_res is ProcessorTile:
-		_process_resource()
-	elif tile_res is CellTile:
-		_compute_cell()
-	# TODO: Come back with DeliveryTile
+	if tick_counter >= tile_res.op_time:
+		match(tile_res.cell_type):
+			Genum.TileType.PRODUCER:
+				_process_resource()
+			Genum.TileType.PROCESSOR:
+				_process_resource()
+			Genum.TileType.DELIVERY:
+				_deliver_resource()
+			Genum.TileType.CELL:
+				_compute_cell()
+		
+		tick_counter = 0
+	else:
+		tick_counter += 1
 
 func _on_item_placed(item: Variant) -> void:
 	if not selected:

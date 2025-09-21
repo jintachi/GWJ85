@@ -2,9 +2,13 @@
 extends Node
 
 #region Declarations
-var depth : int = 1
-var map_data : Array = []
+signal new_cell_selected(cell: Cell)
+
 var placeable_tile : Tile
+var selected_cell : Cell :
+	set(value):
+		selected_cell = value
+		new_cell_selected.emit(selected_cell)
 #endregion
 
 # TODO: Make another scene for selecting tiles that have been purchased
