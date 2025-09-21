@@ -175,8 +175,8 @@ grow_vertical = 0
 
 [node name="Button" type="Button" parent="CreateCell"]
 layout_mode = 2
+theme = ExtResource("10_ff8ar")
 text = "Create Cell"
-flat = true
 
 [node name="Requester" type="MarginContainer" parent="."]
 anchors_preset = 5
@@ -191,6 +191,15 @@ script = ExtResource("11_m0eg6")
 
 [node name="Label" type="Label" parent="Requester"]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="."]
+offset_left = 29.0
+offset_top = 170.0
+offset_right = 241.0
+offset_bottom = 196.0
+scale = Vector2(0.629078, 0.629078)
+theme_override_font_sizes/font_size = 32
+text = "Seasons on the Grid"
 
 [connection signal="pressed" from="WitchShop/HBoxContainer/Caravan/CaravanButton" to="." method="_caravan_shop_pressed"]
 [connection signal="pressed" from="WitchShop/HBoxContainer/Atelier/WitchShopButton" to="." method="_witch_shop_pressed"]

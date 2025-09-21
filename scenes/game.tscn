@@ -6,6 +6,7 @@
 [node name="Game" type="Node" node_paths=PackedStringArray("hud")]
 script = ExtResource("1_yqjtg")
 hud = NodePath("HUD")
+gold_at_start = 1000
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
