@@ -100,7 +100,7 @@ func _build_inputs(cell: Cell) -> void:
 	for item in available_items:
 		var button := InputButton.new()
 		if item is GameRecipe:
-			button.text = item.item.name
+			button.text = item.name
 		else:
 			button.text = item.name
 		button.attached = item

@@ -2,7 +2,7 @@ extends Resource
 
 class_name GameRecipe
 
-@export var Name: StringName
+@export var name: StringName
 @export var unlocked: bool = true
 @export var item: GameItem
 @export var ingredients: Array[ItemPacket]

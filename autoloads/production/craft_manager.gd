@@ -7,7 +7,7 @@ var item_atlas : AtlasTexture
 var item_atlas_path : String = "res://assets/images/package.png"
 var item_path : String = "res://mechanics/inventory_system/items.json"
 var item_compendium : Dictionary [int, GameItem] = {}
-var recipe_path : String = "res://mechanics/inventory_system/recipe.json"
+var recipe_path : String = "res://mechanics/inventory_system/recipes.json"
 var recipe_compendium : Array[GameRecipe]
 #endregion
 
