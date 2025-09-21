@@ -26,4 +26,9 @@ layout_mode = 2
 expand_mode = 2
 stretch_mode = 5
 
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]

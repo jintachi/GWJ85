@@ -11,6 +11,8 @@ class_name Tile extends PanelContainer
 @export var recipe : GameRecipe
 @export var delivered_item : GameItem
 
+@onready var label : Label = $"Label"
+
 var selected_theme : StyleBox
 var unselected_theme : StyleBox
 var tick_counter : int = 1
@@ -54,13 +56,14 @@ func set_themes() -> void:
 
 func _produce_resource() -> void:
 	Inventory.AddItem(produced_item, 1)
+	if tile_res.cell_name == &"Field":
+		$"MachineLayer".texture.region = Rect2(64, 0, 64, 64)
 
 func _process_resource() -> void:
 	CraftManager.request_craft(recipe)
 
 func _deliver_resource() -> void:
 	RequestManager.deliver_item(delivered_item)
-	Inventory.RemoveItem(delivered_item, 1)
 
 func _compute_cell() -> void:
 	for produce in tile_res.produced:
@@ -72,13 +75,20 @@ func _compute_cell() -> void:
 			if not item:
 				continue
 			Inventory.AddItem(item, 1)
+	
+	for delivery in tile_res.delivered:
+		RequestManager.deliver_item(delivery.item, delivery.count)
 
 func _update_textures() -> void:
 	if not tile_res:
 		$"MachineLayer".texture = null
 		return
 	
-	$"MachineLayer".texture = tile_res.texture
+	if tile_res.cell_name == &"Field":
+		$"MachineLayer".texture = tile_res.texture.duplicate()
+	else:
+		$"MachineLayer".texture = tile_res.texture
+	label.text = "T%s" % tile_res.depth_req
 #endregion
 
 #region Signal Callbacks
@@ -148,6 +158,12 @@ func _on_game_tick() -> void:
 		tick_counter = 1
 	else:
 		tick_counter += 1
+		
+		if tile_res.cell_name == &"Field":
+			if tick_counter > (tile_res.op_time * 2) / 3:
+				$"MachineLayer".texture.region = Rect2(64, 64, 64, 64) 
+			elif tick_counter > (tile_res.op_time) / 3:
+				$"MachineLayer".texture.region = Rect2(0, 64, 64, 64)
 
 #func _on_item_placed(item: Variant) -> void:
 #	if not selected:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://djrmvspurubgo"]
+[gd_scene load_steps=14 format=3 uid="uid://djrmvspurubgo"]
 
 [ext_resource type="Script" uid="uid://du7njqoumqj0v" path="res://ui/hud.gd" id="1_546lt"]
 [ext_resource type="PackedScene" uid="uid://8petnppadwyk" path="res://scenes/season/season_indicator.tscn" id="1_rbyyf"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dq4wge02pusmm" path="res://scenes/cell_system/tile_grid.tscn" id="2_srpbi"]
 [ext_resource type="PackedScene" uid="uid://fvagukkfc08f" path="res://ui/pause_menu.tscn" id="4_7ihmi"]
 [ext_resource type="Texture2D" uid="uid://b4c6mq6q1o1vm" path="res://assets/images/witch_atelier_v1.png" id="5_1v5rv"]
+[ext_resource type="Texture2D" uid="uid://co28h6tu13th6" path="res://assets/images/caravan.png" id="5_b00kl"]
 [ext_resource type="PackedScene" uid="uid://c22de3c6fgfto" path="res://ui/witch/witch_store.tscn" id="6_q43x7"]
 [ext_resource type="PackedScene" uid="uid://br8f2t1pkuxd6" path="res://ui/inventory/invpanel.tscn" id="7_q43x7"]
 [ext_resource type="FontFile" uid="uid://deajib16ve5y5" path="res://assets/fonts/m5x7.ttf" id="9_ff8ar"]
@@ -40,28 +41,32 @@ theme_override_constants/margin_top = 5
 [node name="SeasonIndicator" parent="ClockContainer" instance=ExtResource("1_rbyyf")]
 layout_mode = 2
 size_flags_horizontal = 3
+active_season = 0
+season_length = 30.0
 
 [node name="PauseMenu" parent="." instance=ExtResource("4_7ihmi")]
 
 [node name="WitchShop" type="MarginContainer" parent="."]
 anchors_preset = -1
-anchor_left = 0.712
-anchor_top = 0.111
+anchor_left = 0.689
+anchor_top = 0.054
 anchor_right = 1.0
-anchor_bottom = 0.289
-offset_left = -4.67999
-offset_top = -34.96
-offset_right = -4.67999
-offset_bottom = -34.96
+anchor_bottom = 0.244
 theme_override_constants/margin_right = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="WitchShop"]
 layout_mode = 2
 alignment = 2
 
-[node name="CaravanButton" type="Button" parent="WitchShop/HBoxContainer"]
+[node name="Caravan" type="MarginContainer" parent="WitchShop/HBoxContainer"]
 layout_mode = 2
-text = "Caravan"
+
+[node name="Caravan" type="TextureRect" parent="WitchShop/HBoxContainer/Caravan"]
+layout_mode = 2
+texture = ExtResource("5_b00kl")
+
+[node name="CaravanButton" type="Button" parent="WitchShop/HBoxContainer/Caravan"]
+layout_mode = 2
 flat = true
 
 [node name="Atelier" type="MarginContainer" parent="WitchShop/HBoxContainer"]
@@ -187,7 +192,7 @@ script = ExtResource("11_m0eg6")
 [node name="Label" type="Label" parent="Requester"]
 layout_mode = 2
 
-[connection signal="pressed" from="WitchShop/HBoxContainer/CaravanButton" to="." method="_caravan_shop_pressed"]
+[connection signal="pressed" from="WitchShop/HBoxContainer/Caravan/CaravanButton" to="." method="_caravan_shop_pressed"]
 [connection signal="pressed" from="WitchShop/HBoxContainer/Atelier/WitchShopButton" to="." method="_witch_shop_pressed"]
 [connection signal="pressed" from="TileSelection/TilesButton" to="." method="_tiles_screen_pressed"]
 [connection signal="pressed" from="CreateCell/Button" to="." method="_create_cell_pressed"]

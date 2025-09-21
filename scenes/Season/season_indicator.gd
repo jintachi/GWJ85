@@ -56,16 +56,16 @@ func _update_season_label(season : Genum.Season) -> void :
 	
 	match(season):
 		Genum.Season.SPRING:
-			season_label.push_color(Color.LAWN_GREEN)
+			season_label.push_color(Color8(231, 176, 108))
 			season_label.append_text("SPRING")
 		Genum.Season.SUMMER:
-			season_label.push_color(Color.YELLOW)
+			season_label.push_color(Color8(277, 148, 84))
 			season_label.append_text("SUMMER")
 		Genum.Season.FALL:
-			season_label.push_color(Color.DARK_ORANGE)
+			season_label.push_color(Color8(195, 109, 68))
 			season_label.append_text("FALL")
 		Genum.Season.WINTER:
-			season_label.push_color(Color.AQUA)
+			season_label.push_color(Color8(247, 236, 174))
 			season_label.append_text("WINTER")
 
 	season_label.pop_all()

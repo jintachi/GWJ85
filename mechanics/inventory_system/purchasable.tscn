@@ -34,13 +34,13 @@ text = "Cost: 100"
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="buy1" type="Button" parent="HBoxContainer/VBoxContainer2"]
+[node name="sell1" type="Button" parent="HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-text = "BUY 1"
+text = "Sell 1"
 
-[node name="buy10" type="Button" parent="HBoxContainer/VBoxContainer2"]
+[node name="sell10" type="Button" parent="HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-text = "BUY 10"
+text = "SELL 10"
 
-[connection signal="button_up" from="HBoxContainer/VBoxContainer2/buy1" to="." method="_on_press_by_1"]
-[connection signal="button_up" from="HBoxContainer/VBoxContainer2/buy10" to="." method="_on_press_by_10"]
+[connection signal="button_up" from="HBoxContainer/VBoxContainer2/sell1" to="." method="_on_press_by_1"]
+[connection signal="button_up" from="HBoxContainer/VBoxContainer2/sell10" to="." method="_on_press_by_10"]

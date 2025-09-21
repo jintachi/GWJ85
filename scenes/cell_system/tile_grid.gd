@@ -58,32 +58,41 @@ func save_to_cell() -> CellTile:
 		
 		highest_depth = maxi(highest_depth, tile.tile_res.depth_req)
 		
-		if tile.tile_res is ProducerTile:
-			if not tile.tile_res.produced_item:
-				continue
-			
-			var packet := ItemPacket.new()
-			packet.item = tile.tile_res.produced_item
-			packet.count = 1
-			new_cell.add_produce(packet)
-		elif tile.tile_res is ProcessorTile:
-			if not tile.tile_res.recipe:
-				continue
-			
-			var item = CraftManager.request_craft(tile.tile_res.recipe)
-			if not item:
-				continue
-			
-			var packet := RecipePacket.new()
-			packet.recipe = tile.tile_res.recipe
-			packet.count = 1
-			new_cell.add_recipe(packet)
-		elif tile.tile_res is CellTile:
-			for produce in tile.tile_res.produced:
-				new_cell.add_produce(produce)
-			
-			for process in tile.tile_res.processed:
-				new_cell.add_recipe(process)
+		match(tile.tile_res.cell_type):
+			Genum.TileType.PRODUCER:
+				if not tile.produced_item:
+					continue
+				
+				var packet := ItemPacket.new()
+				packet.item = tile.produced_item
+				packet.count = 1
+				new_cell.add_produce(packet)
+			Genum.TileType.PROCESSOR:
+				if not tile.recipe:
+					continue
+				
+				var item = CraftManager.request_craft(tile.tile_res.recipe)
+				if not item:
+					continue
+				
+				var packet := RecipePacket.new()
+				packet.recipe = tile.recipe
+				packet.count = 1
+				new_cell.add_recipe(packet)
+			Genum.TileType.CELL:
+				for produce in tile.tile_res.produced:
+					new_cell.add_produce(produce)
+				
+				for process in tile.tile_res.processed:
+					new_cell.add_recipe(process)
+			Genum.TileType.DELIVERY:
+				if not tile.delivered_item:
+					continue
+				
+				var packet := ItemPacket.new()
+				packet.item = tile.delivered_item
+				packet.count = 1
+				new_cell.add_delivery(packet)
 	
 	new_cell.depth_req = highest_depth + 1
 	return new_cell
@@ -236,5 +245,9 @@ func _on_cell_placed(cell: Cell) -> void:
 		if not tile.selected:
 			continue
 		
+		if cell.price > GameGlobal.gold:
+			return
+		
 		tile.tile_res = cell
+		GameGlobalEvents.gold_updated.emit(-cell.price)
 #endregion

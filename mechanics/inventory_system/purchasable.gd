@@ -8,22 +8,20 @@ extends Control
 func _ready() -> void:
 	item_texture.texture = item.texture
 	title.text = item.name
-	cost.text = "cost: %s" % item.value
+	cost.text = "sell: %s" % item.value
 
 func _on_press_by_1() -> void:
-	if GameGlobal.gold - item.value < 0 :
-		print("You Can't Afford This!")
+	if Inventory.ItemAmount(item) < 1:
+		print("You don't have enough!")
 		return
-	Inventory.AddItem(item, 1)
+	Inventory.RemoveItem(item, 1)
 	await get_tree().process_frame
-	GameGlobalEvents.gold_updated.emit((-1 * item.value))
-	Inventory.PukeConent()
+	GameGlobalEvents.gold_updated.emit(item.value)
 
 func _on_press_by_10() -> void:
-	if GameGlobal.gold - (10 * item.value) < 0 :
-		print("You Can't Afford This!")
+	if Inventory.ItemAmount(item) < 10:
+		print("You don't have enough!")
 		return
-	Inventory.AddItem(item, 10)
+	Inventory.RemoveItem(item, 10)
 	await get_tree().process_frame
-	GameGlobalEvents.gold_updated.emit((-10 * item.value))
-	Inventory.PukeConent()
+	GameGlobalEvents.gold_updated.emit((10 * item.value))

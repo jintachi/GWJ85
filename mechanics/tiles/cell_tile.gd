@@ -24,6 +24,14 @@ func add_recipe(packet: RecipePacket) -> void:
 			current_packet.count += packet.count
 			return
 
+func add_delivery(packet: ItemPacket) -> void:
+	for current_packet in delivered:
+		if current_packet.item == packet.item:
+			current_packet.count += packet.count
+			return
+	
+	delivered.append(packet)
+
 func process_tick() -> void:
 	for packet in produced:
 		Inventory.AddItem(packet.item, packet.count)

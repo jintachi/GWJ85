@@ -12,7 +12,7 @@ extends PanelContainer
 @export var selectables : Array[Cell]
 
 @export var cell_texture : AtlasTexture
-
+@export var cell_button : PackedScene
 var selected_cell_type : Cell :
 	set(value):
 		selected_cell_type = value
@@ -42,18 +42,23 @@ func _ready() -> void:
 	
 	GameGlobalEvents.create_cell.connect(_on_cell_tile_created)
 	TileMapManager.new_cell_selected.connect(func(cell: Cell): selected_cell_type = cell)
+	GameGlobalEvents.update_inventory.connect(_on_inventory_updated)
 #endregion
 
 #region Setups
 func _build_store() -> void:
-	if not witch_store or not purchaseable_ref:
+	if not caravan_store or not purchaseable_ref:
 		return
 	
-	for item in CraftManager.item_compendium.values():
-		if not item.purchaseable:
+	for child in caravan_store.get_children():
+		child.queue_free()
+	
+	for slot in Inventory.slots:
+		if not slot.item:
 			continue
+		
 		var purchaseable = purchaseable_ref.instantiate()
-		purchaseable.item = item
+		purchaseable.item = slot.item
 		caravan_store.add_child(purchaseable)
 
 func _build_selection() -> void:
@@ -63,7 +68,7 @@ func _build_selection() -> void:
 
 #region Helpers
 func build_selectable(selectable: Cell) -> void:
-	var button := CellButton.new()
+	var button : CellButton = cell_button.instantiate()
 	button.tile_resource = selectable
 	if selectable.texture:
 		button.texture_normal = selectable.texture
@@ -71,8 +76,14 @@ func build_selectable(selectable: Cell) -> void:
 		button.texture_normal = cell_texture
 	button.tile_selected.connect(_on_cell_selected)
 	tile_screen.add_child(button)
+	button.add_text()
 
 func _build_inputs(cell: Cell) -> void:
+	if not cell:
+		for child in input_screen.get_children():
+			child.queue_free()
+		return
+	
 	var available_items = []
 	match(cell.cell_type):
 		Genum.TileType.PRODUCER:
@@ -127,4 +138,7 @@ func _on_cell_selected(cell: Cell) -> void:
 
 func _on_cell_tile_created(cell: Cell) -> void:
 	build_selectable(cell)
+
+func _on_inventory_updated() -> void:
+	_build_store()
 #endregion
