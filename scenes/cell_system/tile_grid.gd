@@ -62,6 +62,7 @@ func save_to_cell() -> CellTile:
 			continue
 		
 		highest_depth = maxi(highest_depth, tile.tile_res.depth_req)
+		new_cell.price += tile.tile_res.price
 		
 		match(tile.tile_res.cell_type):
 			Genum.TileType.PRODUCER:
