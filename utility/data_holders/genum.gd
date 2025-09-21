@@ -29,5 +29,6 @@ enum ShopScreen {
 	WITCH,
 	CARAVAN,
 	RECIPE,
-	SELECTOR
+	SELECTOR,
+	INPUT
 }

@@ -3,6 +3,8 @@
 extends Node
 
 #region Declarations
+@export var recipe_compendium : Array[GameRecipe]
+
 var item_atlas : AtlasTexture
 var item_atlas_path : String = "res://assets/images/item_atlas.png"
 var item_path : String = "res://mechanics/inventory_system/items.json"
@@ -38,6 +40,8 @@ func _load_item(data: Dictionary) -> GameItem:
 	item.description = data.get("description")
 	item.value = data.get("value")
 	item.purchaseable = data.get("purchaseable", false)
+	item.cost = data.get("cost", 0)
+	item.producer_id = data.get("producer_id", 0)
 	
 	var texture_pos = data.get("texture_pos")
 	var texture_vec = Vector2i(texture_pos.get("x"), texture_pos.get("y"))
@@ -58,4 +62,24 @@ func _load_texture(pos: Vector2i, cell_size: Vector2i) -> AtlasTexture:
 # TODO: Come back to this with process tasks.
 func request_craft(recipe: GameRecipe) -> GameItem:
 	return null
+
+func grab_producable_items(cell_id: int) -> Array:
+	var available_items = []
+	for item in item_compendium.values():
+		if item.producer_id != cell_id:
+			continue
+		
+		available_items.append(item)
+	
+	return available_items
+
+func grab_craftable_items(cell_id: int) -> Array:
+	var available_recipes = []
+	for recipe in recipe_compendium:
+		if recipe.processor_id != cell_id:
+			continue
+		
+		available_recipes.append(recipe)
+	
+	return available_recipes
 #endregion

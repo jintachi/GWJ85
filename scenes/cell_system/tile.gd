@@ -10,6 +10,7 @@ class_name Tile extends PanelContainer
 @export var selected: bool = false
 @export var produced_item : GameItem
 @export var recipe : GameRecipe
+@export var delivered_item : GameItem
 
 var selected_theme : StyleBox
 var unselected_theme : StyleBox
@@ -31,6 +32,7 @@ func _ready() -> void:
 	GameGlobalEvents.game_tick.connect(_on_game_tick)
 	_update_textures()
 	
+	GameGlobalEvents.place_item.connect(_on_item_placed)
 #endregion
 
 #region Helpers
@@ -112,11 +114,17 @@ func _on_gui_input(event: InputEvent) -> void:
 		return
 	
 	if event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
+		if selected and tile_res:
+			GameGlobalEvents.cell_selected = tile_res
+		
 		if Input.is_physical_key_pressed(KEY_SHIFT) or Input.is_physical_key_pressed(KEY_CTRL):
+			if tile_res != GameGlobalEvents.cell_selected:
+				GameGlobalEvents.cell_selected = null
 			toggle_selection(selected)
-		else :
+		else:
 			parent._UnselectAll()
 			toggle_selection(selected)
+		
 	elif event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed():
 		if not tile_res:
 			return
@@ -156,4 +164,16 @@ func _on_game_tick() -> void:
 	elif tile_res is CellTile:
 		_compute_cell()
 	# TODO: Come back with DeliveryTile
+
+func _on_item_placed(item: Variant) -> void:
+	if not selected:
+		return
+	
+	if item is GameItem:
+		if tile_res.cell_type == Genum.TileType.PRODUCER:
+			produced_item = item
+		elif tile_res.cell_type == Genum.TileType.DELIVERY:
+			delivered_item = item
+	elif item is GameRecipe:
+		recipe = item
 #endregion
