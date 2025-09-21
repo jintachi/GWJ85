@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://c22de3c6fgfto"]
+[gd_scene load_steps=8 format=3 uid="uid://c22de3c6fgfto"]
 
 [ext_resource type="Script" uid="uid://daltoig2r6xpk" path="res://ui/witch/witch_store.gd" id="1_t3cft"]
 [ext_resource type="PackedScene" uid="uid://dovf40pax5p1w" path="res://mechanics/inventory_system/purchasable.tscn" id="2_xj1sp"]
 [ext_resource type="Script" uid="uid://bvkgrw7fk5ebq" path="res://mechanics/resources/cell_resource.gd" id="3_1ywrx"]
 [ext_resource type="Resource" uid="uid://dojm1w7hmmd6r" path="res://mechanics/tiles/producers/field.tres" id="4_3y6lv"]
 [ext_resource type="Texture2D" uid="uid://dv5vfm3fwsyl3" path="res://assets/images/cell_tile.png" id="5_3y6lv"]
+[ext_resource type="Resource" uid="uid://y561kpdxrt2y" path="res://mechanics/tiles/deliverer.tres" id="5_5u2vh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5u2vh"]
 atlas = ExtResource("5_3y6lv")
@@ -23,7 +24,7 @@ caravan_store = NodePath("Caravan/CaravanStore")
 recipe_screen = NodePath("Recipes/RecipeScreen")
 tile_screen = NodePath("Tiles/TilesScreen")
 input_screen = NodePath("Inputs/InputScreen")
-selectables = Array[ExtResource("3_1ywrx")]([ExtResource("4_3y6lv")])
+selectables = Array[ExtResource("3_1ywrx")]([ExtResource("4_3y6lv"), ExtResource("5_5u2vh")])
 cell_texture = SubResource("AtlasTexture_5u2vh")
 
 [node name="Witch" type="ScrollContainer" parent="."]

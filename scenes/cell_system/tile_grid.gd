@@ -17,15 +17,6 @@ func _ready() -> void:
 	
 	GameGlobalEvents.place_cell.connect(_on_cell_placed)
 	GameGlobalEvents.place_item.connect(_add_to_tile)
-
-func _input(event: InputEvent) -> void:
-	if event is not InputEventKey or not selected_tile:
-		return
-	
-	if event.is_action_pressed("turn_left"):
-		selected_tile.rotation -= PI / 2.
-	elif event.is_action_pressed("turn_right"):
-		selected_tile.rotation += PI / 2.
 #endregion
 
 #region Setup
@@ -216,9 +207,12 @@ func _add_to_tile(item: Variant) -> void:
 			continue
 		
 		if item is GameRecipe:
-			tile.tile_res.recipe = item
+			tile.recipe = item
 		elif item is GameItem:
-			tile.tile_res.produced_item = item
+			if tile.tile_res.cell_type == Genum.TileType.PRODUCER:
+				tile.produced_item = item
+			elif tile.tile_res.cell_type == Genum.TileType.DELIVERY:
+				tile.delivered_item = item
 
 func _clear() -> void:
 	for tile in map:

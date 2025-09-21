@@ -13,7 +13,7 @@ class_name Tile extends PanelContainer
 
 var selected_theme : StyleBox
 var unselected_theme : StyleBox
-var tick_counter : int
+var tick_counter : int = 1
 
 var parent : TileGrid
 #endregion
@@ -31,7 +31,7 @@ func _ready() -> void:
 	_update_textures()
 	
 	GameGlobalEvents.game_tick.connect(_on_game_tick)
-	GameGlobalEvents.place_item.connect(_on_item_placed)
+	#GameGlobalEvents.place_item.connect(_on_item_placed)
 #endregion
 
 #region Helpers
@@ -53,18 +53,14 @@ func set_themes() -> void:
 	unselected_theme = theme.get_stylebox("unselected","Tile")
 
 func _produce_resource() -> void:
-	if tick_counter >= tile_res.op_time:
-		Inventory.AddItem(produced_item, 1)
-		tick_counter = 0
-	else:
-		tick_counter += 1
+	Inventory.AddItem(produced_item, 1)
 
 func _process_resource() -> void:
 	CraftManager.request_craft(recipe)
 
-# TODO: Come back to this after request system is made.
 func _deliver_resource() -> void:
 	RequestManager.deliver_item(delivered_item)
+	Inventory.RemoveItem(delivered_item, 1)
 
 func _compute_cell() -> void:
 	for produce in tile_res.produced:
@@ -141,7 +137,7 @@ func _on_game_tick() -> void:
 	if tick_counter >= tile_res.op_time:
 		match(tile_res.cell_type):
 			Genum.TileType.PRODUCER:
-				_process_resource()
+				_produce_resource()
 			Genum.TileType.PROCESSOR:
 				_process_resource()
 			Genum.TileType.DELIVERY:
@@ -149,19 +145,19 @@ func _on_game_tick() -> void:
 			Genum.TileType.CELL:
 				_compute_cell()
 		
-		tick_counter = 0
+		tick_counter = 1
 	else:
 		tick_counter += 1
 
-func _on_item_placed(item: Variant) -> void:
-	if not selected:
-		return
-	
-	if item is GameItem:
-		if tile_res.cell_type == Genum.TileType.PRODUCER:
-			produced_item = item
-		elif tile_res.cell_type == Genum.TileType.DELIVERY:
-			delivered_item = item
-	elif item is GameRecipe:
-		recipe = item
+#func _on_item_placed(item: Variant) -> void:
+#	if not selected:
+#		return
+#	
+#	if item is GameItem:
+#		if tile_res.cell_type == Genum.TileType.PRODUCER:
+#			produced_item = item
+#		elif tile_res.cell_type == Genum.TileType.DELIVERY:
+#			delivered_item = item
+#	elif item is GameRecipe:
+#		recipe = item
 #endregion

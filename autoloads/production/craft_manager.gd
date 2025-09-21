@@ -58,6 +58,12 @@ func _load_texture(pos: Vector2i, cell_size: Vector2i) -> AtlasTexture:
 	return atlas
 #endregion
 
+#region Publics
+func grab_random_item() -> GameItem:
+	var len : int = item_compendium.size()
+	return item_compendium.values().get(randi_range(0, len - 1))
+#endregion
+
 #region Crafting
 # TODO: Come back to this with process tasks.
 func request_craft(recipe: GameRecipe) -> GameItem:
