@@ -79,7 +79,7 @@ func _compute_cell() -> void:
 	for produce in tile_res.produced:
 		Inventory.AddItem(produce.item, produce.count)
 	
-	for process in tile_res.process:
+	for process in tile_res.processed:
 		for i in range(process.count):
 			var item = CraftManager.request_craft(process.recipe)
 			if not item:

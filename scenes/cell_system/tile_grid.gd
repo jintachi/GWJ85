@@ -52,10 +52,13 @@ func _load_map() -> void:
 #region Publics
 func save_to_cell() -> CellTile:
 	var new_cell := CellTile.new()
+	var highest_depth := 0
 	for tile in map:
 		new_cell.map.append(tile.tile_res)
 		if not tile.tile_res:
 			continue
+		
+		highest_depth = maxi(highest_depth, tile.tile_res.depth_req)
 		
 		if tile.tile_res is ProducerTile:
 			if not tile.tile_res.produced_item:
@@ -84,7 +87,7 @@ func save_to_cell() -> CellTile:
 			for process in tile.tile_res.processed:
 				new_cell.add_recipe(process)
 	
-	print(new_cell)
+	new_cell.depth_req = highest_depth + 1
 	return new_cell
 #endregion
 
@@ -126,6 +129,9 @@ func _UnselectAll() -> void:
 
 #region Signal Callbacks
 func _on_cell_placed(cell: Cell) -> void:
+	if cell.depth_req > GameGlobal.level:
+		return
+	
 	for tile in map:
 		if not tile.selected:
 			continue
