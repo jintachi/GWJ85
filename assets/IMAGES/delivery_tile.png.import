@@ -2,20 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< Updated upstream
-uid="uid://b6q015uyhdaal"
-=======
-uid="uid://qfr2hl5i5unq"
->>>>>>> Stashed changes
-path="res://.godot/imported/package.png-ddf29347ac61782b1dd889d2c17b6c15.ctex"
+uid="uid://c84hg0q2i2ybu"
+path="res://.godot/imported/delivery_tile.png-c9c54ba63f5ac14ce0a442e3976c0ab4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/package.png"
-dest_files=["res://.godot/imported/package.png-ddf29347ac61782b1dd889d2c17b6c15.ctex"]
+source_file="res://assets/images/delivery_tile.png"
+dest_files=["res://.godot/imported/delivery_tile.png-c9c54ba63f5ac14ce0a442e3976c0ab4.ctex"]
 
 [params]
 

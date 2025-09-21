@@ -1,0 +1,111 @@
+[
+	{
+		"name": "Toasted Pumpkin Seeds",
+		"item": 2,
+		"ingredients": [
+			{
+				"id": 0
+			}
+		],
+		"processor_id": 2
+	},
+	{
+		"name": "Flour",
+		"item": 5,
+		"ingredients": [
+			{
+				"id": 4
+			}
+		],
+		"processor_id": 2
+	},
+	{
+		"name": "Popcorn",
+		"item": 8,
+		"ingredients": [
+			{
+				"id": 7
+			}
+		],
+		"processor_id": 2
+	},
+	{
+		"name": "Mashed Potato",
+		"item": 13,
+		"ingredients": [
+			{
+				"id": 12
+			}
+		],
+		"processor_id": 2
+	},
+	{
+		"name": "Apple Juice",
+		"item": 16,
+		"ingredients": [
+			{
+				"id": 15
+			}
+		],
+		"processor_id": 2
+	},
+	{
+		"name": "Bread",
+		"item": 6,
+		"ingredients": [
+			{
+				"id": 5
+			}
+		],
+		"processor_id": 2
+	},
+	{
+		"name": "Carrot Soup",
+		"item": 10,
+		"ingredients": [
+			{
+				"id": 3
+			}
+		],
+		"processor_id": 2
+	},
+	{
+		"name": "Pumpkin Pie",
+		"item": 11,
+		"ingredients": [
+			{
+				"id": 1
+			}
+		],
+		"processor_id": 2
+	},
+	{
+		"name": "Vegetable Stew",
+		"item": 14,
+		"ingredients": [
+			{
+				"id": 7
+			},
+			{
+				"id": 3
+			}
+		],
+		"processor_id": 2
+	},
+	{
+		"name": "Harvest Feast",
+		"item": 17,
+		"ingredients": [
+			{
+				"id": 16
+			},
+			{
+				"id": 14
+			},
+			{
+				"id": 13
+			}
+		],
+		"processor_id": 2
+	}
+]

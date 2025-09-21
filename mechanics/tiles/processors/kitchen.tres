@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Cell" load_steps=4 format=3 uid="uid://dwgvbxhrij5px"]
+
+[ext_resource type="Script" uid="uid://bvkgrw7fk5ebq" path="res://mechanics/resources/cell_resource.gd" id="1_h3a6v"]
+[ext_resource type="Texture2D" uid="uid://br63ycaibdky3" path="res://assets/images/skillet.png" id="2_68rba"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22i5q"]
+atlas = ExtResource("2_68rba")
+
+[resource]
+script = ExtResource("1_h3a6v")
+cell_type = 1
+cell_name = &"Kitchen"
+id = 2
+texture = SubResource("AtlasTexture_22i5q")
+level = 1
+price = 100
+depth_req = 1
+op_time = 2
+metadata/_custom_type_script = "uid://bvkgrw7fk5ebq"

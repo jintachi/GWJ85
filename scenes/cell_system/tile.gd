@@ -129,6 +129,7 @@ func _on_gui_input(event: InputEvent) -> void:
 		
 		if not removed_item:
 			tile_res = null
+			label.text = ""
 		
 		_update_textures()
 

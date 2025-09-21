@@ -15,7 +15,6 @@ func _on_press_by_1() -> void:
 		print("You don't have enough!")
 		return
 	Inventory.RemoveItem(item, 1)
-	await get_tree().process_frame
 	GameGlobalEvents.gold_updated.emit(item.value)
 
 func _on_press_by_10() -> void:
@@ -23,5 +22,4 @@ func _on_press_by_10() -> void:
 		print("You don't have enough!")
 		return
 	Inventory.RemoveItem(item, 10)
-	await get_tree().process_frame
 	GameGlobalEvents.gold_updated.emit((10 * item.value))

@@ -43,6 +43,7 @@ func _ready() -> void:
 	GameGlobalEvents.create_cell.connect(_on_cell_tile_created)
 	TileMapManager.new_cell_selected.connect(func(cell: Cell): selected_cell_type = cell)
 	GameGlobalEvents.update_inventory.connect(_on_inventory_updated)
+	GameGlobalEvents.close_shop.connect(func(): hide())
 #endregion
 
 #region Setups
@@ -125,8 +126,9 @@ func _select_tiles() -> void:
 	_select_switch(tile_screen)
 
 func _select_input(cell: Cell) -> void:
-	_select_switch(input_screen)
 	_build_inputs(cell)
+	_select_switch(input_screen)
+	show()
 #endregion
 
 #region Signal Callbacks

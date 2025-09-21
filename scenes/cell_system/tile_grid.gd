@@ -17,6 +17,11 @@ func _ready() -> void:
 	
 	GameGlobalEvents.place_cell.connect(_on_cell_placed)
 	GameGlobalEvents.place_item.connect(_add_to_tile)
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("unselect"):
+		_unselect_all()
+		GameGlobalEvents.close_shop.emit()
 #endregion
 
 #region Setup
@@ -196,6 +201,7 @@ func _generate_cell_tile() -> CellTile:
 		if not tile.tile_res:
 			continue
 		
+		cell_tile.price += tile.tile_res.price
 		if not (tile.recipe or tile.produced_item):
 			continue
 		
@@ -208,6 +214,7 @@ func _generate_cell_tile() -> CellTile:
 			produce_packet.count = 1
 		cell_tile.add_produce(produce_packet)
 	
+	print(cell_tile.price)
 	return cell_tile
 
 func _add_to_tile(item: Variant) -> void:

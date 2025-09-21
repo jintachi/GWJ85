@@ -8,3 +8,4 @@ signal place_cell(cell: Cell)
 signal create_cell(cell: Cell)
 signal selected_cell(cell: Cell)
 signal place_item(attached: Variant)
+signal close_shop

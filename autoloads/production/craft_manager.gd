@@ -3,12 +3,12 @@
 extends Node
 
 #region Declarations
-@export var recipe_compendium : Array[GameRecipe]
-
 var item_atlas : AtlasTexture
-var item_atlas_path : String = "res://assets/images/item_atlas.png"
+var item_atlas_path : String = "res://assets/images/package.png"
 var item_path : String = "res://mechanics/inventory_system/items.json"
 var item_compendium : Dictionary [int, GameItem] = {}
+var recipe_path : String = "res://mechanics/inventory_system/recipe.json"
+var recipe_compendium : Array[GameRecipe]
 #endregion
 
 #region Built-Ins
@@ -17,6 +17,7 @@ func _ready() -> void:
 	item_atlas = AtlasTexture.new()
 	item_atlas.atlas = FileHelper.load_asset(item_atlas_path)
 	_load_items(item_path)
+	_load_recipes(recipe_path)
 #endregion
 
 #region Loaders
@@ -56,6 +57,29 @@ func _load_texture(pos: Vector2i, cell_size: Vector2i) -> AtlasTexture:
 	var atlas : AtlasTexture = item_atlas.duplicate()
 	atlas.region = Rect2(pos, cell_size)
 	return atlas
+
+func _load_recipes(path: String) -> void:
+	var file = FileAccess.open(path, FileAccess.READ)
+	var recipe_db := []
+	if file:
+		var json_data = JSON.parse_string(file.get_as_text())
+		file.close()
+		
+		if json_data:
+			recipe_db = json_data
+	
+	for recipe_data in recipe_db:
+		var recipe = _load_recipe(recipe_data)
+		recipe_compendium.append(recipe)
+
+func _load_recipe(data: Dictionary) -> GameRecipe:
+	var recipe = GameRecipe.new()
+	recipe.name = data.get("name")
+	recipe.item = item_compendium.get(data.get("item"))
+	for item in data.get("ingredients"):
+		recipe.ingredients.append(item_compendium.get("id"))
+	recipe.processor_id = data.get("processor_id", 0)
+	return recipe
 #endregion
 
 #region Publics

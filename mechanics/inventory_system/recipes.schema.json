@@ -1,0 +1,19 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "title": "Recipe Compendium",
+    "type": "array",
+    "recipes": {
+        "type": "object",
+        "properties": {
+            "name": { "type": "string" },
+            "item": { "type": "integer" },
+            "ingredients": {
+                "type": "array",
+                "id": { "type": "integer" }
+            },
+            "processor_id": { "type": "integer" }
+        },
+        "required": [ "name", "item", "ingredients", "processor_id" ],
+        "additionalProperties": false
+    }
+}

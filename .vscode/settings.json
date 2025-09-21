@@ -3,6 +3,10 @@
         {
             "fileMatch": ["items.json"],
             "url": "./mechanics/inventory_system/items.schema.json"
+        },
+        {
+            "fileMatch": ["recipes.json"],
+            "url": "./mechanics/inventory_system/recipes.schema.json"
         }
     ]
 }
